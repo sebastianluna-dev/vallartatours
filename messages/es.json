@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "siteName": "Vallarta WKND",
+    "home": {
+      "title": "Vallarta WKND | Tours en barco por Bahía de Banderas",
+      "description": "Islas Marietas, Los Arcos, Yelapa, avistamiento de ballenas y charters privados con tripulación local. Tú eliges el fin de semana; nosotros ponemos el barco."
+    },
+    "services": {
+      "title": "Servicios | Vallarta WKND",
+      "description": "Cinco experiencias en la bahía: Arcos – Ánimas – Quimixto, Yelapa – Majahuitas, Islas Marietas, avistamiento de ballenas y charter privado."
+    },
+    "service": {
+      "title": "{name} | Vallarta WKND"
+    },
+    "contact": {
+      "title": "Contacto | Vallarta WKND",
+      "description": "Escríbenos y nos ponemos en contacto contigo. Contestamos todos los días de 7:00 am a 9:00 pm."
+    }
+  },
+  "common": {
+    "skipToContent": "Saltar al contenido",
+    "book": "Reservar",
+    "bookNow": "Reservar ahora",
+    "whatsapp": "Escribir por WhatsApp",
+    "askWhatsapp": "Preguntar por WhatsApp",
+    "allServices": "Ver todos los servicios",
+    "hours": "Respondemos de 7:00 a 21:00, todos los días",
+    "opensInNewTab": "(se abre en otra pestaña)"
+  },
+  "nav": {
+    "label": "Secciones",
+    "home": "Inicio",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "language": "Idioma",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú",
+    "menu": "Menú"
+  },
+  "footer": {
+    "description": "Experiencias de fin de semana en Bahía de Banderas: islas, snorkel, atardeceres y charters privados con tripulación local.",
+    "navigation": "Navegación",
+    "contact": "Contacto",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tripadvisor": "Tripadvisor",
+    "ctaTitle": "¿Listos para salir al mar?",
+    "terms": "Términos y condiciones",
+    "privacy": "Aviso de privacidad",
+    "copyright": "©{year} Vallarta WKND"
+  },
+  "notFound": {
+    "title": "Esta página no existe",
+    "text": "Puede que el enlace esté mal escrito o que la salida ya no exista. Vuelve al inicio o revisa los servicios.",
+    "back": "Ir al inicio"
+  }
+}
