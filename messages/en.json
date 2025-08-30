@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "siteName": "Vallarta WKND",
+    "home": {
+      "title": "Vallarta WKND | Boat tours around Banderas Bay",
+      "description": "Marietas Islands, Los Arcos, Yelapa, whale watching and private charters with a local crew. You pick the weekend; we bring the boat."
+    },
+    "services": {
+      "title": "Services | Vallarta WKND",
+      "description": "Five experiences on the bay: Arcos – Ánimas – Quimixto, Yelapa – Majahuitas, Marietas Islands, whale watching and a private charter."
+    },
+    "service": {
+      "title": "{name} | Vallarta WKND"
+    },
+    "contact": {
+      "title": "Contact | Vallarta WKND",
+      "description": "Write to us and we will get back to you. We answer every day from 7:00 am to 9:00 pm."
+    }
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "book": "Book",
+    "bookNow": "Book now",
+    "whatsapp": "Message us on WhatsApp",
+    "askWhatsapp": "Ask on WhatsApp",
+    "allServices": "See all services",
+    "hours": "We answer from 7:00 to 21:00, every day",
+    "opensInNewTab": "(opens in a new tab)"
+  },
+  "nav": {
+    "label": "Sections",
+    "home": "Home",
+    "services": "Services",
+    "contact": "Contact",
+    "language": "Language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu"
+  },
+  "footer": {
+    "description": "Weekend experiences on Banderas Bay: islands, snorkelling, sunsets and private charters with a local crew.",
+    "navigation": "Navigation",
+    "contact": "Contact",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "tripadvisor": "Tripadvisor",
+    "ctaTitle": "Ready to head out to sea?",
+    "terms": "Terms and conditions",
+    "privacy": "Privacy notice",
+    "copyright": "©{year} Vallarta WKND"
+  },
+  "notFound": {
+    "title": "This page does not exist",
+    "text": "The link may be misspelt or the trip may no longer exist. Go back home or check the services.",
+    "back": "Go home"
+  }
+}
