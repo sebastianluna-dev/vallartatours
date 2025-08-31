@@ -1,0 +1,362 @@
+:root {
+  /* Palette: the deep navy of the sea at night as the ground, lime as the
+     only accent, sky blue for the bands, white for the cards that hold a
+     form. */
+  --color-navy: #0b2c5e;
+  --color-navy-deep: #12235c;
+  --color-night: #061634;
+  --color-lime: #d9f21e;
+  --color-lime-bright: #eaff5a;
+  --color-sky: #0098d3;
+  --color-white: #ffffff;
+  --color-paper: #eef2f9;
+  /* Text on the navy ground. */
+  --color-text: #ffffff;
+  --color-text-soft: rgba(255, 255, 255, 0.85);
+  --color-text-muted: rgba(255, 255, 255, 0.7);
+  --color-text-faint: rgba(255, 255, 255, 0.55);
+  /* Text on white cards. */
+  --color-text-on-white: #12235c;
+  --color-text-on-white-muted: rgba(11, 44, 94, 0.65);
+  /* Translucent fills and hairlines on photos and on the navy ground. */
+  --color-glass: rgba(255, 255, 255, 0.12);
+  --color-glass-strong: rgba(255, 255, 255, 0.18);
+  --color-line: rgba(255, 255, 255, 0.14);
+  --color-line-strong: rgba(255, 255, 255, 0.3);
+  --color-line-on-white: rgba(11, 44, 94, 0.14);
+  --color-lime-line: rgba(217, 242, 30, 0.35);
+  /* The veils over the photographs. */
+  --color-veil-strong: rgba(6, 22, 52, 0.88);
+  --color-veil: rgba(6, 22, 52, 0.62);
+  --color-veil-soft: rgba(6, 22, 52, 0.3);
+
+  --font-sans: var(--font-poppins), Poppins, system-ui, sans-serif;
+
+  /* Horizontal padding of every section, the header and the footer: one
+     value so the content edges line up from the top of the page down. */
+  --site-gutter: clamp(20px, 2.8vw, 40px);
+  --site-max-width: 1440px;
+  --radius-card: 18px;
+  --radius-panel: 22px;
+  --radius-media: 12px;
+  --radius-button: 14px;
+  --shadow-card: 0 18px 40px rgba(4, 16, 40, 0.28);
+  --shadow-float: 0 22px 50px rgba(4, 16, 40, 0.4);
+  --ease-out: cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+
+/* ---------------------------------------------------------------------------
+   Base reset
+   The stylesheets assume headings carry no size of their own, lists carry no
+   bullet or indentation, and images are block elements.
+   --------------------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100%;
+  line-height: inherit;
+  background: var(--color-navy);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+  background: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+summary {
+  list-style: none;
+
+  &::-webkit-details-marker {
+    display: none;
+  }
+}
+
+::selection {
+  background: var(--color-lime);
+  color: var(--color-navy-deep);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-lime);
+  outline-offset: 3px;
+}
+
+/* The phone menu is a modal <dialog>: while it is open the page behind it
+   must not scroll. */
+body:has(dialog[open]) {
+  overflow: hidden;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Shared classes
+   --------------------------------------------------------------------------- */
+
+/* Keyboard users jump over the header with it; it only shows when focused. */
+.skip-link {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--color-lime);
+  color: var(--color-navy-deep);
+  font-size: 14px;
+  font-weight: 600;
+  transform: translateY(-200%);
+  transition: transform 0.2s var(--ease-out);
+
+  &:focus-visible {
+    transform: none;
+  }
+}
+
+/* Every section, the header and the footer share the same content box. */
+.section {
+  & .section__inner {
+    max-width: var(--site-max-width);
+    margin: 0 auto;
+    padding-inline: var(--site-gutter);
+  }
+}
+
+/* Big heavy title of every section. */
+.section-title {
+  font-weight: 800;
+  font-size: clamp(36px, 4vw, 56px);
+  line-height: 1;
+  letter-spacing: -0.03em;
+  text-wrap: balance;
+
+  & .section-title__accent {
+    color: var(--color-lime);
+  }
+
+  @media (max-width: 767px) {
+    font-size: 34px;
+  }
+}
+
+/* Small lime caption in capitals: "OTROS SERVICIOS", the footer headings. */
+.eyebrow {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+
+  @media (max-width: 767px) {
+    font-size: 13px;
+  }
+}
+
+/* Pill button. Lime by default; the modifiers give the navy, white and
+   glass versions and the squarer shape of the carousel actions. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: var(--color-lime);
+  color: var(--color-navy-deep);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition:
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+
+  &:hover,
+  &:focus-visible {
+    background: var(--color-lime-bright);
+  }
+
+  &.button_variant_navy {
+    background: var(--color-navy);
+    color: var(--color-text);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-navy-deep);
+    }
+  }
+
+  &.button_variant_white {
+    background: var(--color-white);
+    color: var(--color-navy-deep);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-lime);
+    }
+  }
+
+  &.button_variant_glass {
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    background: var(--color-glass);
+    color: var(--color-text);
+    font-weight: 600;
+
+    &:hover,
+    &:focus-visible {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  &.button_shape_square {
+    border-radius: var(--radius-button);
+  }
+
+  &.button_size_small {
+    padding: 11px 24px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &.button_width_full {
+    width: 100%;
+  }
+
+  @media (max-width: 767px) {
+    font-size: 16px;
+  }
+}
+
+/* Translucent chip on a photo or on the navy ground: amenities, facts. */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--color-glass-strong);
+  font-size: 16.5px;
+  line-height: 1.2;
+
+  & .chip__icon {
+    flex: none;
+  }
+
+  @media (max-width: 767px) {
+    padding: 10px 16px;
+    font-size: 14.5px;
+  }
+}
+
+/* Five lime stars. */
+.stars {
+  display: flex;
+  gap: 5px;
+  color: var(--color-lime);
+  font-size: 24px;
+  line-height: 1;
+
+  &.stars_tone_navy {
+    color: var(--color-navy-deep);
+  }
+}
+
+/* The 404 page. */
+.not-found {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 18px;
+  max-width: var(--site-max-width);
+  margin: 0 auto;
+  padding: 160px var(--site-gutter) 80px;
+
+  & .not-found__code {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    color: var(--color-lime);
+  }
+
+  & .not-found__text {
+    max-width: 48ch;
+    color: var(--color-text-soft);
+  }
+}
