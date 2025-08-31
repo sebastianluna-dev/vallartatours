@@ -1,14 +1,21 @@
 import localFont from "next/font/local";
 
 // Poppins in the five weights the design uses, latin and latin-ext subsets,
-// served from public/fonts so the build does not depend on Google.
-const WEIGHTS = ["400", "500", "600", "700", "800"] as const;
-
+// served from public/fonts so the build does not depend on Google. The
+// loader reads this file statically, so the list is written out.
 export const poppins = localFont({
-  src: WEIGHTS.flatMap((weight) => [
-    { path: `../../public/fonts/poppins-${weight}-latin.woff2`, weight, style: "normal" },
-    { path: `../../public/fonts/poppins-${weight}-latin-ext.woff2`, weight, style: "normal" },
-  ]),
+  src: [
+    { path: "../../public/fonts/poppins-400-latin.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/poppins-400-latin-ext.woff2", weight: "400", style: "normal" },
+    { path: "../../public/fonts/poppins-500-latin.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/poppins-500-latin-ext.woff2", weight: "500", style: "normal" },
+    { path: "../../public/fonts/poppins-600-latin.woff2", weight: "600", style: "normal" },
+    { path: "../../public/fonts/poppins-600-latin-ext.woff2", weight: "600", style: "normal" },
+    { path: "../../public/fonts/poppins-700-latin.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/poppins-700-latin-ext.woff2", weight: "700", style: "normal" },
+    { path: "../../public/fonts/poppins-800-latin.woff2", weight: "800", style: "normal" },
+    { path: "../../public/fonts/poppins-800-latin-ext.woff2", weight: "800", style: "normal" },
+  ],
   variable: "--font-poppins",
   display: "swap",
 });
