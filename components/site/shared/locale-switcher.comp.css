@@ -1,0 +1,37 @@
+.locale-switcher {
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+
+  & .locale-switcher__item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  & .locale-switcher__separator {
+    margin: 0 8px;
+    color: var(--color-line-strong);
+  }
+
+  & .locale-switcher__link {
+    padding: 4px 0;
+    border-bottom: 1px solid transparent;
+    transition:
+      color 0.2s,
+      border-color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-lime);
+    }
+
+    &.locale-switcher__link_active {
+      color: var(--color-text);
+      border-bottom-color: var(--color-lime);
+    }
+  }
+}
