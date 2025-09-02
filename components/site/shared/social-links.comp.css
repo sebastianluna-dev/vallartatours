@@ -1,0 +1,21 @@
+.social-links {
+  display: flex;
+  gap: 12px;
+
+  & .social-links__link {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    background: var(--color-white);
+    color: var(--color-navy);
+    transition: background 0.25s;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-lime);
+    }
+  }
+
+}
