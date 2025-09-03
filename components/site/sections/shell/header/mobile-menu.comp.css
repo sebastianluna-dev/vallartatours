@@ -1,0 +1,109 @@
+.mobile-menu {
+  display: none;
+
+  & .mobile-menu__toggle,
+  & .mobile-menu__close {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 999px;
+    transition:
+      background 0.2s,
+      color 0.2s;
+  }
+
+  & .mobile-menu__toggle {
+    border: 1px solid var(--color-line-strong);
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--color-text);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-lime);
+      border-color: var(--color-lime);
+      color: var(--color-navy-deep);
+    }
+  }
+
+  & .mobile-menu__close {
+    background: var(--color-lime);
+    color: var(--color-navy-deep);
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-lime-bright);
+    }
+  }
+
+  /* The <dialog> fills the screen; its default centred box and backdrop go. */
+  & .mobile-menu__panel {
+    position: fixed;
+    inset: 0;
+    z-index: 40;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    max-width: none;
+    height: 100dvh;
+    max-height: none;
+    margin: 0;
+    padding: 22px var(--site-gutter) 44px;
+    overflow-y: auto;
+    background: var(--color-navy);
+    color: var(--color-text);
+
+    &[open] {
+      display: flex;
+    }
+
+    &::backdrop {
+      background: transparent;
+    }
+  }
+
+  & .mobile-menu__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 44px;
+  }
+
+  & .mobile-menu__mark {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+  }
+
+  & .mobile-menu__tools {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+
+  & .mobile-menu__nav {
+    margin-top: 30px;
+  }
+
+  & .mobile-menu__book {
+    width: 100%;
+    margin-top: 28px;
+    height: 56px;
+  }
+
+  & .mobile-menu__contact {
+    margin-top: 22px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--color-text-faint);
+
+    & a:hover,
+    & a:focus-visible {
+      color: var(--color-lime);
+    }
+  }
+
+  @media (max-width: 767px) {
+    display: block;
+  }
+}
