@@ -1,0 +1,63 @@
+.site-nav {
+  /* Desktop: a frosted pill with one link per page. */
+  &.site-nav_variant_pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(14px);
+    font-size: 17px;
+    font-weight: 500;
+
+    & .site-nav__link {
+      padding: 11px 26px;
+      border-radius: 999px;
+      transition:
+        background 0.25s,
+        color 0.25s;
+
+      &:hover,
+      &:focus-visible {
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      &.site-nav__link_active {
+        background: var(--color-lime);
+        color: var(--color-navy-deep);
+        font-weight: 600;
+
+        &:hover,
+        &:focus-visible {
+          background: var(--color-lime-bright);
+        }
+      }
+    }
+  }
+
+  /* Phone menu: one big line per page. */
+  &.site-nav_variant_list {
+    display: flex;
+    flex-direction: column;
+
+    & .site-nav__link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--color-line);
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1;
+
+      &:hover,
+      &:focus-visible,
+      &.site-nav__link_active {
+        color: var(--color-lime);
+      }
+    }
+  }
+}
