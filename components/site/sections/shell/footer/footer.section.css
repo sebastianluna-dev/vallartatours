@@ -1,0 +1,134 @@
+.footer {
+  position: relative;
+  overflow: hidden;
+  margin-top: 96px;
+  padding-top: 64px;
+  background: var(--color-navy);
+
+  /* The WhatsApp card: phone only. */
+  & .footer__cta {
+    display: none;
+    padding: 24px 20px;
+    border-radius: 20px;
+    background: var(--color-sky);
+  }
+
+  & .footer__cta-title {
+    font-size: 26px;
+    line-height: 1.05;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  & .footer__cta-button {
+    width: 100%;
+    margin-top: 18px;
+  }
+
+  & .footer__columns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 36px 40px;
+    max-width: calc(100% - 300px);
+  }
+
+  & .footer__about {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  & .footer__description {
+    max-width: 420px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-soft);
+  }
+
+  & .footer__heading {
+    margin-bottom: 18px;
+  }
+
+  & .footer__links {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 17px;
+  }
+
+  & .footer__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    font-size: 17px;
+    color: var(--color-text-soft);
+  }
+
+  & .footer__link {
+    color: var(--color-text-soft);
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-lime);
+    }
+  }
+
+  /* Legal links: in the bottom row on the desktop, above the mark on the
+     phone (the first list is hidden until the phone breakpoint). */
+  & .footer__legal {
+    display: none;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 22px;
+    font-size: 12.5px;
+
+    &.footer__legal_place_bottom {
+      display: flex;
+      flex-direction: row;
+      gap: 26px;
+      margin-top: 0;
+      font-size: inherit;
+    }
+  }
+
+  & .footer__art {
+    position: relative;
+    margin-top: 10px;
+  }
+
+  & .footer__mark {
+    position: relative;
+    z-index: 1;
+    display: block;
+    margin-bottom: -48px;
+    font-size: clamp(96px, 14vw, 200px);
+    line-height: 1.02;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--color-lime);
+  }
+
+  & .footer__waves {
+    position: absolute;
+    right: -40px;
+    bottom: -18px;
+    z-index: 0;
+    width: 1520px;
+    max-width: none;
+    height: auto;
+    pointer-events: none;
+  }
+
+  & .footer__bottom {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 38px;
+    padding-bottom: 40px;
+    font-size: 15px;
+    color: var(--color-text-muted);
+  }
+
+}

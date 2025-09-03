@@ -4,6 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "./globals.css";
 import { poppins } from "./fonts";
+import { Footer } from "@/components/site/sections/shell/footer/footer.section";
 import { Header } from "@/components/site/sections/shell/header/header.section";
 import { routing, type Locale } from "@/i18n/routing";
 import { SITE_URL } from "@/lib/site-url";
@@ -46,6 +47,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
         <NextIntlClientProvider>
           <Header />
           <main id="contenido">{children}</main>
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>
