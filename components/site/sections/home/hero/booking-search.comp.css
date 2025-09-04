@@ -1,0 +1,67 @@
+.booking-search {
+  display: flex;
+  align-items: flex-end;
+  padding: 14px;
+  border-radius: var(--radius-panel);
+  background: var(--color-white);
+  color: var(--color-navy);
+  box-shadow: var(--shadow-card);
+
+  & .booking-search__field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 4px 18px;
+    border-right: 1px solid var(--color-line-on-white);
+
+    &.booking-search__field_grow {
+      flex: 1.2;
+    }
+
+    &.booking-search__field_narrow {
+      flex: 0.7;
+      border-right: 0;
+    }
+  }
+
+  & .booking-search__label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-text-on-white-muted);
+  }
+
+  & .booking-search__control {
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-navy);
+    appearance: none;
+    -webkit-appearance: none;
+
+    &::-webkit-calendar-picker-indicator {
+      opacity: 0.6;
+    }
+
+    &:focus-visible {
+      outline-color: var(--color-sky);
+      outline-offset: 4px;
+    }
+  }
+
+  & .booking-search__submit {
+    flex: none;
+    padding: 15px 28px;
+    color: var(--color-lime);
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  /* Phone: the experience on its own row, date and people side by side,
+     the button full width. */
+
+}

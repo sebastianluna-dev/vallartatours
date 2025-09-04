@@ -3,6 +3,7 @@ import Image from "next/image";
 import { HERO_FACES } from "@/constants/services.const";
 import { FIGURES } from "@/constants/site.const";
 import { formatNumber } from "@/lib/format-price";
+import { BookingSearch } from "./booking-search.comp";
 import "./hero.section.css";
 
 // The beach photo under the header, the rating badge, the claim, the
@@ -30,6 +31,7 @@ export function HeroSection() {
         </div>
 
         <div className="hero__foot">
+          <BookingSearch />
           <p className="hero__travelers">
             <span className="hero__faces" aria-hidden="true">
               {HERO_FACES.map((face) => (
