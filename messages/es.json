@@ -49,6 +49,74 @@
     "privacy": "Aviso de privacidad",
     "copyright": "©{year} Vallarta WKND"
   },
+  "home": {
+    "hero": {
+      "rating": "{rating} · {reviews} reseñas",
+      "title": "Tres días de bahía,<br></br>cero logística",
+      "lead": "Islas, snorkel y atardeceres con tripulación local. Tú eliges el fin de semana; nosotros ponemos el barco.",
+      "photoAlt": "Playa de Bahía de Banderas al atardecer",
+      "travelers": "<strong>{count} viajeros</strong> han salido con nosotros",
+      "search": {
+        "label": "Busca tu salida",
+        "experience": "Experiencia",
+        "date": "Fecha",
+        "people": "Personas",
+        "submit": "Ver disponibilidad"
+      }
+    },
+    "showcase": {
+      "label": "Nuestras experiencias",
+      "eyebrow": "Elige tu salida"
+    },
+    "steps": {
+      "title": "Del mensaje al muelle en <accent>tres pasos</accent>",
+      "items": [
+        {
+          "title": "Elige la ruta",
+          "body": "Islas, snorkel, ballenas o el barco completo. Te decimos qué salida le queda mejor a tu grupo."
+        },
+        {
+          "title": "Aparta el lugar",
+          "body": "Anticipo del 30% por transferencia o tarjeta. Cancelas sin costo hasta 48 horas antes."
+        },
+        {
+          "title": "Llega al muelle",
+          "body": "Punto de encuentro, hora y contacto del capitán por WhatsApp la noche anterior."
+        }
+      ]
+    },
+    "proof": {
+      "title": "Lo que dejan<br></br>nuestros<br></br>fines de semana",
+      "travelers": "viajeros",
+      "tours": "tours",
+      "years": "años en la bahía",
+      "reviewsCount": "{count} reseñas",
+      "returning": "vuelve a reservar o nos recomienda",
+      "photoAlt": "Viajera caminando por la playa",
+      "reviews": [
+        {
+          "quote": "Nos tocó mar tranquilo y el snorkel estuvo increíble. Repetimos el mes que viene.",
+          "author": "Paulina T.",
+          "trip": "Los Arcos – Ánimas"
+        },
+        {
+          "quote": "El capitán nos llevó a una cueva donde no había nadie más. El mejor día del viaje.",
+          "author": "Alexandra G.",
+          "trip": "Islas Marietas"
+        },
+        {
+          "quote": "Todo organizado: transporte, comida y snorkel. Solo llegamos al muelle y ya estaba listo.",
+          "author": "Daniel R.",
+          "trip": "Yelapa – Majahuitas"
+        },
+        {
+          "quote": "Rentamos el barco para un cumpleaños. Música, barra abierta y tripulación increíble.",
+          "author": "Mariana L.",
+          "trip": "Charter privado"
+        }
+      ]
+    }
+  },
   "notFound": {
     "title": "Esta página no existe",
     "text": "Puede que el enlace esté mal escrito o que la salida ya no exista. Vuelve al inicio o revisa los servicios.",

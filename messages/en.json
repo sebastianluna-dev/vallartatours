@@ -49,6 +49,74 @@
     "privacy": "Privacy notice",
     "copyright": "©{year} Vallarta WKND"
   },
+  "home": {
+    "hero": {
+      "rating": "{rating} · {reviews} reviews",
+      "title": "Three days of bay,<br></br>zero logistics",
+      "lead": "Islands, snorkelling and sunsets with a local crew. You pick the weekend; we bring the boat.",
+      "photoAlt": "A Banderas Bay beach at sunset",
+      "travelers": "<strong>{count} travellers</strong> have sailed with us",
+      "search": {
+        "label": "Find your trip",
+        "experience": "Experience",
+        "date": "Date",
+        "people": "People",
+        "submit": "Check availability"
+      }
+    },
+    "showcase": {
+      "label": "Our experiences",
+      "eyebrow": "Pick your trip"
+    },
+    "steps": {
+      "title": "From the message to the dock in <accent>three steps</accent>",
+      "items": [
+        {
+          "title": "Pick the route",
+          "body": "Islands, snorkelling, whales or the whole boat. We tell you which trip suits your group best."
+        },
+        {
+          "title": "Hold your spot",
+          "body": "A 30% deposit by bank transfer or card. Cancel free of charge up to 48 hours before."
+        },
+        {
+          "title": "Show up at the dock",
+          "body": "Meeting point, time and the captain's WhatsApp the night before."
+        }
+      ]
+    },
+    "proof": {
+      "title": "What our<br></br>weekends<br></br>leave behind",
+      "travelers": "travellers",
+      "tours": "tours",
+      "years": "years on the bay",
+      "reviewsCount": "{count} reviews",
+      "returning": "book again or recommend us",
+      "photoAlt": "Traveller walking along the beach",
+      "reviews": [
+        {
+          "quote": "The sea was calm and the snorkelling was incredible. We are coming back next month.",
+          "author": "Paulina T.",
+          "trip": "Los Arcos – Ánimas"
+        },
+        {
+          "quote": "The captain took us to a cave where there was nobody else. The best day of the trip.",
+          "author": "Alexandra G.",
+          "trip": "Marietas Islands"
+        },
+        {
+          "quote": "Everything sorted: transport, food and snorkelling. We just showed up at the dock and it was all ready.",
+          "author": "Daniel R.",
+          "trip": "Yelapa – Majahuitas"
+        },
+        {
+          "quote": "We rented the boat for a birthday. Music, open bar and an incredible crew.",
+          "author": "Mariana L.",
+          "trip": "Private charter"
+        }
+      ]
+    }
+  },
   "notFound": {
     "title": "This page does not exist",
     "text": "The link may be misspelt or the trip may no longer exist. Go back home or check the services.",
