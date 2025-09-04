@@ -1,0 +1,115 @@
+.hero {
+  position: relative;
+  min-height: 840px;
+  overflow: hidden;
+
+  & .hero__photo {
+    object-fit: cover;
+  }
+
+  & .hero__veil {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(105deg, rgba(6, 22, 52, 0.82) 0%, rgba(6, 22, 52, 0.46) 48%, rgba(6, 22, 52, 0.14) 80%),
+      rgba(11, 44, 94, 0.34);
+  }
+
+  & .hero__fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 280px;
+    background: linear-gradient(to top, var(--color-navy) 0%, rgba(11, 44, 94, 0.72) 42%, rgba(11, 44, 94, 0) 100%);
+  }
+
+  & .hero__inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 40px;
+    min-height: 840px;
+    padding-top: 190px;
+    padding-bottom: 62px;
+  }
+
+  & .hero__copy {
+    max-width: 760px;
+  }
+
+  & .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    padding: 6px 20px 6px 6px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.24);
+    background: var(--color-glass);
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  & .hero__badge-star {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    background: var(--color-lime);
+    color: var(--color-navy-deep);
+    font-size: 16px;
+  }
+
+  & .hero__title {
+    margin-top: 20px;
+    font-size: clamp(46px, 5.6vw, 80px);
+    line-height: 0.98;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+
+  & .hero__lead {
+    max-width: 600px;
+    margin-top: 20px;
+    font-size: 22px;
+    line-height: 1.5;
+  }
+
+  & .hero__foot {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  & .hero__travelers {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.82);
+
+    & strong {
+      color: var(--color-text);
+    }
+  }
+
+  & .hero__faces {
+    display: flex;
+  }
+
+  & .hero__face {
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    object-fit: cover;
+
+    & + .hero__face {
+      margin-left: -13px;
+    }
+  }
+
+}
