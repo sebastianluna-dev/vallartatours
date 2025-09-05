@@ -117,6 +117,152 @@
       ]
     }
   },
+  "services": {
+    "title": "Choose one of our services",
+    "lead": "Pick one of our five experiences on the bay",
+    "scroll": "Scroll down",
+    "photoAlt": "Friends toasting on the deck of a yacht",
+    "duration": "Duration",
+    "priceFrom": "Price from",
+    "explore": "Explore service",
+    "includes": "Includes:"
+  },
+  "service": {
+    "hours": "{hours} hours",
+    "hoursShort": "{hours} h",
+    "custom": "Up to you",
+    "perPerson": "{price} per person",
+    "perPersonShort": "{price} pp",
+    "quote": "On request",
+    "meta": "{hours} h · {price} pp",
+    "metaPrivate": "Private",
+    "durationLabel": "Duration",
+    "fromLabel": "From",
+    "group": "Groups of {size}",
+    "port": {
+      "vallarta": "Departs from Puerto Vallarta",
+      "nuevoVallarta": "Departs from Nuevo Vallarta"
+    },
+    "prev": "Previous service",
+    "next": "Next service",
+    "others": "Other services",
+    "itineraryTitle": "How the day goes",
+    "includedTitle": "What is included and<br></br><accent>what is not</accent>",
+    "includes": "Included",
+    "excludes": "Not included",
+    "bring": "What to bring",
+    "reviewsTitle": "What people say about this trip",
+    "faqTitle": "Before you book",
+    "faqCard": {
+      "title": "Still have a question?",
+      "body": "Write to us and someone from the crew answers, not a bot.",
+      "hours": "We answer in under 10 minutes, every day from 7:00 am to 9:00 pm."
+    },
+    "amenities": {
+      "breakfast": "Breakfast",
+      "coffee": "Coffee and fruit",
+      "safety": "Safety gear",
+      "snorkel": "Snorkelling",
+      "openBar": "Open bar",
+      "lunch": "Lunch",
+      "menu": "Custom menu",
+      "guide": "Bilingual guide",
+      "certifiedGuide": "Certified guide",
+      "kayak": "Kayak",
+      "waterfall": "Waterfall",
+      "hydrophone": "Hydrophone on board",
+      "music": "Music",
+      "wholeBoat": "The whole boat"
+    },
+    "bringItems": {
+      "sunscreen": "Reef-safe sunscreen",
+      "cap": "Cap",
+      "sunglasses": "Sunglasses",
+      "windbreaker": "Windbreaker",
+      "camera": "Camera with zoom",
+      "seasicknessPill": "Seasickness pill",
+      "swimsuit": "Swimsuit",
+      "towel": "Towel",
+      "waterShoes": "Water shoes",
+      "cash": "Cash for tips"
+    }
+  },
+  "catalog": {
+    "avistamiento-de-ballenas": {
+      "name": "Whale watching",
+      "shortName": "Whales",
+      "short": "Season from December to March. A short trip with a certified guide and guaranteed sighting windows.",
+      "blurb": "Every winter the humpbacks come to Banderas Bay to give birth and raise their calves. We sail for four hours with a certified guide and a hydrophone on board to hear them sing. If we do not see them, you repeat the trip at no cost.",
+      "badge": "December to March",
+      "photoAlt": "Humpback whale breaching in Banderas Bay",
+      "itineraryTitle": "How the four hours go",
+      "itinerary": [
+        {
+          "time": "07:30 am",
+          "title": "Nuevo Vallarta dock",
+          "body": "Check-in, life jacket and coffee. The captain explains the day's route from the sea report."
+        },
+        {
+          "time": "08:00 am",
+          "title": "We sail",
+          "body": "Forty minutes towards open sea. On the way we often cross paths with dolphins and rays."
+        },
+        {
+          "time": "09:00 am",
+          "title": "Sighting area",
+          "body": "Two hours off Punta Mita with the engine off. We lower the hydrophone to hear the song."
+        },
+        {
+          "time": "11:30 am",
+          "title": "Back along the bay",
+          "body": "We return hugging the coast. Arrival at the dock around 12:00."
+        }
+      ],
+      "includes": [
+        "Certified guide and local captain",
+        "Hydrophone on board",
+        "Coffee, fruit and water",
+        "Life jackets and safety gear",
+        "You repeat if we do not see them"
+      ],
+      "excludes": ["Transfer to the dock", "Full lunch", "Alcoholic drinks", "Tips for the crew"],
+      "faq": [
+        {
+          "question": "What if we do not see whales?",
+          "answer": "You repeat the trip at no cost on any day you like within the season. In ten years it has happened to us four times."
+        },
+        {
+          "question": "Which departure is better, morning or afternoon?",
+          "answer": "The 8:00 am one has the flattest sea; the 3:00 pm one comes back with the sunset light. Whale activity is similar in both."
+        },
+        {
+          "question": "Can children come?",
+          "answer": "Yes. We carry life jackets in every size and the trip is short. For children under 4 we recommend the private boat."
+        },
+        {
+          "question": "How close does the boat get?",
+          "answer": "Mexican regulations require 60 metres of distance and engines off. If they come closer on their own, we stay still."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "We left in the afternoon and came back with the sunset. The guide explained everything without turning it into a lecture.",
+          "author": "Iván P.",
+          "meta": "February 2026"
+        },
+        {
+          "quote": "A mother with her calf thirty metres from the boat. Nobody spoke, only the hydrophone.",
+          "author": "Sofía M.",
+          "meta": "8:00 am departure · January 2026"
+        },
+        {
+          "quote": "The first day they did not show up and we were allowed to repeat at no cost. The second day we saw four.",
+          "author": "Karla and Beto",
+          "meta": "December 2025"
+        }
+      ]
+    }
+  },
   "notFound": {
     "title": "This page does not exist",
     "text": "The link may be misspelt or the trip may no longer exist. Go back home or check the services.",

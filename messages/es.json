@@ -117,6 +117,152 @@
       ]
     }
   },
+  "services": {
+    "title": "Elige uno de nuestros servicios",
+    "lead": "Escoge una de nuestras cinco experiencias en la bahía",
+    "scroll": "Desliza hacia abajo",
+    "photoAlt": "Amigos brindando en la cubierta de un yate",
+    "duration": "Duración",
+    "priceFrom": "Precio desde",
+    "explore": "Explorar servicio",
+    "includes": "Servicios:"
+  },
+  "service": {
+    "hours": "{hours} horas",
+    "hoursShort": "{hours} h",
+    "custom": "A tu medida",
+    "perPerson": "{price} por persona",
+    "perPersonShort": "{price} pp",
+    "quote": "Cotización",
+    "meta": "{hours} h · {price} pp",
+    "metaPrivate": "Privado",
+    "durationLabel": "Duración",
+    "fromLabel": "Desde",
+    "group": "Grupos de {size}",
+    "port": {
+      "vallarta": "Sale de Puerto Vallarta",
+      "nuevoVallarta": "Sale de Nuevo Vallarta"
+    },
+    "prev": "Servicio anterior",
+    "next": "Siguiente servicio",
+    "others": "Otros servicios",
+    "itineraryTitle": "Cómo se reparte el día",
+    "includedTitle": "Lo que va incluido y<br></br><accent>lo que no</accent>",
+    "includes": "Incluye",
+    "excludes": "No incluye",
+    "bring": "Qué llevar",
+    "reviewsTitle": "Lo que cuentan de esta salida",
+    "faqTitle": "Antes de reservar",
+    "faqCard": {
+      "title": "¿Te queda otra duda?",
+      "body": "Escríbenos y te contesta alguien de la tripulación, no un bot.",
+      "hours": "Contestamos en menos de 10 minutos, todos los días de 7:00 am a 9:00 pm."
+    },
+    "amenities": {
+      "breakfast": "Desayuno",
+      "coffee": "Café y fruta",
+      "safety": "Equipo de seguridad",
+      "snorkel": "Snorkel",
+      "openBar": "Barra libre",
+      "lunch": "Comida",
+      "menu": "Menú a tu medida",
+      "guide": "Guía bilingüe",
+      "certifiedGuide": "Guía certificado",
+      "kayak": "Kayak",
+      "waterfall": "Cascada",
+      "hydrophone": "Hidrófono a bordo",
+      "music": "Música",
+      "wholeBoat": "Barco completo"
+    },
+    "bringItems": {
+      "sunscreen": "Bloqueador biodegradable",
+      "cap": "Gorra",
+      "sunglasses": "Lentes de sol",
+      "windbreaker": "Rompevientos",
+      "camera": "Cámara con zoom",
+      "seasicknessPill": "Pastilla para mareo",
+      "swimsuit": "Traje de baño",
+      "towel": "Toalla",
+      "waterShoes": "Zapatos para agua",
+      "cash": "Efectivo para propinas"
+    }
+  },
+  "catalog": {
+    "avistamiento-de-ballenas": {
+      "name": "Avistamiento de ballenas",
+      "shortName": "Ballenas",
+      "short": "Temporada de diciembre a marzo. Salida corta con guía certificado y ventanas de avistamiento garantizadas.",
+      "blurb": "Cada invierno las jorobadas llegan a Bahía de Banderas a parir y a criar. Salimos cuatro horas con guía certificado e hidrófono a bordo para escucharlas cantar. Si no las vemos, repites la salida sin costo.",
+      "badge": "Diciembre a marzo",
+      "photoAlt": "Ballena jorobada saltando en Bahía de Banderas",
+      "itineraryTitle": "Cómo se reparten las cuatro horas",
+      "itinerary": [
+        {
+          "time": "07:30 am",
+          "title": "Muelle de Nuevo Vallarta",
+          "body": "Registro, chaleco y café. El capitán explica la ruta del día según el reporte de mar."
+        },
+        {
+          "time": "08:00 am",
+          "title": "Zarpamos",
+          "body": "Cuarenta minutos hacia mar abierto. En el camino solemos cruzarnos con delfines y mantas."
+        },
+        {
+          "time": "09:00 am",
+          "title": "Zona de avistamiento",
+          "body": "Dos horas frente a Punta Mita con motor apagado. Bajamos el hidrófono para escuchar el canto."
+        },
+        {
+          "time": "11:30 am",
+          "title": "Regreso por la bahía",
+          "body": "Volvemos pegados a la costa. Llegada al muelle alrededor de las 12:00."
+        }
+      ],
+      "includes": [
+        "Guía certificado y capitán local",
+        "Hidrófono a bordo",
+        "Café, fruta y agua",
+        "Chalecos y equipo de seguridad",
+        "Repites si no las vemos"
+      ],
+      "excludes": ["Traslado al muelle", "Comida completa", "Bebidas alcohólicas", "Propina para la tripulación"],
+      "faq": [
+        {
+          "question": "¿Qué pasa si no vemos ballenas?",
+          "answer": "Repites la salida sin costo el día que quieras dentro de la temporada. En diez años nos ha pasado cuatro veces."
+        },
+        {
+          "question": "¿Cuál salida conviene, la de la mañana o la de la tarde?",
+          "answer": "La de 8:00 am tiene el mar más plano; la de 3:00 pm regresa con la luz del atardecer. La actividad de las ballenas es parecida en las dos."
+        },
+        {
+          "question": "¿Van niños?",
+          "answer": "Sí. Llevamos chalecos de todas las tallas y la salida es corta. Para menores de 4 años recomendamos el barco privado."
+        },
+        {
+          "question": "¿Qué tan cerca se acerca el barco?",
+          "answer": "La norma mexicana pide 60 metros de distancia y apagar motores. Si ellas se acercan por su cuenta, nos quedamos quietos."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "Salimos en la tarde y volvimos con el atardecer. El guía explicó todo sin volverlo una clase.",
+          "author": "Iván P.",
+          "meta": "Febrero 2026"
+        },
+        {
+          "quote": "Una madre con su cría a treinta metros del barco. Nadie hablaba, solo el hidrófono.",
+          "author": "Sofía M.",
+          "meta": "Salida de 8:00 am · Enero 2026"
+        },
+        {
+          "quote": "El primer día no aparecieron y nos dejaron repetir sin costo. Al segundo vimos cuatro.",
+          "author": "Karla y Beto",
+          "meta": "Diciembre 2025"
+        }
+      ]
+    }
+  },
   "notFound": {
     "title": "Esta página no existe",
     "text": "Puede que el enlace esté mal escrito o que la salida ya no exista. Vuelve al inicio o revisa los servicios.",
