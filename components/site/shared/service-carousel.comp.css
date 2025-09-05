@@ -1,0 +1,271 @@
+.service-carousel {
+  position: relative;
+  height: 700px;
+  overflow: hidden;
+  color: var(--color-text);
+
+  &.service-carousel_place_detail {
+    margin-top: 78px;
+  }
+
+  & .service-carousel__stage {
+    position: absolute;
+    inset: 0;
+  }
+
+  & .service-carousel__photo {
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.42s ease;
+
+    &.service-carousel__photo_active {
+      opacity: 1;
+    }
+  }
+
+  & .service-carousel__veil {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      100deg,
+      rgba(6, 22, 52, 0.94) 0%,
+      rgba(6, 22, 52, 0.68) 42%,
+      rgba(6, 22, 52, 0.3) 72%,
+      rgba(6, 22, 52, 0.22) 100%
+    );
+  }
+
+  & .service-carousel__fade {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 280px;
+    background: linear-gradient(to top, var(--color-navy) 0%, rgba(11, 44, 94, 0.72) 42%, rgba(11, 44, 94, 0) 100%);
+  }
+
+  & .service-carousel__inner {
+    position: relative;
+    height: 100%;
+  }
+
+  /* Re-mounted on every change (`key`), so the animation plays again. */
+  & .service-carousel__copy {
+    position: absolute;
+    left: var(--site-gutter);
+    top: 130px;
+    width: 38%;
+    animation: service-carousel-copy 0.42s var(--ease-out);
+  }
+
+  & .service-carousel__eyebrow {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 18px;
+    letter-spacing: 0.28em;
+  }
+
+  & .service-carousel__title {
+    font-size: clamp(40px, 4.2vw, 60px);
+    line-height: 0.94;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+    text-wrap: balance;
+  }
+
+  & .service-carousel__text {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--color-text-soft);
+  }
+
+  & .service-carousel__facts {
+    display: flex;
+    align-items: center;
+    gap: 26px;
+    margin-top: 26px;
+  }
+
+  & .service-carousel__fact {
+    & dt {
+      font-size: 13px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+    }
+
+    & dd {
+      margin-top: 5px;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    & + .service-carousel__fact {
+      padding-left: 26px;
+      border-left: 1px solid rgba(255, 255, 255, 0.24);
+    }
+  }
+
+  & .service-carousel__book {
+    margin-top: 32px;
+    padding: 16px 20px 16px 32px;
+  }
+
+  /* The stack: absolute cards, each translated to its slot. */
+  & .service-carousel__deck {
+    position: absolute;
+    left: 54%;
+    right: -5%;
+    top: 180px;
+    height: 520px;
+    touch-action: pan-y;
+  }
+
+  & .service-carousel__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc((100% - 44px) / 3);
+    height: 390px;
+    border-radius: var(--radius-media);
+    overflow: hidden;
+    box-shadow: var(--shadow-float);
+    transform: translate(calc(var(--slot) * (100% + 22px)), calc(var(--slot) * 44px));
+    transition:
+      transform 0.64s var(--ease-out),
+      opacity 0.44s ease,
+      visibility 0s linear 0s;
+
+    &[data-desk="hidden"] {
+      opacity: 0;
+      visibility: hidden;
+      transition-delay: 0s, 0s, 0.44s;
+    }
+  }
+
+  & .service-carousel__card-photo {
+    object-fit: cover;
+  }
+
+  /* The whole card is the button that picks the service. */
+  & .service-carousel__pick {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 9px;
+    padding: 16px;
+    background: linear-gradient(to top, rgba(6, 22, 52, 0.92) 0%, rgba(6, 22, 52, 0.5) 30%, rgba(6, 22, 52, 0) 58%);
+    color: var(--color-text);
+    text-align: left;
+
+    &:focus-visible {
+      outline-offset: -4px;
+    }
+  }
+
+  & .service-carousel__card-name {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  & .service-carousel__card-meta {
+    padding: 7px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: var(--color-glass-strong);
+    font-size: 14.5px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* Phone only: the active card carries its own "Reservar". */
+  & .service-carousel__card-book {
+    display: none;
+  }
+
+  & .service-carousel__dots {
+    display: none;
+  }
+
+  & .service-carousel__actions {
+    position: absolute;
+    left: var(--site-gutter);
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  & .service-carousel__arrow {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.16);
+    color: var(--color-text);
+    transition:
+      background 0.25s,
+      color 0.25s,
+      border-color 0.25s;
+
+    &:hover,
+    &:focus-visible {
+      background: var(--color-lime);
+      border-color: var(--color-lime);
+      color: var(--color-navy-deep);
+    }
+
+    &.service-carousel__arrow_tone_white {
+      border-color: var(--color-white);
+      background: var(--color-white);
+      color: var(--color-navy);
+
+      &:hover,
+      &:focus-visible {
+        background: var(--color-lime);
+        border-color: var(--color-lime);
+      }
+    }
+  }
+
+  & .service-carousel__all {
+    margin-left: 22px;
+    height: 54px;
+    padding: 0 30px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 1100px) {
+    & .service-carousel__copy {
+      width: 42%;
+    }
+
+    & .service-carousel__deck {
+      left: 50%;
+    }
+  }
+
+  /* Phone: copy on top, the fan of cards below it, dots, then the buttons. */
+
+}
+
+@keyframes service-carousel-copy {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
