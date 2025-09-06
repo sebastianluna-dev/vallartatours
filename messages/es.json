@@ -188,6 +188,253 @@
     }
   },
   "catalog": {
+    "arcos-animas-quimixto": {
+      "name": "Arcos – Ánimas – Quimixto",
+      "shortName": "Los Arcos – Ánimas",
+      "short": "Snorkel en los pináculos de Los Arcos, comida en Las Ánimas y parada en Quimixto. Salida 9:00 am desde el muelle de Puerto Vallarta.",
+      "blurb": "Ocho horas que empiezan con el desayuno a bordo y terminan con la piel salada. Nadas entre los pináculos de Los Arcos, comes frente a Las Ánimas y bajas en Quimixto a caminar hasta la cascada. Si es tu primera vez en la bahía, esta salida la cuenta completa.",
+      "badge": "Todo el año",
+      "photoAlt": "Los pináculos de Los Arcos vistos desde el mar",
+      "itineraryTitle": "Cómo se reparten las ocho horas",
+      "itinerary": [
+        {
+          "time": "08:30 am",
+          "title": "Muelle de Puerto Vallarta",
+          "body": "Registro, chaleco y desayuno a bordo mientras el capitán revisa el reporte de mar."
+        },
+        {
+          "time": "09:00 am",
+          "title": "Zarpamos hacia Los Arcos",
+          "body": "Media hora de navegación pegados a la costa sur; los pináculos aparecen al fondo."
+        },
+        {
+          "time": "10:00 am",
+          "title": "Snorkel en Los Arcos",
+          "body": "Una hora entre los pináculos y las cuevas del parque marino, con guía en el agua."
+        },
+        {
+          "time": "01:00 pm",
+          "title": "Comida en Las Ánimas",
+          "body": "Pescado a la talla frente a la playa y tiempo libre para kayak o hamaca."
+        },
+        {
+          "time": "05:00 pm",
+          "title": "Regreso desde Quimixto",
+          "body": "Caminata corta a la cascada y vuelta al muelle con el sol bajo. Llegada alrededor de las 5:30."
+        }
+      ],
+      "includes": [
+        "Desayuno y comida",
+        "Snorkel y chaleco",
+        "Barra libre nacional",
+        "Guía bilingüe",
+        "Kayak en Las Ánimas"
+      ],
+      "excludes": [
+        "Traslado al muelle",
+        "Bebidas premium",
+        "Propina para la tripulación",
+        "Fotos del fotógrafo a bordo"
+      ],
+      "faq": [
+        {
+          "question": "¿Hay que saber nadar?",
+          "answer": "No. El chaleco flota solo y el guía se queda contigo en el agua. Quien prefiera no meterse ve Los Arcos desde la cubierta."
+        },
+        {
+          "question": "¿Qué pasa si llueve?",
+          "answer": "Con lluvia ligera salimos igual; la bahía suele estar tranquila. Si la capitanía cierra el puerto, cambias de fecha o te devolvemos el anticipo."
+        },
+        {
+          "question": "¿Van niños?",
+          "answer": "Sí, desde los 4 años. Llevamos chalecos de todas las tallas y la comida en Las Ánimas les da tiempo de playa."
+        },
+        {
+          "question": "¿Cuánto se camina en Quimixto?",
+          "answer": "Unos 25 minutos por vereda hasta la cascada. Quien no quiera caminar se queda en la playa o sube a caballo por su cuenta."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "Nos tocó mar tranquilo y el snorkel estuvo increíble. Repetimos el mes que viene.",
+          "author": "Paulina T.",
+          "meta": "Marzo 2026"
+        },
+        {
+          "quote": "Ocho horas y ni un minuto de espera. La comida en Las Ánimas, con los pies en la arena, fue lo mejor.",
+          "author": "Rodrigo y Ana",
+          "meta": "Salida de 9:00 am · Febrero 2026"
+        },
+        {
+          "quote": "El guía se metió al agua con los niños y les enseñó a usar el snorkel. Salieron felices.",
+          "author": "Familia Cortés",
+          "meta": "Enero 2026"
+        }
+      ]
+    },
+    "yelapa-majahuitas": {
+      "name": "Yelapa – Majahuitas",
+      "shortName": "Yelapa – Majahuitas",
+      "short": "Pueblo sin carretera, cascada y playa de Majahuitas. Incluye equipo de snorkel, comida y barra a bordo.",
+      "blurb": "Yelapa no tiene carretera: se llega por mar y se recorre a pie. Subes a la cascada, comes en la playa de Majahuitas y regresas con la sensación de haber estado lejos, aunque salgas y vuelvas el mismo día.",
+      "badge": "Todo el año",
+      "photoAlt": "Lancha frente a la playa de Yelapa",
+      "itineraryTitle": "Cómo se reparten las siete horas",
+      "itinerary": [
+        {
+          "time": "09:00 am",
+          "title": "Muelle de Puerto Vallarta",
+          "body": "Registro, chaleco y café. El capitán explica la ruta y a qué hora bajamos en cada playa."
+        },
+        {
+          "time": "09:30 am",
+          "title": "Zarpamos hacia el sur",
+          "body": "Una hora bordeando la costa; en el camino se ven Los Arcos y Las Ánimas desde el barco."
+        },
+        {
+          "time": "11:00 am",
+          "title": "Yelapa y la cascada",
+          "body": "Caminata por el pueblo hasta la cascada. Baño en la poza y un pie de plátano en el camino de vuelta."
+        },
+        {
+          "time": "01:30 pm",
+          "title": "Comida en Majahuitas",
+          "body": "Playa sin carretera ni señal. Comida frente al mar y snorkel en la orilla."
+        },
+        {
+          "time": "04:30 pm",
+          "title": "Regreso",
+          "body": "Vuelta al muelle con barra a bordo. Llegada alrededor de las 5:00."
+        }
+      ],
+      "includes": [
+        "Comida en Majahuitas",
+        "Snorkel y chaleco",
+        "Barra libre nacional",
+        "Guía bilingüe",
+        "Entrada a la cascada"
+      ],
+      "excludes": ["Traslado al muelle", "Bebidas premium", "Propina para la tripulación", "Paseo a caballo en Yelapa"],
+      "faq": [
+        {
+          "question": "¿Cuánto se camina hasta la cascada?",
+          "answer": "Unos 20 minutos por las calles del pueblo, con subida suave. Con sandalias se puede, pero los tenis van mejor."
+        },
+        {
+          "question": "¿Hay señal en Majahuitas?",
+          "answer": "No. Es parte del encanto: avisa antes de salir que estarás desconectado hasta las cinco."
+        },
+        {
+          "question": "¿Se puede pagar en efectivo?",
+          "answer": "El anticipo es por transferencia o tarjeta; el resto lo pagas en el muelle en efectivo o con tarjeta."
+        },
+        {
+          "question": "¿Van niños?",
+          "answer": "Sí, desde los 4 años. La caminata es tranquila y la playa de Majahuitas no tiene oleaje."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "Todo organizado: transporte, comida y snorkel. Solo llegamos al muelle y ya estaba listo.",
+          "author": "Daniel R.",
+          "meta": "Febrero 2026"
+        },
+        {
+          "quote": "Majahuitas es otro planeta. Comimos con los pies en el agua y no había nadie más en la playa.",
+          "author": "Lucía V.",
+          "meta": "Salida de 9:30 am · Marzo 2026"
+        },
+        {
+          "quote": "La cascada valió cada paso. El pie de plátano de Yelapa, también.",
+          "author": "Marco y Teo",
+          "meta": "Diciembre 2025"
+        }
+      ]
+    },
+    "islas-marietas": {
+      "name": "Islas Marietas",
+      "shortName": "Islas Marietas",
+      "short": "Reserva de la biósfera a una hora de Nuevo Vallarta. Snorkel en la Playa del Amor, avistamiento de aves y comida a bordo. Grupos de máximo 12 personas.",
+      "blurb": "Doce personas, un guía y una isla que la reserva protege. Entras nadando a la Playa del Amor, ves aves que no anidan en ningún otro lugar de México y comes a bordo mientras el barco se mece. Vale la pena apartar con semanas de anticipación.",
+      "badge": "Grupos de 12",
+      "photoAlt": "La Playa del Amor vista desde el mar",
+      "itineraryTitle": "Cómo se reparten las seis horas",
+      "itinerary": [
+        {
+          "time": "07:30 am",
+          "title": "Muelle de Nuevo Vallarta",
+          "body": "Registro, chaleco y desayuno a bordo. El guía reparte los brazaletes de la reserva."
+        },
+        {
+          "time": "08:00 am",
+          "title": "Zarpamos",
+          "body": "Una hora hacia mar abierto. En temporada solemos cruzarnos con ballenas en el camino."
+        },
+        {
+          "time": "09:00 am",
+          "title": "Playa del Amor",
+          "body": "Entrada nadando por el túnel, con el guía, en el horario que nos asigna la reserva."
+        },
+        {
+          "time": "11:30 am",
+          "title": "Snorkel y aves",
+          "body": "Snorkel en la isla Redonda y vuelta lenta a la isla Larga para ver al bobo de patas azules."
+        },
+        {
+          "time": "02:00 pm",
+          "title": "Regreso",
+          "body": "Comida a bordo de vuelta a Nuevo Vallarta. Llegada alrededor de las 2:00."
+        }
+      ],
+      "includes": [
+        "Desayuno y comida a bordo",
+        "Brazalete de la reserva",
+        "Snorkel y chaleco",
+        "Guía bilingüe",
+        "Kayak"
+      ],
+      "excludes": [
+        "Traslado al muelle",
+        "Bebidas alcohólicas",
+        "Propina para la tripulación",
+        "Fotos del fotógrafo a bordo"
+      ],
+      "faq": [
+        {
+          "question": "¿Está garantizada la entrada a la Playa del Amor?",
+          "answer": "La reserva da un número limitado de brazaletes por día y nosotros los apartamos con tu reserva. Si el mar no permite entrar, ese día se cambia por snorkel en la isla Redonda y te devolvemos la diferencia."
+        },
+        {
+          "question": "¿Hay que saber nadar?",
+          "answer": "Para la Playa del Amor, sí: se entra nadando unos 30 metros por un túnel. Quien no nade disfruta el resto de la salida desde el barco."
+        },
+        {
+          "question": "¿Por qué grupos de 12?",
+          "answer": "Es el máximo que la reserva permite por barco. Por eso conviene apartar con semanas de anticipación."
+        },
+        {
+          "question": "¿Van niños?",
+          "answer": "Sí, desde los 6 años y nadando bien. Menores de 6 no pueden entrar a la Playa del Amor por reglamento de la reserva."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "El capitán nos llevó a una cueva donde no había nadie más. El mejor día del viaje.",
+          "author": "Alexandra G.",
+          "meta": "Marzo 2026"
+        },
+        {
+          "quote": "Salimos temprano y llegamos a la Playa del Amor antes que cualquier otro barco. Media hora de snorkel sin nadie alrededor.",
+          "author": "Sofía y Emilio",
+          "meta": "Salida de 8:00 am · Febrero 2026"
+        },
+        {
+          "quote": "Vimos ballenas de ida y bobos de patas azules de regreso. Doce personas en el barco se agradece.",
+          "author": "Javier M.",
+          "meta": "Enero 2026"
+        }
+      ]
+    },
     "avistamiento-de-ballenas": {
       "name": "Avistamiento de ballenas",
       "shortName": "Ballenas",
@@ -259,6 +506,85 @@
           "quote": "El primer día no aparecieron y nos dejaron repetir sin costo. Al segundo vimos cuatro.",
           "author": "Karla y Beto",
           "meta": "Diciembre 2025"
+        }
+      ]
+    },
+    "charter-privado": {
+      "name": "Charter privado",
+      "shortName": "Charter privado",
+      "short": "El barco completo para tu grupo: ruta, horario y menú a tu medida. Bodas, cumpleaños y salidas corporativas.",
+      "blurb": "El barco completo, la ruta que quieras y el horario que te acomode. Nosotros ponemos tripulación, música, barra y comida; tú decides dónde anclar, cuánto tiempo quedarte y a qué hora volver.",
+      "badge": "A tu medida",
+      "photoAlt": "Lancha privada navegando por la bahía",
+      "itineraryTitle": "Un día tipo, para que te hagas una idea",
+      "itinerary": [
+        {
+          "time": "Hora 0",
+          "title": "Muelle a tu hora",
+          "body": "Salidas desde las 8:00 am. El barco te espera con la música y la barra listas."
+        },
+        {
+          "time": "+1 h 30",
+          "title": "Primera parada",
+          "body": "Snorkel en Los Arcos o en Las Caletas, según la ruta que hayamos armado juntos."
+        },
+        {
+          "time": "+3 h",
+          "title": "Comida a bordo",
+          "body": "Menú a tu medida: ceviche, pescado a la talla o lo que pida el grupo, con anticipación."
+        },
+        {
+          "time": "+5 h",
+          "title": "Playa y atardecer",
+          "body": "Fondeamos en Las Ánimas o Majahuitas para kayak, paddle y nadar hasta la orilla."
+        },
+        {
+          "time": "+7 h",
+          "title": "Regreso",
+          "body": "Vuelta al muelle con el atardecer o, si el grupo lo prefiere, de noche con las luces del malecón."
+        }
+      ],
+      "includes": [
+        "Barco completo y tripulación",
+        "Barra libre nacional",
+        "Menú a tu medida",
+        "Música y bocinas",
+        "Snorkel, kayak y paddle"
+      ],
+      "excludes": ["Traslado al muelle", "Bebidas premium", "Decoración y pastel", "Propina para la tripulación"],
+      "faq": [
+        {
+          "question": "¿Para cuántas personas es el barco?",
+          "answer": "Hasta 16 personas cómodas. Para grupos más grandes salimos con dos barcos que navegan juntos."
+        },
+        {
+          "question": "¿Cómo se cotiza?",
+          "answer": "Por horas de navegación y número de personas. Nos dices la fecha, el grupo y la idea de la ruta y te cotizamos por WhatsApp el mismo día."
+        },
+        {
+          "question": "¿Se puede llevar comida y bebida propia?",
+          "answer": "Sí, sin costo. Si prefieres, te armamos el menú y la barra con anticipación."
+        },
+        {
+          "question": "¿Hacen bodas y eventos?",
+          "answer": "Sí. Bodas, cumpleaños, despedidas y salidas de empresa. Podemos coordinar decoración, pastel y fotógrafo con proveedores locales."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "Rentamos el barco para un cumpleaños. Música, barra abierta y tripulación increíble.",
+          "author": "Mariana L.",
+          "meta": "Marzo 2026"
+        },
+        {
+          "quote": "Salida de empresa con 14 personas. Armaron la ruta con nosotros y no faltó nada.",
+          "author": "Equipo de Nómada",
+          "meta": "Salida de 12:00 pm · Febrero 2026"
+        },
+        {
+          "quote": "Nos casamos a bordo con la puesta de sol de fondo. La tripulación se encargó de todo.",
+          "author": "Andrea y Luis",
+          "meta": "Enero 2026"
         }
       ]
     }

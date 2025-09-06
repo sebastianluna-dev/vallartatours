@@ -188,6 +188,248 @@
     }
   },
   "catalog": {
+    "arcos-animas-quimixto": {
+      "name": "Arcos – Ánimas – Quimixto",
+      "shortName": "Los Arcos – Ánimas",
+      "short": "Snorkelling at the pinnacles of Los Arcos, lunch at Las Ánimas and a stop in Quimixto. Departs 9:00 am from the Puerto Vallarta dock.",
+      "blurb": "Eight hours that start with breakfast on board and end with salt on your skin. You swim among the pinnacles of Los Arcos, eat facing Las Ánimas and get off at Quimixto to walk to the waterfall. If it is your first time on the bay, this trip tells the whole story.",
+      "badge": "All year",
+      "photoAlt": "The pinnacles of Los Arcos seen from the sea",
+      "itineraryTitle": "How the eight hours go",
+      "itinerary": [
+        {
+          "time": "08:30 am",
+          "title": "Puerto Vallarta dock",
+          "body": "Check-in, life jacket and breakfast on board while the captain checks the sea report."
+        },
+        {
+          "time": "09:00 am",
+          "title": "We sail towards Los Arcos",
+          "body": "Half an hour hugging the south shore; the pinnacles appear in the distance."
+        },
+        {
+          "time": "10:00 am",
+          "title": "Snorkelling at Los Arcos",
+          "body": "An hour among the pinnacles and caves of the marine park, with the guide in the water."
+        },
+        {
+          "time": "01:00 pm",
+          "title": "Lunch at Las Ánimas",
+          "body": "Grilled fish facing the beach and free time for kayaking or a hammock."
+        },
+        {
+          "time": "05:00 pm",
+          "title": "Return from Quimixto",
+          "body": "A short walk to the waterfall and back to the dock with the sun low. Arrival around 5:30."
+        }
+      ],
+      "includes": [
+        "Breakfast and lunch",
+        "Snorkel and life jacket",
+        "Open bar, local brands",
+        "Bilingual guide",
+        "Kayak at Las Ánimas"
+      ],
+      "excludes": ["Transfer to the dock", "Premium drinks", "Tips for the crew", "Photos by the onboard photographer"],
+      "faq": [
+        {
+          "question": "Do I need to know how to swim?",
+          "answer": "No. The life jacket floats on its own and the guide stays with you in the water. Anyone who would rather not go in can watch Los Arcos from the deck."
+        },
+        {
+          "question": "What if it rains?",
+          "answer": "With light rain we sail anyway; the bay is usually calm. If the harbour master closes the port, you change the date or we refund the deposit."
+        },
+        {
+          "question": "Can children come?",
+          "answer": "Yes, from 4 years old. We carry life jackets in every size and lunch at Las Ánimas gives them beach time."
+        },
+        {
+          "question": "How much walking is there in Quimixto?",
+          "answer": "About 25 minutes along a trail to the waterfall. Anyone who would rather not walk stays on the beach or rides up on horseback at their own expense."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "The sea was calm and the snorkelling was incredible. We are coming back next month.",
+          "author": "Paulina T.",
+          "meta": "March 2026"
+        },
+        {
+          "quote": "Eight hours and not a minute of waiting. Lunch at Las Ánimas, feet in the sand, was the best part.",
+          "author": "Rodrigo and Ana",
+          "meta": "9:00 am departure · February 2026"
+        },
+        {
+          "quote": "The guide got in the water with the kids and taught them to use the snorkel. They came out beaming.",
+          "author": "The Cortés family",
+          "meta": "January 2026"
+        }
+      ]
+    },
+    "yelapa-majahuitas": {
+      "name": "Yelapa – Majahuitas",
+      "shortName": "Yelapa – Majahuitas",
+      "short": "A village with no road, a waterfall and the beach at Majahuitas. Snorkel gear, lunch and an open bar on board.",
+      "blurb": "Yelapa has no road: you arrive by sea and get around on foot. You climb to the waterfall, eat on the beach at Majahuitas and come back feeling you have been far away, even though you leave and return the same day.",
+      "badge": "All year",
+      "photoAlt": "Boat off the beach at Yelapa",
+      "itineraryTitle": "How the seven hours go",
+      "itinerary": [
+        {
+          "time": "09:00 am",
+          "title": "Puerto Vallarta dock",
+          "body": "Check-in, life jacket and coffee. The captain explains the route and when we land on each beach."
+        },
+        {
+          "time": "09:30 am",
+          "title": "We sail south",
+          "body": "An hour along the coast; on the way you see Los Arcos and Las Ánimas from the boat."
+        },
+        {
+          "time": "11:00 am",
+          "title": "Yelapa and the waterfall",
+          "body": "A walk through the village up to the waterfall. A swim in the pool and a slice of banana pie on the way back."
+        },
+        {
+          "time": "01:30 pm",
+          "title": "Lunch at Majahuitas",
+          "body": "A beach with no road and no signal. Lunch facing the sea and snorkelling from the shore."
+        },
+        {
+          "time": "04:30 pm",
+          "title": "Return",
+          "body": "Back to the dock with the bar open. Arrival around 5:00."
+        }
+      ],
+      "includes": [
+        "Lunch at Majahuitas",
+        "Snorkel and life jacket",
+        "Open bar, local brands",
+        "Bilingual guide",
+        "Waterfall entrance"
+      ],
+      "excludes": ["Transfer to the dock", "Premium drinks", "Tips for the crew", "Horseback ride in Yelapa"],
+      "faq": [
+        {
+          "question": "How far is the walk to the waterfall?",
+          "answer": "About 20 minutes through the village streets, with a gentle climb. Sandals work, but trainers are better."
+        },
+        {
+          "question": "Is there phone signal at Majahuitas?",
+          "answer": "No. It is part of the charm: let people know before you leave that you will be offline until five."
+        },
+        {
+          "question": "Can I pay in cash?",
+          "answer": "The deposit is by bank transfer or card; the balance is paid at the dock in cash or by card."
+        },
+        {
+          "question": "Can children come?",
+          "answer": "Yes, from 4 years old. The walk is easy and the beach at Majahuitas has no waves."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "Everything sorted: transport, food and snorkelling. We just showed up at the dock and it was all ready.",
+          "author": "Daniel R.",
+          "meta": "February 2026"
+        },
+        {
+          "quote": "Majahuitas is another planet. We ate with our feet in the water and there was nobody else on the beach.",
+          "author": "Lucía V.",
+          "meta": "9:30 am departure · March 2026"
+        },
+        {
+          "quote": "The waterfall was worth every step. So was the banana pie in Yelapa.",
+          "author": "Marco and Teo",
+          "meta": "December 2025"
+        }
+      ]
+    },
+    "islas-marietas": {
+      "name": "Marietas Islands",
+      "shortName": "Marietas Islands",
+      "short": "A biosphere reserve an hour from Nuevo Vallarta. Snorkelling at the Hidden Beach, bird watching and lunch on board. Groups of 12 at most.",
+      "blurb": "Twelve people, one guide and an island the reserve protects. You swim into the Hidden Beach, see birds that nest nowhere else in Mexico and eat on board while the boat rocks. Worth booking weeks ahead.",
+      "badge": "Groups of 12",
+      "photoAlt": "The Hidden Beach seen from the sea",
+      "itineraryTitle": "How the six hours go",
+      "itinerary": [
+        {
+          "time": "07:30 am",
+          "title": "Nuevo Vallarta dock",
+          "body": "Check-in, life jacket and breakfast on board. The guide hands out the reserve wristbands."
+        },
+        {
+          "time": "08:00 am",
+          "title": "We sail",
+          "body": "An hour towards open sea. In season we often cross paths with whales on the way."
+        },
+        {
+          "time": "09:00 am",
+          "title": "Hidden Beach",
+          "body": "You swim in through the tunnel with the guide, in the slot the reserve assigns us."
+        },
+        {
+          "time": "11:30 am",
+          "title": "Snorkelling and birds",
+          "body": "Snorkelling at Isla Redonda and a slow lap of Isla Larga to see the blue-footed booby."
+        },
+        {
+          "time": "02:00 pm",
+          "title": "Return",
+          "body": "Lunch on board on the way back to Nuevo Vallarta. Arrival around 2:00."
+        }
+      ],
+      "includes": [
+        "Breakfast and lunch on board",
+        "Reserve wristband",
+        "Snorkel and life jacket",
+        "Bilingual guide",
+        "Kayak"
+      ],
+      "excludes": [
+        "Transfer to the dock",
+        "Alcoholic drinks",
+        "Tips for the crew",
+        "Photos by the onboard photographer"
+      ],
+      "faq": [
+        {
+          "question": "Is entry to the Hidden Beach guaranteed?",
+          "answer": "The reserve issues a limited number of wristbands per day and we hold them with your booking. If the sea does not allow entry, that day is swapped for snorkelling at Isla Redonda and we refund the difference."
+        },
+        {
+          "question": "Do I need to know how to swim?",
+          "answer": "For the Hidden Beach, yes: you swim about 30 metres through a tunnel. Non-swimmers enjoy the rest of the trip from the boat."
+        },
+        {
+          "question": "Why groups of 12?",
+          "answer": "It is the most the reserve allows per boat. That is why it pays to book weeks ahead."
+        },
+        {
+          "question": "Can children come?",
+          "answer": "Yes, from 6 years old and swimming well. Under-6s cannot enter the Hidden Beach under the reserve's rules."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "The captain took us to a cave where there was nobody else. The best day of the trip.",
+          "author": "Alexandra G.",
+          "meta": "March 2026"
+        },
+        {
+          "quote": "We left early and reached the Hidden Beach before any other boat. Half an hour of snorkelling with nobody around.",
+          "author": "Sofía and Emilio",
+          "meta": "8:00 am departure · February 2026"
+        },
+        {
+          "quote": "Whales on the way out and blue-footed boobies on the way back. Twelve people on the boat makes a difference.",
+          "author": "Javier M.",
+          "meta": "January 2026"
+        }
+      ]
+    },
     "avistamiento-de-ballenas": {
       "name": "Whale watching",
       "shortName": "Whales",
@@ -259,6 +501,85 @@
           "quote": "The first day they did not show up and we were allowed to repeat at no cost. The second day we saw four.",
           "author": "Karla and Beto",
           "meta": "December 2025"
+        }
+      ]
+    },
+    "charter-privado": {
+      "name": "Private charter",
+      "shortName": "Private charter",
+      "short": "The whole boat for your group: route, schedule and menu your way. Weddings, birthdays and company outings.",
+      "blurb": "The whole boat, the route you want and the schedule that suits you. We bring the crew, the music, the bar and the food; you decide where to anchor, how long to stay and when to head back.",
+      "badge": "Your way",
+      "photoAlt": "Private boat sailing across the bay",
+      "itineraryTitle": "A typical day, to give you an idea",
+      "itinerary": [
+        {
+          "time": "Hour 0",
+          "title": "The dock, at your time",
+          "body": "Departures from 8:00 am. The boat is waiting with the music and the bar ready."
+        },
+        {
+          "time": "+1 h 30",
+          "title": "First stop",
+          "body": "Snorkelling at Los Arcos or Las Caletas, depending on the route we have put together."
+        },
+        {
+          "time": "+3 h",
+          "title": "Lunch on board",
+          "body": "A menu your way: ceviche, grilled fish or whatever the group asks for, in advance."
+        },
+        {
+          "time": "+5 h",
+          "title": "Beach and sunset",
+          "body": "We anchor at Las Ánimas or Majahuitas for kayaking, paddle boarding and a swim to the shore."
+        },
+        {
+          "time": "+7 h",
+          "title": "Return",
+          "body": "Back to the dock with the sunset or, if the group prefers, at night with the lights of the boardwalk."
+        }
+      ],
+      "includes": [
+        "The whole boat and crew",
+        "Open bar, local brands",
+        "Custom menu",
+        "Music and speakers",
+        "Snorkel, kayak and paddle board"
+      ],
+      "excludes": ["Transfer to the dock", "Premium drinks", "Decoration and cake", "Tips for the crew"],
+      "faq": [
+        {
+          "question": "How many people fit on the boat?",
+          "answer": "Up to 16 people comfortably. For bigger groups we sail with two boats side by side."
+        },
+        {
+          "question": "How is it priced?",
+          "answer": "By sailing hours and number of people. Tell us the date, the group and the idea of the route and we quote on WhatsApp the same day."
+        },
+        {
+          "question": "Can we bring our own food and drinks?",
+          "answer": "Yes, at no charge. If you prefer, we put the menu and the bar together for you in advance."
+        },
+        {
+          "question": "Do you do weddings and events?",
+          "answer": "Yes. Weddings, birthdays, bachelor parties and company outings. We can arrange decoration, cake and a photographer with local suppliers."
+        }
+      ],
+      "reviews": [
+        {
+          "quote": "We rented the boat for a birthday. Music, open bar and an incredible crew.",
+          "author": "Mariana L.",
+          "meta": "March 2026"
+        },
+        {
+          "quote": "Company outing with 14 people. They built the route with us and nothing was missing.",
+          "author": "The Nómada team",
+          "meta": "12:00 pm departure · February 2026"
+        },
+        {
+          "quote": "We got married on board with the sunset behind us. The crew took care of everything.",
+          "author": "Andrea and Luis",
+          "meta": "January 2026"
         }
       ]
     }
