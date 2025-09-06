@@ -1,0 +1,8 @@
+.wave-mark {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  color: var(--color-navy);
+  opacity: 0.95;
+}
