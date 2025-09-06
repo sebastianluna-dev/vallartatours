@@ -1,0 +1,176 @@
+.proof {
+  padding-top: 96px;
+
+  & .proof__inner {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 44px;
+    align-items: start;
+  }
+
+  & .proof__lead {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  & .proof__title {
+    margin-bottom: 14px;
+    line-height: 1.02;
+  }
+
+  & .proof__figures {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
+  & .proof__figure {
+    padding: 26px;
+    border-radius: 16px;
+    background: var(--color-glass);
+
+    & dd {
+      font-size: 46px;
+      line-height: 0.9;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    & dt {
+      margin-top: 10px;
+      font-size: 18.5px;
+      color: var(--color-text-soft);
+    }
+
+    &.proof__figure_tone_lime {
+      background: var(--color-lime);
+      color: var(--color-navy-deep);
+
+      & dt {
+        font-weight: 600;
+        color: inherit;
+      }
+    }
+
+    &.proof__figure_tone_sky {
+      background: var(--color-sky);
+
+      & dt {
+        font-weight: 600;
+        color: var(--color-text);
+      }
+    }
+
+    &.proof__figure_size_large {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 218px;
+      padding: 22px;
+      border-radius: var(--radius-card);
+
+      & dd {
+        font-size: 52px;
+        letter-spacing: -0.03em;
+      }
+
+      & dt {
+        margin-top: 12px;
+        font-size: 19px;
+        line-height: 1.45;
+      }
+    }
+  }
+
+  & .proof__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 28px;
+  }
+
+  & .proof__card {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    border-radius: var(--radius-card);
+
+    &.proof__card_span_2 {
+      grid-column: span 2;
+    }
+
+    &.proof__card_style_photo {
+      flex-wrap: wrap;
+      background: var(--color-white);
+      color: var(--color-navy-deep);
+
+      & .proof__quote {
+        margin-top: 12px;
+        font-size: clamp(17px, 1.6vw, 22px);
+        line-height: 1.4;
+        font-weight: 600;
+      }
+
+      & .proof__author {
+        margin-top: 18px;
+        color: var(--color-text-on-white-muted);
+      }
+    }
+
+    &.proof__card_style_glass {
+      align-items: center;
+      gap: 18px;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.1);
+
+      & .proof__quote {
+        font-size: 18.5px;
+        line-height: 1.55;
+      }
+
+      & .proof__author {
+        margin-top: 12px;
+        color: var(--color-text-muted);
+      }
+    }
+  }
+
+  & .proof__card-photo {
+    flex: 0 0 34%;
+    min-width: 130px;
+    height: 170px;
+    border-radius: var(--radius-media);
+    object-fit: cover;
+  }
+
+  & .proof__card-body {
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  & .proof__author {
+    font-size: 17.5px;
+  }
+
+  & .proof__avatar {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    object-fit: cover;
+  }
+
+  & .proof__photo {
+    width: 100%;
+    height: 218px;
+    border-radius: var(--radius-card);
+    object-fit: cover;
+  }
+
+  /* Phone: title, the four figures, the first review as a card with the
+     round portrait and the "96%"; the rest of the grid is left out. */
+
+}
