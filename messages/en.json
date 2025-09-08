@@ -187,6 +187,28 @@
       "cash": "Cash for tips"
     }
   },
+  "booking": {
+    "label": "Booking",
+    "yourTrip": "Your trip",
+    "departure": "Departure time",
+    "date": "Date",
+    "people": "People",
+    "adults": "{count, plural, =1 {1 adult} other {# adults}}",
+    "lineAdults": "{count} × {price}",
+    "dock": "Dock fee and taxes",
+    "included": "Included",
+    "total": "Total",
+    "deposit": "You pay a {amount} deposit today",
+    "pickDate": "Pick a date to confirm availability",
+    "submit": "{count, plural, =1 {Book one spot} other {Book # spots}}",
+    "submitQuote": "Request a quote",
+    "quoteNote": "The price depends on the route, the hours and the group. We quote on WhatsApp the same day.",
+    "cancel": "Cancel free of charge up to 48 h before",
+    "message": "Hi, I would like to book {service} on {date} at {time} for {people}.",
+    "messageNoDate": "Hi, I would like to book {service} at {time} for {people}. I do not have a date yet.",
+    "quoteMessage": "Hi, I would like a quote for a private charter on {date} from {time} for {people}.",
+    "quoteMessageNoDate": "Hi, I would like a quote for a private charter from {time} for {people}. I do not have a date yet."
+  },
   "catalog": {
     "arcos-animas-quimixto": {
       "name": "Arcos – Ánimas – Quimixto",

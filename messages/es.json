@@ -187,6 +187,28 @@
       "cash": "Efectivo para propinas"
     }
   },
+  "booking": {
+    "label": "Reserva",
+    "yourTrip": "Tu salida",
+    "departure": "Hora de salida",
+    "date": "Fecha",
+    "people": "Personas",
+    "adults": "{count, plural, =1 {1 adulto} other {# adultos}}",
+    "lineAdults": "{count} × {price}",
+    "dock": "Muelle e impuestos",
+    "included": "Incluidos",
+    "total": "Total",
+    "deposit": "Hoy pagas {amount} de anticipo",
+    "pickDate": "Elige una fecha para confirmar disponibilidad",
+    "submit": "{count, plural, =1 {Reservar un lugar} other {Reservar # lugares}}",
+    "submitQuote": "Pedir cotización",
+    "quoteNote": "El precio depende de la ruta, las horas y el grupo. Te cotizamos por WhatsApp el mismo día.",
+    "cancel": "Cancelas sin costo hasta 48 h antes",
+    "message": "Hola, quiero reservar {service} el {date} a las {time} para {people}.",
+    "messageNoDate": "Hola, quiero reservar {service} a las {time} para {people}. Todavía no tengo fecha.",
+    "quoteMessage": "Hola, quiero cotizar un charter privado el {date} a partir de las {time} para {people}.",
+    "quoteMessageNoDate": "Hola, quiero cotizar un charter privado a partir de las {time} para {people}. Todavía no tengo fecha."
+  },
   "catalog": {
     "arcos-animas-quimixto": {
       "name": "Arcos – Ánimas – Quimixto",
