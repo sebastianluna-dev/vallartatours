@@ -1,0 +1,51 @@
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import type { Service } from "@/constants/services.const";
+import { BookingAside } from "./booking-aside.comp";
+import "./service-hero.section.css";
+
+interface ServiceHeroProps {
+  service: Service;
+}
+
+// The trip's photo with the season badge, the title, the blurb and the
+// facts on the left and the booking card on the right.
+export function ServiceHeroSection({ service }: ServiceHeroProps) {
+  const t = useTranslations("service");
+  const tCatalog = useTranslations(`catalog.${service.slug}`);
+
+  const facts = [
+    service.durationHours === null ? t("custom") : t("hours", { hours: service.durationHours }),
+    service.groupSize === null ? null : t("group", { size: service.groupSize }),
+    t(`port.${service.port}`),
+  ].filter((fact): fact is string => fact !== null);
+
+  return (
+    <section className="section service-hero">
+      <Image
+        className="service-hero__photo"
+        src={service.photo.src}
+        alt={tCatalog("photoAlt")}
+        fill
+        priority
+        sizes="100vw"
+      />
+      <div className="service-hero__veil" />
+      <div className="section__inner service-hero__inner">
+        <div className="service-hero__copy">
+          <span className="service-hero__badge">{tCatalog("badge")}</span>
+          <h1 className="service-hero__title">{tCatalog("name")}</h1>
+          <p className="service-hero__blurb">{tCatalog("blurb")}</p>
+          <ul className="service-hero__facts">
+            {facts.map((fact) => (
+              <li key={fact} className="chip">
+                {fact}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <BookingAside service={service} />
+      </div>
+    </section>
+  );
+}
