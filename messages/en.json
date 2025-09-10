@@ -606,6 +606,36 @@
       ]
     }
   },
+  "contact": {
+    "title": "Contact",
+    "lead": "Write to us and we will get back to you. We answer every day from 7:00 am to 9:00 pm.",
+    "photoAlt": "Beach at night with warm lights",
+    "form": {
+      "title": "Send us a message",
+      "lead": "Whether you have a question or just want to say hello, write to us.",
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message",
+      "submit": "Send",
+      "note": "Sending opens your mail app with the message ready to go to {email}.",
+      "body": "Name: {name}\nEmail: {email}\n\n{message}"
+    },
+    "channels": {
+      "address": {
+        "title": "Address",
+        "line2": "Puerto Vallarta, Jalisco"
+      },
+      "email": {
+        "title": "Email",
+        "line2": "Every day, 7:00 am to 9:00 pm"
+      },
+      "phone": {
+        "title": "Contact",
+        "line2": "We answer in under 10 minutes"
+      }
+    }
+  },
   "notFound": {
     "title": "This page does not exist",
     "text": "The link may be misspelt or the trip may no longer exist. Go back home or check the services.",

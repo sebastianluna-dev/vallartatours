@@ -611,6 +611,36 @@
       ]
     }
   },
+  "contact": {
+    "title": "Contacto",
+    "lead": "Escríbenos y nosotros nos ponemos en contacto contigo. Contestamos todos los días de 7:00 am a 9:00 pm.",
+    "photoAlt": "Playa de noche con luces cálidas",
+    "form": {
+      "title": "Envíanos un mensaje",
+      "lead": "Ya sea que tengas una pregunta o solo quieras decir hola, escríbenos.",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "submit": "Enviar",
+      "note": "Al enviar se abre tu correo con el mensaje listo para mandarlo a {email}.",
+      "body": "Nombre: {name}\nCorreo: {email}\n\n{message}"
+    },
+    "channels": {
+      "address": {
+        "title": "Dirección",
+        "line2": "Puerto Vallarta, Jalisco"
+      },
+      "email": {
+        "title": "Correo electrónico",
+        "line2": "Todos los días, 7:00 am a 9:00 pm"
+      },
+      "phone": {
+        "title": "Contacto",
+        "line2": "Respondemos en menos de 10 minutos"
+      }
+    }
+  },
   "notFound": {
     "title": "Esta página no existe",
     "text": "Puede que el enlace esté mal escrito o que la salida ya no exista. Vuelve al inicio o revisa los servicios.",
