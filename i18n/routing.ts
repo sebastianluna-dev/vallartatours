@@ -1,17 +1,17 @@
 import { defineRouting } from "next-intl/routing";
 
 // Spanish is the default and lives at the root (`/`); English at `/en`. The
-// keys of `pathnames` are the internal routes (the folders under app/[locale]);
-// every locale shows them as they are for now.
+// keys of `pathnames` are the internal routes (the folders under app/[locale])
+// and the values the URL each locale shows for them.
 export const routing = defineRouting({
   locales: ["es", "en"],
   defaultLocale: "es",
   localePrefix: "as-needed",
   pathnames: {
     "/": "/",
-    "/servicios": "/servicios",
-    "/servicios/[slug]": "/servicios/[slug]",
-    "/contacto": "/contacto",
+    "/servicios": { es: "/servicios", en: "/services" },
+    "/servicios/[slug]": { es: "/servicios/[slug]", en: "/services/[slug]" },
+    "/contacto": { es: "/contacto", en: "/contact" },
   },
 });
 
