@@ -11,7 +11,9 @@ const DEFAULT_SLUG: ServiceSlug = "islas-marietas";
 const MAX_PEOPLE = 16;
 
 // The white bar of the hero: experience, date and people. It does not check
-// anything itself yet; it sends the visitor to the trip's page.
+// anything itself; it sends the visitor to the trip's page with the choice
+// in the query string, where the booking card picks it up. The URL is built
+// with `getPathname` because next-intl's router takes no `#reservar` hash.
 export function BookingSearch() {
   const t = useTranslations("home.hero.search");
   const tCatalog = useTranslations("catalog");
@@ -23,7 +25,10 @@ export function BookingSearch() {
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
-    router.push(getPathname({ locale, href: { pathname: "/servicios/[slug]", params: { slug } } }));
+    const query: Record<string, string> = { personas: String(people) };
+    if (date) query.fecha = date;
+    const href = getPathname({ locale, href: { pathname: "/servicios/[slug]", params: { slug }, query } });
+    router.push(`${href}#reservar`);
   };
 
   return (

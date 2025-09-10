@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale, useTranslations } from "next-intl";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { Service } from "@/constants/services.const";
 import { DEPOSIT_RATE, SITE } from "@/constants/site.const";
@@ -149,5 +150,19 @@ export function BookingAside({ service, initialDate = null, initialPeople = null
       </a>
       <span className="booking-aside__fine">{date ? t("cancel") : t("pickDate")}</span>
     </aside>
+  );
+}
+
+// Reads the home search's choice from the query string. It bails out of the
+// static render, so the hero puts it inside a Suspense boundary whose
+// fallback is the same card without a prefill.
+export function BookingAsideFromQuery({ service }: { service: Service }) {
+  const searchParams = useSearchParams();
+  return (
+    <BookingAside
+      service={service}
+      initialDate={searchParams.get("fecha")}
+      initialPeople={searchParams.get("personas")}
+    />
   );
 }

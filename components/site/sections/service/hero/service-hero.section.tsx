@@ -1,7 +1,8 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Suspense } from "react";
 import type { Service } from "@/constants/services.const";
-import { BookingAside } from "./booking-aside.comp";
+import { BookingAside, BookingAsideFromQuery } from "./booking-aside.comp";
 import "./service-hero.section.css";
 
 interface ServiceHeroProps {
@@ -9,7 +10,8 @@ interface ServiceHeroProps {
 }
 
 // The trip's photo with the season badge, the title, the blurb and the
-// facts on the left and the booking card on the right.
+// facts on the left and the booking card on the right. The card reads the
+// query string, so it renders on the client inside a Suspense boundary.
 export function ServiceHeroSection({ service }: ServiceHeroProps) {
   const t = useTranslations("service");
   const tCatalog = useTranslations(`catalog.${service.slug}`);
@@ -44,7 +46,9 @@ export function ServiceHeroSection({ service }: ServiceHeroProps) {
             ))}
           </ul>
         </div>
-        <BookingAside service={service} />
+        <Suspense fallback={<BookingAside service={service} />}>
+          <BookingAsideFromQuery service={service} />
+        </Suspense>
       </div>
     </section>
   );
