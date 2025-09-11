@@ -1,0 +1,49 @@
+.contact {
+  padding-top: 96px;
+
+  & .contact__inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 0.6fr);
+    gap: 64px;
+    align-items: start;
+    max-width: calc(1120px + 2 * var(--site-gutter));
+  }
+
+  & .contact__channels {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 48px;
+    text-align: center;
+  }
+
+  & .contact__channel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  & .contact__channel-title {
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--color-lime);
+  }
+
+  & .contact__channel-text {
+    font-size: 17.5px;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.88);
+  }
+
+  & .contact__channel-link {
+    transition: color 0.2s;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--color-lime);
+    }
+  }
+
+}
