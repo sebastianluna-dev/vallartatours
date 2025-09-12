@@ -121,5 +121,61 @@
   }
 
   /* Phone: one column, the chips wrap in rows. */
+  @media (max-width: 767px) {
+    & .panels__panel {
+      min-height: 0;
+    }
 
+    & .panels__inner {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      min-height: 0;
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    & .panels__main {
+      gap: 18px;
+    }
+
+    & .panels__copy {
+      gap: 20px;
+    }
+
+    & .panels__title {
+      font-size: 34px;
+    }
+
+    & .panels__facts {
+      font-size: 16px;
+    }
+
+    & .panels__fact dt {
+      min-width: 110px;
+    }
+
+    & .panels__explore {
+      padding: 14px 24px;
+      font-size: 16px;
+    }
+
+    & .panels__aside {
+      padding-left: 0;
+    }
+
+    & .panels__aside-title {
+      font-size: 17px;
+    }
+
+    & .panels__amenities {
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 8px;
+
+      & .chip {
+        padding: 10px 16px;
+        font-size: 14.5px;
+      }
+    }
+  }
 }

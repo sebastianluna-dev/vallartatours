@@ -74,4 +74,35 @@
     font-size: 19px;
   }
 
+  @media (max-width: 767px) {
+    min-height: 0;
+
+    &.page-hero_size_short {
+      min-height: 0;
+    }
+
+    & .page-hero__inner {
+      gap: 16px;
+      padding-top: 130px;
+      padding-bottom: 56px;
+    }
+
+    & .page-hero__title {
+      font-size: 42px;
+    }
+
+    & .page-hero__lead {
+      font-size: 16px;
+    }
+
+    & .page-hero__scroll {
+      width: 60px;
+      height: 60px;
+      margin-top: 12px;
+    }
+
+    & .page-hero__scroll-label {
+      font-size: 15px;
+    }
+  }
 }
