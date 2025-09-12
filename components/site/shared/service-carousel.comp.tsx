@@ -49,7 +49,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
 
   return (
     <section
-      className={`service-carousel service-carousel_place_${place}`}
+      className={`section service-carousel service-carousel_place_${place}`}
       aria-roledescription="carousel"
       aria-label={eyebrow ?? t("others")}
     >
