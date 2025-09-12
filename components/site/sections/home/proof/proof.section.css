@@ -230,6 +230,7 @@
       padding: 20px;
 
       & .proof__card-photo {
+        flex: none;
         width: 66px;
         height: 66px;
         min-width: 0;
