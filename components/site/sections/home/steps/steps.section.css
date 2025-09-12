@@ -82,5 +82,82 @@
 
   /* Phone: no band inset, the waves under the title, the steps as a
      vertical timeline with a line through the numbers. */
+  @media (max-width: 767px) {
+    padding-top: 0;
 
+    & .section__inner {
+      padding-inline: 0;
+    }
+
+    & .steps__band {
+      padding: 58px 22px 60px;
+      border-radius: 0;
+    }
+
+    & .steps__head {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    & .steps__list {
+      position: relative;
+      grid-template-columns: 1fr;
+      gap: 26px;
+      margin-top: 26px;
+      padding-left: 44px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 17px;
+        top: 8px;
+        bottom: 18px;
+        width: 2px;
+        background: rgba(11, 44, 94, 0.35);
+      }
+    }
+
+    & .steps__item {
+      position: relative;
+      gap: 7px;
+      padding: 0;
+      background: none;
+    }
+
+    & .steps__number {
+      position: absolute;
+      left: -44px;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      font-size: 16px;
+    }
+
+    & .steps__item-title {
+      margin-top: 4px;
+      font-size: 21px;
+    }
+
+    & .steps__item-body {
+      font-size: 14.5px;
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    & .steps__foot {
+      margin-top: 26px;
+
+      & .button {
+        width: 100%;
+        height: 52px;
+        background: var(--color-navy);
+        color: var(--color-text);
+        font-size: 15.5px;
+      }
+    }
+
+    & .steps__hours {
+      display: none;
+    }
+  }
 }

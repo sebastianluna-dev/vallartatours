@@ -172,5 +172,89 @@
 
   /* Phone: title, the four figures, the first review as a card with the
      round portrait and the "96%"; the rest of the grid is left out. */
+  @media (max-width: 767px) {
+    padding-top: 40px;
 
+    & .proof__inner {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    & .proof__lead {
+      gap: 14px;
+    }
+
+    & .proof__title {
+      margin-bottom: 8px;
+      font-size: 34px;
+
+      & br {
+        display: none;
+      }
+    }
+
+    & .proof__figures {
+      gap: 12px;
+    }
+
+    & .proof__figure {
+      padding: 20px;
+
+      & dd {
+        font-size: 34px;
+      }
+
+      & dt {
+        margin-top: 8px;
+        font-size: 15px;
+      }
+
+      &.proof__figure_size_large {
+        height: auto;
+        padding: 20px;
+
+        & dd {
+          font-size: 40px;
+        }
+
+        & dt {
+          margin-top: 10px;
+          font-size: 16px;
+        }
+      }
+    }
+
+    & .proof__card.proof__card_style_photo {
+      flex-direction: column;
+      gap: 14px;
+      padding: 20px;
+
+      & .proof__card-photo {
+        width: 66px;
+        height: 66px;
+        min-width: 0;
+        border-radius: 999px;
+      }
+
+      & .proof__quote {
+        margin-top: 0;
+        font-size: 17px;
+      }
+
+      & .proof__author {
+        margin-top: 10px;
+        font-size: 14px;
+      }
+    }
+
+    & .proof__grid {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    & .proof__grid > .proof__card,
+    & .proof__photo {
+      display: none;
+    }
+  }
 }
