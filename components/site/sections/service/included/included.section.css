@@ -78,4 +78,45 @@
     font-weight: 600;
   }
 
+  @media (max-width: 767px) {
+    padding-top: 56px;
+
+    & .section__inner {
+      padding-inline: 0;
+    }
+
+    & .included__band {
+      padding: 48px 22px 40px;
+      border-radius: 0;
+    }
+
+    & .included__head,
+    & .included__body,
+    & .included__lists {
+      grid-template-columns: 1fr;
+    }
+
+    & .included__head {
+      gap: 20px;
+    }
+
+    & .included__body {
+      gap: 32px;
+      margin-top: 28px;
+    }
+
+    & .included__heading {
+      margin-bottom: 12px;
+      font-size: 22px;
+    }
+
+    & .included__item {
+      padding: 12px 0;
+      font-size: 16px;
+    }
+
+    & .included__chip {
+      font-size: 14.5px;
+    }
+  }
 }

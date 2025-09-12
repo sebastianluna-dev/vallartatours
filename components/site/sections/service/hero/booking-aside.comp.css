@@ -160,4 +160,11 @@
     color: var(--color-text-on-white-muted);
   }
 
+  @media (max-width: 767px) {
+    justify-self: stretch;
+    max-width: none;
+    gap: 16px;
+    padding: 22px;
+    scroll-margin-top: 90px;
+  }
 }

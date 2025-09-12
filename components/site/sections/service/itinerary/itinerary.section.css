@@ -77,5 +77,39 @@
   }
 
   /* Phone: a vertical timeline. */
+  @media (max-width: 767px) {
+    padding-top: 56px;
 
+    & .itinerary__list {
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-top: 32px;
+
+      &::before {
+        left: 26px;
+        right: auto;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        height: auto;
+      }
+    }
+
+    & .itinerary__stop {
+      gap: 12px;
+    }
+
+    & .itinerary__time {
+      height: 40px;
+      font-size: 16px;
+    }
+
+    & .itinerary__title {
+      font-size: 22px;
+    }
+
+    & .itinerary__body {
+      font-size: 15.5px;
+    }
+  }
 }

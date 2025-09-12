@@ -79,4 +79,36 @@
     color: var(--color-text-muted);
   }
 
+  @media (max-width: 767px) {
+    padding-top: 56px;
+
+    & .reviews__title {
+      margin-bottom: 24px;
+    }
+
+    & .reviews__list {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+
+    & .reviews__card {
+      padding: 22px;
+
+      &.reviews__card_featured {
+        padding: 28px 22px;
+
+        & .reviews__quote {
+          font-size: 22px;
+        }
+      }
+    }
+
+    & .reviews__quote {
+      font-size: 16.5px;
+    }
+
+    & .reviews__meta {
+      font-size: 15px;
+    }
+  }
 }
