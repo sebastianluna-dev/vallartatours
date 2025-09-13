@@ -117,12 +117,13 @@
     padding: 16px 20px 16px 32px;
   }
 
-  /* The stack: absolute cards, each translated to its slot. */
+  /* The stack: absolute cards, each translated to its slot. It stays inside
+     the content box, so the three visible cards share its right half. */
   & .service-carousel__deck {
     position: absolute;
-    left: 54%;
-    right: -5%;
-    top: 180px;
+    left: 48%;
+    right: var(--site-gutter);
+    top: 160px;
     height: 520px;
     touch-action: pan-y;
   }
@@ -132,7 +133,7 @@
     top: 0;
     left: 0;
     width: calc((100% - 44px) / 3);
-    height: 390px;
+    height: 360px;
     border-radius: var(--radius-media);
     overflow: hidden;
     box-shadow: var(--shadow-float);
@@ -253,7 +254,7 @@
     }
 
     & .service-carousel__deck {
-      left: 50%;
+      left: 46%;
     }
   }
 
