@@ -1,6 +1,6 @@
 .service-carousel {
   position: relative;
-  height: 700px;
+  min-height: 700px;
   overflow: hidden;
   color: var(--color-text);
 
@@ -44,16 +44,20 @@
     background: linear-gradient(to top, var(--color-navy) 0%, rgba(11, 44, 94, 0.72) 42%, rgba(11, 44, 94, 0) 100%);
   }
 
+  /* The copy and the actions flow in the left column; the stack of cards is
+     pinned to the right, so a long title pushes the actions down instead of
+     running into them. */
   & .service-carousel__inner {
     position: relative;
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 700px;
+    padding-top: 130px;
+    padding-bottom: 40px;
   }
 
   /* Re-mounted on every change (`key`), so the animation plays again. */
   & .service-carousel__copy {
-    position: absolute;
-    left: var(--site-gutter);
-    top: 130px;
     width: 38%;
     animation: service-carousel-copy 0.42s var(--ease-out);
   }
@@ -195,12 +199,11 @@
   }
 
   & .service-carousel__actions {
-    position: absolute;
-    left: var(--site-gutter);
-    bottom: 40px;
     display: flex;
     align-items: center;
     gap: 16px;
+    margin-top: auto;
+    padding-top: 40px;
   }
 
   & .service-carousel__arrow {
@@ -256,7 +259,7 @@
 
   /* Phone: copy on top, the fan of cards below it, dots, then the buttons. */
   @media (max-width: 767px) {
-    height: auto;
+    min-height: 0;
 
     &.service-carousel_place_detail {
       margin-top: 56px;
@@ -276,14 +279,12 @@
     }
 
     & .service-carousel__inner {
-      display: flex;
-      flex-direction: column;
+      min-height: 0;
       padding-top: 38px;
       padding-bottom: 62px;
     }
 
     & .service-carousel__copy {
-      position: static;
       width: auto;
       min-height: 214px;
       display: flex;
@@ -421,10 +422,10 @@
     }
 
     & .service-carousel__actions {
-      position: static;
       flex-wrap: wrap;
       gap: 12px;
       margin-top: 16px;
+      padding-top: 0;
     }
 
     & .service-carousel__arrow {

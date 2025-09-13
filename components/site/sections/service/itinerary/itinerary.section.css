@@ -4,8 +4,8 @@
   & .itinerary__list {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 24px;
     margin-top: 56px;
 
     /* The line through the numbers. */
