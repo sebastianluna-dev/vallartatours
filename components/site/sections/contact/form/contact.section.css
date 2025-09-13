@@ -46,4 +46,24 @@
     }
   }
 
+  @media (max-width: 767px) {
+    padding-top: 56px;
+
+    & .contact__inner {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    & .contact__channels {
+      gap: 32px;
+    }
+
+    & .contact__channel-title {
+      font-size: 22px;
+    }
+
+    & .contact__channel-text {
+      font-size: 16px;
+    }
+  }
 }
