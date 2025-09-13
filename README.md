@@ -1,6 +1,11 @@
 # Vallarta WKND
 
-Sitio de **Vallarta WKND**, tours en barco por Bahía de Banderas. Next.js, en español y en inglés (`/` y `/en`), sin CMS ni base de datos.
+Sitio de **Vallarta WKND**, tours en barco por Bahía de Banderas: Arcos – Ánimas – Quimixto, Yelapa – Majahuitas, Islas Marietas, avistamiento de ballenas y charter privado. Cuatro rutas en Next.js (portada, servicios, detalle de cada servicio y contacto), en español y en inglés; no hay CMS ni base de datos: el contenido vive en el repositorio y el sitio se sirve estático.
+
+## Requisitos
+
+- **Node 20.9+** (requisito de Next 16). CI corre con Node 22.
+- Variables de entorno en `.env.local` (copia `.env.example`): sólo `NEXT_PUBLIC_SITE_URL`, la URL pública que usan el sitemap, `robots.txt`, las canónicas y Open Graph. Sin ella se asume el dominio de producción.
 
 ## Puesta en marcha
 
@@ -18,5 +23,60 @@ npm run dev                  # http://localhost:3000 (español) y /en (inglés)
 | `npm run build`                           | Build de producción (todo estático).                    |
 | `npm run start`                           | Sirve el build de producción.                           |
 | `npm run lint`                            | ESLint.                                                 |
-| `npm run typecheck`                       | `next typegen` + `tsc --noEmit`.                        |
+| `npm run typecheck`                       | `next typegen` + `tsc --noEmit`, lo mismo que corre CI. |
+| `npm run test`                            | Vitest, una pasada.                                     |
+| `npm run test:watch`                      | Vitest en modo watch.                                   |
+| `npm run test:coverage`                   | Vitest con cobertura (v8) sobre `lib` y `constants`.    |
 | `npm run format` / `npm run format:check` | Prettier sobre el repo.                                 |
+
+`.github/workflows/ci.yml` corre `lint`, `typecheck`, `test` y `build` en cada push a `main` y en cada pull request.
+
+## Mapa de rutas
+
+| Página               | Español             | Inglés                |
+| -------------------- | ------------------- | --------------------- |
+| Portada              | `/`                 | `/en`                 |
+| Servicios            | `/servicios`        | `/en/services`        |
+| Detalle del servicio | `/servicios/<slug>` | `/en/services/<slug>` |
+| Contacto             | `/contacto`         | `/en/contact`         |
+
+- El español es el idioma por defecto y va sin prefijo. `proxy.ts` (next-intl) añade el segmento de idioma a cada petición, traduce las rutas según `pathnames` de `i18n/routing.ts` y, en la primera visita sin prefijo, redirige a `/en` si el navegador prefiere inglés.
+- Los `<slug>` son los de `constants/services.const.ts` (`arcos-animas-quimixto`, `yelapa-majahuitas`, `islas-marietas`, `avistamiento-de-ballenas`, `charter-privado`) y no se traducen. La portada, los paneles de `/servicios`, el carrusel y el sitemap salen de esa misma lista.
+- `#reservar` en un detalle es la tarjeta de reserva; el buscador de la portada llega ahí con `?fecha=AAAA-MM-DD&personas=N` y la tarjeta lo prellena.
+- Cualquier otra URL bajo un idioma conocido muestra la 404 de `app/[locale]/not-found.tsx`.
+
+Además Next genera `/robots.txt`, `/sitemap.xml` (todas las páginas en los dos idiomas con sus alternativas `hreflang`) y `/icon.svg`.
+
+## Contenido e idiomas
+
+Todo lo que lee el visitante está en `messages/es.json` y `messages/en.json`, con las mismas claves (el español es el catálogo de referencia y da el tipo de `t()`; ver `types/next-intl.d.ts`). Espacios de nombres: `meta` (títulos y descripciones), `common`, `nav`, `footer`, `home.*`, `services`, `service` (rótulos compartidos por los detalles, comodidades y qué llevar), `booking` (la tarjeta de reserva y los mensajes de WhatsApp), `catalog.<slug>` (todo el copy de cada servicio: nombre, blurb, itinerario, incluye/no incluye, preguntas y reseñas), `contact` y `notFound`. Las listas son arrays JSON y se leen con `t.raw` a través de `lib/message-list.ts` (textos) o `lib/message-records.ts` (registros con campos fijos).
+
+Lo que no cambia con el idioma está en `constants/`:
+
+- `site.const.ts`: nombre, correo, teléfono (y el mismo número para WhatsApp), dirección, redes, horario, cifras de la portada (`FIGURES`), el porcentaje del anticipo y el año.
+- `services.const.ts`: los cinco servicios en orden, con foto, precio por persona (o `null` si se cotiza), duración, horas de salida, tamaño de grupo, muelle, temporada, comodidades y qué llevar; más las fotos de las reseñas.
+- `navigation.const.ts`: las tres páginas del menú.
+
+Las imágenes están en `public/images` (JPEG de las fotos de los servicios a 1800 px, los heros, los retratos de las reseñas y el arte del pie en SVG) y la fuente en `public/fonts` (Poppins 400–800, subconjuntos latinos de Google Fonts servidos en local desde `app/[locale]/fonts.ts`).
+
+## Reservas y contacto
+
+No hay backend todavía. «Reservar» (tarjeta de un detalle) arma un mensaje de WhatsApp con el servicio, la fecha, la hora y las personas elegidas (`lib/build-whatsapp-url.ts`) y lo abre en `wa.me`; el total y el anticipo del 30% se calculan en `lib/booking-total.ts`. El formulario de contacto abre el correo del visitante con el mensaje escrito (`lib/build-mailto-url.ts`). Los dos puntos están aislados para cambiarlos por un endpoint cuando exista (ver `IMPROVEMENTS.md`).
+
+## Arquitectura en breve
+
+- **`app/[locale]/`**: layout (fuente, metadatos base, proveedor de next-intl, cabecera y pie), `page.tsx` (compone las secciones de `config/site.config.ts`), `servicios/page.tsx`, `servicios/[slug]/page.tsx` (una por servicio e idioma con `generateStaticParams`), `contacto/page.tsx`, la 404 y `globals.css` (tokens y clases compartidas). `robots.ts`, `sitemap.ts` e `icon.svg` quedan en `app/`.
+- **`proxy.ts`** e **`i18n/`**: rutas por idioma y traducidas (`routing.ts`), carga de mensajes por petición (`request.ts`) y `Link`/`usePathname`/`getPathname` conscientes del idioma (`navigation.ts`).
+- **`components/site/sections/`**: `shell/` (cabecera con navegación activa, menú del teléfono y botón de reservar; pie) y una carpeta por página: `home/` (hero con buscador, carrusel, tres pasos, cifras y reseñas), `services/` (hero y paneles), `service/` (hero con la tarjeta de reserva, itinerario, incluido, reseñas, preguntas) y `contact/` (hero, formulario y canales). Cada `.section.tsx` o `.comp.tsx` importa su propio `.css`.
+- **`components/site/shared/`**: iconos, logo, hero de página, carrusel de servicios (escritorio y teléfono con un solo DOM), selector de idioma, redes y el ornamento de olas.
+- **`hooks/`**: `use-carousel.hook.ts` (índice circular, flechas y swipe).
+- **`lib/`**: funciones puras con test al lado (`*.test.ts`).
+- **`constants/`** y **`messages/`**: el contenido (ver arriba).
+
+Los componentes de cliente son los que tienen estado o leen la URL: el menú del teléfono, la navegación (marca la página activa), el selector de idioma (conserva la página al cambiar), el carrusel, el buscador del hero, la tarjeta de reserva y el formulario de contacto. Todo lo demás son Server Components.
+
+## Despliegue en Vercel
+
+Basta con conectar el repositorio: no hay variables obligatorias. Define `NEXT_PUBLIC_SITE_URL` con el dominio final para que el sitemap y las canónicas lo usen.
+
+Las convenciones de código están en `AGENTS.md`; la deuda conocida, en `IMPROVEMENTS.md`; las tareas mecánicas, en `todos.md`.
