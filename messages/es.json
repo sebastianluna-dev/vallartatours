@@ -52,7 +52,7 @@
   "home": {
     "hero": {
       "rating": "{rating} · {reviews} reseñas",
-      "title": "Tres días de bahía,<br></br>cero logística",
+      "title": "Tres días de bahía, <br></br>cero logística",
       "lead": "Islas, snorkel y atardeceres con tripulación local. Tú eliges el fin de semana; nosotros ponemos el barco.",
       "photoAlt": "Playa de Bahía de Banderas al atardecer",
       "travelers": "<strong>{count} viajeros</strong> han salido con nosotros",
@@ -86,7 +86,7 @@
       ]
     },
     "proof": {
-      "title": "Lo que dejan<br></br>nuestros<br></br>fines de semana",
+      "title": "Lo que dejan <br></br>nuestros <br></br>fines de semana",
       "travelers": "viajeros",
       "tours": "tours",
       "years": "años en la bahía",
@@ -147,7 +147,7 @@
     "next": "Siguiente servicio",
     "others": "Otros servicios",
     "itineraryTitle": "Cómo se reparte el día",
-    "includedTitle": "Lo que va incluido y<br></br><accent>lo que no</accent>",
+    "includedTitle": "Lo que va incluido y <br></br><accent>lo que no</accent>",
     "includes": "Incluye",
     "excludes": "No incluye",
     "bring": "Qué llevar",

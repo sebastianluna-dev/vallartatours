@@ -52,7 +52,7 @@
   "home": {
     "hero": {
       "rating": "{rating} · {reviews} reviews",
-      "title": "Three days of bay,<br></br>zero logistics",
+      "title": "Three days of bay, <br></br>zero logistics",
       "lead": "Islands, snorkelling and sunsets with a local crew. You pick the weekend; we bring the boat.",
       "photoAlt": "A Banderas Bay beach at sunset",
       "travelers": "<strong>{count} travellers</strong> have sailed with us",
@@ -86,7 +86,7 @@
       ]
     },
     "proof": {
-      "title": "What our<br></br>weekends<br></br>leave behind",
+      "title": "What our <br></br>weekends <br></br>leave behind",
       "travelers": "travellers",
       "tours": "tours",
       "years": "years on the bay",
@@ -147,7 +147,7 @@
     "next": "Next service",
     "others": "Other services",
     "itineraryTitle": "How the day goes",
-    "includedTitle": "What is included and<br></br><accent>what is not</accent>",
+    "includedTitle": "What is included and <br></br><accent>what is not</accent>",
     "includes": "Included",
     "excludes": "Not included",
     "bring": "What to bring",
