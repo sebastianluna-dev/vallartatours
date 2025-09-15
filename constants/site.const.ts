@@ -29,4 +29,4 @@ export const FIGURES = {
 /** Share of the total paid when booking, as the "three steps" copy says. */
 export const DEPOSIT_RATE = 0.3;
 
-export const SITE_YEAR = 2026;
+export const SITE_YEAR = 2025;
