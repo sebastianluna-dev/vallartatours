@@ -15,6 +15,8 @@ const PAGES: { href: Href; priority: number }[] = [
     href: { pathname: "/servicios/[slug]", params: { slug } } as Href,
     priority: 0.8,
   })),
+  { href: "/terminos", priority: 0.2 },
+  { href: "/privacidad", priority: 0.2 },
 ];
 
 function absolute(locale: Locale, href: Href): string {
