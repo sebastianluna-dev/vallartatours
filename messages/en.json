@@ -15,6 +15,14 @@
     "contact": {
       "title": "Contact | Vallarta WKND",
       "description": "Write to us and we will get back to you. We answer every day from 7:00 am to 9:00 pm."
+    },
+    "terms": {
+      "title": "Terms and conditions | Vallarta WKND",
+      "description": "Bookings, deposit, cancellations, weather and safety on board: the rules we run every trip in Bahía de Banderas by."
+    },
+    "privacy": {
+      "title": "Privacy notice | Vallarta WKND",
+      "description": "What personal data we collect for your booking, what we use it for and how you exercise your data rights."
     }
   },
   "common": {
@@ -634,6 +642,103 @@
         "title": "Contact",
         "line2": "We answer in under 10 minutes"
       }
+    }
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "index": "On this page",
+    "contactTitle": "Something unclear?",
+    "contactBody": "Write to us before you book and we will go through it with you.",
+    "contactLink": "Go to contact",
+    "terms": {
+      "title": "Terms and conditions",
+      "lead": "The rules we run every trip by: what a booking covers, what happens when the weather turns and what we expect from everyone on board.",
+      "updated": "Last updated: 12 September 2025",
+      "sections": [
+        {
+          "heading": "Who runs the trips",
+          "body": "Vallarta WKND runs boat trips inside Bahía de Banderas with local captains and crew. Booking any of our experiences means you accept these terms; if any of them does not work for you, write to us before you confirm."
+        },
+        {
+          "heading": "Bookings and deposit",
+          "body": "A booking is confirmed once we receive the 30% deposit; the rest is paid on the day of the trip, before we cast off. Seats are held in the order they are confirmed, not in the order they are asked for."
+        },
+        {
+          "heading": "Changes and cancellations",
+          "body": "You can move or cancel your trip free of charge up to 48 hours before departure and we return the full deposit. Inside those 48 hours the deposit stays with us as credit, good for six months on the date you choose."
+        },
+        {
+          "heading": "Weather and sea conditions",
+          "body": "Safety comes first: the captain may delay, shorten, reroute or cancel a trip because of wind, swell or a port authority notice. When the cancellation is ours, you choose between moving the date and getting everything you paid back."
+        },
+        {
+          "heading": "Timing and boarding",
+          "body": "Please arrive 30 minutes before departure at the dock named in your confirmation. The boat cannot wait for latecomers, and in that case the trip counts as taken."
+        },
+        {
+          "heading": "Safety on board",
+          "body": "Life jackets are compulsory while under way and the captain's instructions are followed at all times. We may refuse boarding, or end a trip, if someone puts the group at risk or arrives in no condition to sail."
+        },
+        {
+          "heading": "Minors, health and responsibility",
+          "body": "Minors always travel with a responsible adult. If you are pregnant, have reduced mobility or a condition that gets worse at sea, tell us when you book: some activities, snorkelling among them, may not be for you."
+        },
+        {
+          "heading": "Prices and payment",
+          "body": "Prices are published in Mexican pesos per person and include what each experience lists. We may update them at any time, but they never change the price of a booking that is already confirmed."
+        },
+        {
+          "heading": "Photographs and content",
+          "body": "The copy, photographs and marks on this site are ours or used with permission. If we take pictures on board and want to publish them, we ask you first; saying no changes nothing about your trip."
+        },
+        {
+          "heading": "Applicable law",
+          "body": "These terms are governed by the laws of Mexico, and anything that needs sorting out is handled first between us, in Puerto Vallarta, Jalisco, or before PROFECO where that applies."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Privacy notice",
+      "lead": "What we ask for in order to take you out to sea, what we use it for and how you ask us to delete it.",
+      "updated": "Last updated: 12 September 2025",
+      "sections": [
+        {
+          "heading": "Who is responsible for your data",
+          "body": "Vallarta WKND, based in Puerto Vallarta, Jalisco, is responsible for the personal data you share with us through this site, over WhatsApp or by phone."
+        },
+        {
+          "heading": "What we collect",
+          "body": "Only what a trip needs: name, phone number, email address, date, departure time and number of people. If you tell us something about your health that matters for the activity, we keep it only until the trip is over."
+        },
+        {
+          "heading": "What we use it for",
+          "body": "To confirm your booking, arrange boarding, warn you about weather changes, issue your receipt and answer your questions before and after the trip."
+        },
+        {
+          "heading": "Additional purposes",
+          "body": "If you let us, we write now and then about seasons and offers. You can ask us to stop at any time and you will still be able to book exactly as before."
+        },
+        {
+          "heading": "Who we share it with",
+          "body": "With the captain and crew of your trip, and with the payment processor when you pay by card. We do not sell or trade your data with third parties for advertising."
+        },
+        {
+          "heading": "Your data rights",
+          "body": "You can access, correct or delete your data, or object to its use, by writing to our contact address. We answer within 20 working days and ask nothing in return."
+        },
+        {
+          "heading": "Cookies and analytics",
+          "body": "The site uses no advertising or profiling cookies. We store only the minimum in your browser, so it remembers the language you are reading in."
+        },
+        {
+          "heading": "How long we keep it",
+          "body": "Booking data is kept for as long as tax and accounting rules require; everything else is deleted once there is no reason to hold on to it."
+        },
+        {
+          "heading": "Changes to this notice",
+          "body": "When something important changes we publish it here and update the date at the top. The version on this page is always the one in force."
+        }
+      ]
     }
   },
   "notFound": {

@@ -15,6 +15,14 @@
     "contact": {
       "title": "Contacto | Vallarta WKND",
       "description": "Escríbenos y nos ponemos en contacto contigo. Contestamos todos los días de 7:00 am a 9:00 pm."
+    },
+    "terms": {
+      "title": "Términos y condiciones | Vallarta WKND",
+      "description": "Reservas, anticipo, cancelaciones, clima y seguridad a bordo: las reglas con las que operamos cada salida en Bahía de Banderas."
+    },
+    "privacy": {
+      "title": "Aviso de privacidad | Vallarta WKND",
+      "description": "Qué datos personales recabamos para tu reserva, para qué los usamos y cómo ejerces tus derechos ARCO."
     }
   },
   "common": {
@@ -639,6 +647,103 @@
         "title": "Contacto",
         "line2": "Respondemos en menos de 10 minutos"
       }
+    }
+  },
+  "legal": {
+    "eyebrow": "Legal",
+    "index": "En esta página",
+    "contactTitle": "¿Algo no queda claro?",
+    "contactBody": "Escríbenos antes de reservar y lo aclaramos contigo.",
+    "contactLink": "Ir a contacto",
+    "terms": {
+      "title": "Términos y condiciones",
+      "lead": "Las reglas con las que operamos cada salida: qué incluye una reserva, qué pasa si cambia el clima y qué esperamos de quien sube a bordo.",
+      "updated": "Última actualización: 12 de septiembre de 2025",
+      "sections": [
+        {
+          "heading": "Quién presta el servicio",
+          "body": "Vallarta WKND opera paseos en embarcación dentro de Bahía de Banderas con capitanes y tripulación local. Al reservar cualquiera de nuestras experiencias aceptas estos términos; si no estás de acuerdo con alguno, escríbenos antes de confirmar."
+        },
+        {
+          "heading": "Reservas y anticipo",
+          "body": "Una reserva queda confirmada cuando recibimos el anticipo del 30% del total; el resto se liquida el día de la salida, antes de zarpar. Los lugares se apartan por orden de confirmación y no por orden de solicitud."
+        },
+        {
+          "heading": "Cambios y cancelaciones",
+          "body": "Puedes reprogramar o cancelar sin costo hasta 48 horas antes de la salida y te devolvemos el anticipo completo. Dentro de las 48 horas previas el anticipo se conserva como crédito por seis meses para la fecha que elijas."
+        },
+        {
+          "heading": "Clima y condiciones del mar",
+          "body": "La seguridad manda: el capitán puede retrasar, acortar, cambiar la ruta o cancelar una salida por viento, oleaje o aviso de la capitanía de puerto. Si la cancelación es nuestra, eliges entre reprogramar o recibir la devolución de todo lo pagado."
+        },
+        {
+          "heading": "Puntualidad y abordaje",
+          "body": "Te pedimos llegar 30 minutos antes de la hora de salida al muelle indicado en tu confirmación. El barco no puede esperar a quien llega tarde, y en ese caso la salida se considera tomada."
+        },
+        {
+          "heading": "Seguridad a bordo",
+          "body": "El chaleco salvavidas es obligatorio durante la navegación y las indicaciones del capitán se siguen en todo momento. Nos reservamos el derecho de no permitir el abordaje, o de terminar la salida, si alguien pone en riesgo al grupo o llega en estado inconveniente."
+        },
+        {
+          "heading": "Menores, salud y responsabilidad",
+          "body": "Los menores viajan siempre acompañados de un adulto responsable. Si estás embarazada, tienes movilidad reducida o una condición médica que se agrave en el mar, avísanos al reservar: algunas actividades, como el esnórquel, pueden no ser para ti."
+        },
+        {
+          "heading": "Precios y pagos",
+          "body": "Los precios se publican en pesos mexicanos por persona e incluyen lo que aparece en cada experiencia. Podemos actualizarlos en cualquier momento, pero nunca cambian el precio de una reserva ya confirmada."
+        },
+        {
+          "heading": "Fotografías y contenido",
+          "body": "Los textos, fotografías y marcas de este sitio son nuestros o los usamos con permiso. Si tomamos fotos a bordo y queremos publicarlas, te lo pedimos antes; puedes negarte sin que cambie nada de tu experiencia."
+        },
+        {
+          "heading": "Ley aplicable",
+          "body": "Estos términos se rigen por las leyes de los Estados Unidos Mexicanos y cualquier aclaración se atiende primero entre nosotros, en Puerto Vallarta, Jalisco, o ante la PROFECO cuando así corresponda."
+        }
+      ]
+    },
+    "privacy": {
+      "title": "Aviso de privacidad",
+      "lead": "Qué datos te pedimos para llevarte al mar, para qué los usamos y cómo pides que los borremos.",
+      "updated": "Última actualización: 12 de septiembre de 2025",
+      "sections": [
+        {
+          "heading": "Quién es responsable de tus datos",
+          "body": "Vallarta WKND, con domicilio en Puerto Vallarta, Jalisco, es responsable del tratamiento de los datos personales que nos compartes por este sitio, por WhatsApp o por teléfono."
+        },
+        {
+          "heading": "Qué datos recabamos",
+          "body": "Sólo los necesarios para armar la salida: nombre, teléfono, correo electrónico, fecha, horario y número de personas. Si nos cuentas algo de salud relevante para la actividad, lo guardamos únicamente hasta que termina el paseo."
+        },
+        {
+          "heading": "Para qué los usamos",
+          "body": "Para confirmar tu reserva, coordinar el abordaje, avisarte de cambios por clima, emitir tu comprobante de pago y responder tus dudas antes y después de la salida."
+        },
+        {
+          "heading": "Finalidades adicionales",
+          "body": "Si nos das permiso, te escribimos de vez en cuando con temporadas y promociones. Puedes pedirnos que dejemos de hacerlo en cualquier momento y seguirás pudiendo reservar igual."
+        },
+        {
+          "heading": "Con quién los compartimos",
+          "body": "Con el capitán y la tripulación de tu salida, y con el procesador de pagos cuando pagas con tarjeta. No vendemos ni intercambiamos tus datos con terceros para fines publicitarios."
+        },
+        {
+          "heading": "Tus derechos ARCO",
+          "body": "Puedes acceder a tus datos, rectificarlos, cancelarlos u oponerte a su uso escribiéndonos a nuestro correo de contacto. Respondemos en un máximo de 20 días hábiles y no te pedimos nada a cambio."
+        },
+        {
+          "heading": "Cookies y medición",
+          "body": "El sitio no usa cookies de publicidad ni perfilado. Sólo guardamos en tu navegador lo mínimo para recordar el idioma en el que navegas."
+        },
+        {
+          "heading": "Cuánto tiempo los conservamos",
+          "body": "Los datos de una reserva se conservan el tiempo que exige la normativa fiscal y contable; el resto se elimina cuando deja de tener sentido guardarlo."
+        },
+        {
+          "heading": "Cambios a este aviso",
+          "body": "Cuando cambie algo importante lo publicamos aquí y actualizamos la fecha del encabezado. La versión vigente es siempre la que aparece en esta página."
+        }
+      ]
     }
   },
   "notFound": {
