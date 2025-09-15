@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { SocialLinks } from "@/components/site/shared/social-links.comp";
-import { NAV_ITEMS } from "@/constants/navigation.const";
+import { LEGAL_LINKS, NAV_ITEMS } from "@/constants/navigation.const";
 import { SITE, SITE_YEAR } from "@/constants/site.const";
 import { Link } from "@/i18n/navigation";
 import { buildWhatsappUrl } from "@/lib/build-whatsapp-url";
@@ -66,16 +66,13 @@ export function Footer() {
         </div>
 
         <ul className="footer__legal">
-          <li>
-            <a className="footer__link" href="#">
-              {t("terms")}
-            </a>
-          </li>
-          <li>
-            <a className="footer__link" href="#">
-              {t("privacy")}
-            </a>
-          </li>
+          {LEGAL_LINKS.map((item) => (
+            <li key={item.key}>
+              <Link className="footer__link" href={item.href}>
+                {t(item.key)}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -98,16 +95,13 @@ export function Footer() {
       <div className="section__inner footer__bottom">
         <span>{t("copyright", { year: SITE_YEAR })}</span>
         <ul className="footer__legal footer__legal_place_bottom">
-          <li>
-            <a className="footer__link" href="#">
-              {t("terms")}
-            </a>
-          </li>
-          <li>
-            <a className="footer__link" href="#">
-              {t("privacy")}
-            </a>
-          </li>
+          {LEGAL_LINKS.map((item) => (
+            <li key={item.key}>
+              <Link className="footer__link" href={item.href}>
+                {t(item.key)}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </footer>
