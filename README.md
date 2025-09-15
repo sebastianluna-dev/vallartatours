@@ -1,6 +1,6 @@
 # Vallarta WKND
 
-Sitio de **Vallarta WKND**, tours en barco por Bahía de Banderas: Arcos – Ánimas – Quimixto, Yelapa – Majahuitas, Islas Marietas, avistamiento de ballenas y charter privado. Cuatro rutas en Next.js (portada, servicios, detalle de cada servicio y contacto), en español y en inglés; no hay CMS ni base de datos: el contenido vive en el repositorio y el sitio se sirve estático.
+Sitio de **Vallarta WKND**, tours en barco por Bahía de Banderas: Arcos – Ánimas – Quimixto, Yelapa – Majahuitas, Islas Marietas, avistamiento de ballenas y charter privado. Seis rutas en Next.js (portada, servicios, detalle de cada servicio, contacto y los dos documentos legales), en español y en inglés; no hay CMS ni base de datos: el contenido vive en el repositorio y el sitio se sirve estático.
 
 ## Requisitos
 
@@ -39,10 +39,13 @@ npm run dev                  # http://localhost:3000 (español) y /en (inglés)
 | Servicios            | `/servicios`        | `/en/services`        |
 | Detalle del servicio | `/servicios/<slug>` | `/en/services/<slug>` |
 | Contacto             | `/contacto`         | `/en/contact`         |
+| Términos             | `/terminos`         | `/en/terms`           |
+| Aviso de privacidad  | `/privacidad`       | `/en/privacy`         |
 
 - El español es el idioma por defecto y va sin prefijo. `proxy.ts` (next-intl) añade el segmento de idioma a cada petición, traduce las rutas según `pathnames` de `i18n/routing.ts` y, en la primera visita sin prefijo, redirige a `/en` si el navegador prefiere inglés.
 - Los `<slug>` son los de `constants/services.const.ts` (`arcos-animas-quimixto`, `yelapa-majahuitas`, `islas-marietas`, `avistamiento-de-ballenas`, `charter-privado`) y no se traducen. La portada, los paneles de `/servicios`, el carrusel y el sitemap salen de esa misma lista.
 - `#reservar` en un detalle es la tarjeta de reserva; el buscador de la portada llega ahí con `?fecha=AAAA-MM-DD&personas=N` y la tarjeta lo prellena.
+- Los dos documentos legales comparten sección (`components/site/sections/legal/document/`) y su copy está en `legal.terms` y `legal.privacy`; el pie enlaza a los dos desde `LEGAL_LINKS` de `constants/navigation.const.ts`.
 - Cualquier otra URL bajo un idioma conocido muestra la 404 de `app/[locale]/not-found.tsx`.
 
 Además Next genera `/robots.txt`, `/sitemap.xml` (todas las páginas en los dos idiomas con sus alternativas `hreflang`) y `/icon.svg`.

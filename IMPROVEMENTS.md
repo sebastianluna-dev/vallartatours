@@ -3,7 +3,7 @@
 Backlog of the project's technical debt and improvements. Every entry carries an **area**, a
 **priority** (low · medium · high) and a guide on how to approach it.
 
-> Last review: 2026-09-13. What is still open is at the top; what is already resolved is left
+> Last review: 2025-09-15. What is still open is at the top; what is already resolved is left
 > noted with what was done, so it is not reopened.
 
 ---
@@ -45,12 +45,6 @@ pages use the service photo). Add an `app/[locale]/opengraph-image.tsx` with `Im
 (wordmark on navy with the lime accent) and load Poppins from `public/fonts` inside it; the
 layout's `metadataBase` already makes the relative URL absolute.
 
-### 5. Terms and privacy pages — [Legal]
-
-The footer links to «Términos y condiciones» and «Aviso de privacidad» with `href="#"`. They
-need two static pages under `app/[locale]/` with their own `pathnames` entries in
-`i18n/routing.ts` and their copy in the messages.
-
 ### 6. Whale season in the booking card — [Product]
 
 `services.const.ts` records the whale season (December to March) but the booking card accepts
@@ -76,3 +70,14 @@ one. Keep it off under `prefers-reduced-motion`.
 The service carousel stacks the five background photos and crossfades them with opacity, so the
 five 1800 px images are requested on the home. Loading only the active and the next one (and
 swapping on change) would save a few hundred kilobytes on the first visit.
+
+---
+
+## Resolved
+
+### Terms and privacy pages — [Legal] · 2025-09-15
+
+`/terminos` (`/en/terms`) and `/privacidad` (`/en/privacy`) render from one section,
+`components/site/sections/legal/document/`, with the copy in `legal.terms` and `legal.privacy`
+and the crew's data read from `constants/site.const.ts`. The footer links to both from
+`LEGAL_LINKS` and the sitemap lists them. The copy still needs a lawyer's review (`todos.md`).
