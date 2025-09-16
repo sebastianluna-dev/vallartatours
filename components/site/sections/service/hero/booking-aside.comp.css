@@ -137,6 +137,33 @@
     }
   }
 
+  /* Season of a trip that does not run all year. It is a quiet line until
+     the chosen date falls outside the season; then it turns into a warning. */
+  & .booking-aside__season {
+    display: flex;
+    gap: 8px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--color-text-on-white-muted);
+
+    &::before {
+      content: "";
+      flex: none;
+      width: 3px;
+      border-radius: 3px;
+      background: var(--color-line-on-white);
+    }
+
+    &.booking-aside__season_state_out {
+      color: var(--color-text-on-white);
+      font-weight: 500;
+
+      &::before {
+        background: var(--color-sky);
+      }
+    }
+  }
+
   & .booking-aside__note {
     font-size: 15px;
     line-height: 1.5;

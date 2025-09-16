@@ -208,6 +208,8 @@
     "total": "Total",
     "deposit": "Hoy pagas {amount} de anticipo",
     "pickDate": "Elige una fecha para confirmar disponibilidad",
+    "season": "Esta salida opera de {from} a {to}.",
+    "seasonNotice": "Esa fecha queda fuera de temporada: sólo salimos de {from} a {to}. Elige otra fecha o escríbenos y te proponemos otra experiencia.",
     "submit": "{count, plural, =1 {Reservar un lugar} other {Reservar # lugares}}",
     "submitQuote": "Pedir cotización",
     "quoteNote": "El precio depende de la ruta, las horas y el grupo. Te cotizamos por WhatsApp el mismo día.",

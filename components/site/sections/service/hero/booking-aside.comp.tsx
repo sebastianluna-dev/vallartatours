@@ -7,9 +7,11 @@ import type { Service } from "@/constants/services.const";
 import { DEPOSIT_RATE, SITE } from "@/constants/site.const";
 import { bookingTotal } from "@/lib/booking-total";
 import { buildWhatsappUrl } from "@/lib/build-whatsapp-url";
+import { formatMonth } from "@/lib/format-month";
 import { formatPrice } from "@/lib/format-price";
 import { formatTime } from "@/lib/format-time";
 import { localeTag } from "@/lib/locale-tag";
+import { isDateInSeason } from "@/lib/season";
 import "./booking-aside.comp.css";
 
 interface BookingAsideProps {
@@ -55,6 +57,11 @@ export function BookingAside({ service, initialDate = null, initialPeople = null
         new Date(date),
       )
     : null;
+  // A seasonal trip (the whales, December to March) says so under the date,
+  // and warns when the date that was picked falls outside it.
+  const season = service.season;
+  const seasonMonths = season ? { from: formatMonth(season.from, locale), to: formatMonth(season.to, locale) } : null;
+  const outOfSeason = !isDateInSeason(season, date);
   const messageKey = service.price === null ? "quoteMessage" : "message";
   const message = t(dateLabel ? messageKey : `${messageKey}NoDate`, {
     service: tCatalog("name"),
@@ -111,6 +118,17 @@ export function BookingAside({ service, initialDate = null, initialPeople = null
           </select>
         </label>
       </div>
+
+      {seasonMonths ? (
+        <p
+          className={["booking-aside__season", outOfSeason && "booking-aside__season_state_out"]
+            .filter(Boolean)
+            .join(" ")}
+          role={outOfSeason ? "status" : undefined}
+        >
+          {t(outOfSeason ? "seasonNotice" : "season", seasonMonths)}
+        </p>
+      ) : null}
 
       {totals && service.price !== null ? (
         <dl className="booking-aside__summary">

@@ -208,6 +208,8 @@
     "total": "Total",
     "deposit": "You pay a {amount} deposit today",
     "pickDate": "Pick a date to confirm availability",
+    "season": "This trip runs from {from} to {to}.",
+    "seasonNotice": "That date is out of season: we only sail from {from} to {to}. Pick another date, or write to us and we will suggest another trip.",
     "submit": "{count, plural, =1 {Book one spot} other {Book # spots}}",
     "submitQuote": "Request a quote",
     "quoteNote": "The price depends on the route, the hours and the group. We quote on WhatsApp the same day.",
