@@ -1,6 +1,10 @@
 {
   "meta": {
     "siteName": "Vallarta WKND",
+    "og": {
+      "tagline": "Tú eliges el fin de semana; nosotros ponemos el barco.",
+      "places": "Islas Marietas · Los Arcos · Yelapa · Ballenas"
+    },
     "home": {
       "title": "Vallarta WKND | Tours en barco por Bahía de Banderas",
       "description": "Islas Marietas, Los Arcos, Yelapa, avistamiento de ballenas y charters privados con tripulación local. Tú eliges el fin de semana; nosotros ponemos el barco."

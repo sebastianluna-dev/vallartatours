@@ -1,6 +1,10 @@
 {
   "meta": {
     "siteName": "Vallarta WKND",
+    "og": {
+      "tagline": "You pick the weekend; we bring the boat.",
+      "places": "Islas Marietas · Los Arcos · Yelapa · Whales"
+    },
     "home": {
       "title": "Vallarta WKND | Boat tours around Banderas Bay",
       "description": "Marietas Islands, Los Arcos, Yelapa, whale watching and private charters with a local crew. You pick the weekend; we bring the boat."
