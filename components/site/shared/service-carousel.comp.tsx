@@ -38,7 +38,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
   const tCatalog = useTranslations("catalog");
   const locale = useLocale();
   const count = services.length;
-  const { active, select, next, prev, swipeHandlers } = useCarousel(count, initial);
+  const { active, loaded, select, next, prev, swipeHandlers } = useCarousel(count, initial);
   const current = services[active];
 
   const priceOf = (service: Service) => (service.price === null ? t("quote") : formatPrice(service.price, locale));
@@ -54,19 +54,21 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
       aria-label={eyebrow ?? t("others")}
     >
       <div className="service-carousel__stage" aria-hidden="true">
-        {services.map((service, index) => (
-          <Image
-            key={service.slug}
-            className={["service-carousel__photo", index === active && "service-carousel__photo_active"]
-              .filter(Boolean)
-              .join(" ")}
-            src={service.photo.src}
-            alt=""
-            fill
-            sizes="100vw"
-            priority={index === active}
-          />
-        ))}
+        {services.map((service, index) =>
+          loaded.includes(index) ? (
+            <Image
+              key={service.slug}
+              className={["service-carousel__photo", index === active && "service-carousel__photo_active"]
+                .filter(Boolean)
+                .join(" ")}
+              src={service.photo.src}
+              alt=""
+              fill
+              sizes="100vw"
+              priority={index === initial}
+            />
+          ) : null,
+        )}
         <div className="service-carousel__veil" />
         <div className="service-carousel__fade" />
       </div>
