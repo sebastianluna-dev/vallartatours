@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Reveal } from "@/components/site/shared/reveal.comp";
 import { WaveMark } from "@/components/site/shared/wave-mark.comp";
 import { SITE } from "@/constants/site.const";
 import { buildWhatsappUrl } from "@/lib/build-whatsapp-url";
@@ -25,14 +26,14 @@ export function StepsSection() {
           </div>
           <ol className="steps__list">
             {steps.map((step, index) => (
-              <li key={step.title} className="steps__item">
+              <Reveal as="li" key={step.title} className="steps__item" order={index}>
                 <span className="steps__number" aria-hidden="true">
                   {index + 1}
                 </span>
                 <span className="steps__index">{formatIndex(index)}</span>
                 <h3 className="steps__item-title">{step.title}</h3>
                 <p className="steps__item-body">{step.body}</p>
-              </li>
+              </Reveal>
             ))}
           </ol>
           <div className="steps__foot">

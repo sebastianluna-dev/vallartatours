@@ -1,5 +1,6 @@
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
+import { Reveal } from "@/components/site/shared/reveal.comp";
 import { HOME_REVIEW_PHOTOS, PROOF_PHOTO } from "@/constants/services.const";
 import { FIGURES } from "@/constants/site.const";
 import { formatNumber } from "@/lib/format-price";
@@ -37,7 +38,7 @@ export function ProofSection() {
               <dt>{t("reviewsCount", { count: FIGURES.reviews })}</dt>
             </div>
           </dl>
-          <blockquote className="proof__card proof__card_style_photo">
+          <Reveal as="blockquote" className="proof__card proof__card_style_photo">
             <Image className="proof__card-photo" src={HOME_REVIEW_PHOTOS[0].src} alt="" width={178} height={356} />
             <div className="proof__card-body">
               <span className="stars stars_tone_navy" aria-hidden="true">
@@ -48,11 +49,11 @@ export function ProofSection() {
                 {first.author} · {first.trip}
               </footer>
             </div>
-          </blockquote>
+          </Reveal>
         </div>
 
         <div className="proof__grid">
-          <blockquote className="proof__card proof__card_style_photo proof__card_span_2">
+          <Reveal as="blockquote" className="proof__card proof__card_style_photo proof__card_span_2">
             <Image className="proof__card-photo" src={HOME_REVIEW_PHOTOS[1].src} alt="" width={178} height={356} />
             <div className="proof__card-body">
               <span className="stars stars_tone_navy" aria-hidden="true">
@@ -63,13 +64,13 @@ export function ProofSection() {
                 {second.author} · {second.trip}
               </footer>
             </div>
-          </blockquote>
+          </Reveal>
           <Image className="proof__photo" src={PROOF_PHOTO.src} alt={t("photoAlt")} width={178} height={356} />
           <div className="proof__figure proof__figure_tone_lime proof__figure_size_large">
             <dd>{FIGURES.returning}%</dd>
             <dt>{t("returning")}</dt>
           </div>
-          <blockquote className="proof__card proof__card_style_glass proof__card_span_2">
+          <Reveal as="blockquote" className="proof__card proof__card_style_glass proof__card_span_2" order={1}>
             <Image className="proof__avatar" src={HOME_REVIEW_PHOTOS[2].src} alt="" width={64} height={64} />
             <div>
               <p className="proof__quote">“{third.quote}”</p>
@@ -77,8 +78,8 @@ export function ProofSection() {
                 {third.author} · {third.trip}
               </footer>
             </div>
-          </blockquote>
-          <blockquote className="proof__card proof__card_style_glass proof__card_span_2">
+          </Reveal>
+          <Reveal as="blockquote" className="proof__card proof__card_style_glass proof__card_span_2" order={2}>
             <Image className="proof__avatar" src={HOME_REVIEW_PHOTOS[3].src} alt="" width={64} height={64} />
             <div>
               <p className="proof__quote">“{fourth.quote}”</p>
@@ -86,7 +87,7 @@ export function ProofSection() {
                 {fourth.author} · {fourth.trip}
               </footer>
             </div>
-          </blockquote>
+          </Reveal>
         </div>
       </div>
     </section>
