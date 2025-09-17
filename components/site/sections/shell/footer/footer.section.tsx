@@ -68,7 +68,7 @@ export function Footer() {
         <ul className="footer__legal">
           {LEGAL_LINKS.map((item) => (
             <li key={item.key}>
-              <Link className="footer__link" href={item.href}>
+              <Link className="footer__link" href={item.href} prefetch={false}>
                 {t(item.key)}
               </Link>
             </li>
@@ -97,7 +97,7 @@ export function Footer() {
         <ul className="footer__legal footer__legal_place_bottom">
           {LEGAL_LINKS.map((item) => (
             <li key={item.key}>
-              <Link className="footer__link" href={item.href}>
+              <Link className="footer__link" href={item.href} prefetch={false}>
                 {t(item.key)}
               </Link>
             </li>
