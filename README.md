@@ -48,19 +48,19 @@ npm run dev                  # http://localhost:3000 (español) y /en (inglés)
 - Los dos documentos legales comparten sección (`components/site/sections/legal/document/`) y su copy está en `legal.terms` y `legal.privacy`; el pie enlaza a los dos desde `LEGAL_LINKS` de `constants/navigation.const.ts`.
 - Cualquier otra URL bajo un idioma conocido muestra la 404 de `app/[locale]/not-found.tsx`.
 
-Además Next genera `/robots.txt`, `/sitemap.xml` (todas las páginas en los dos idiomas con sus alternativas `hreflang`) y `/icon.svg`.
+Además Next genera `/robots.txt`, `/sitemap.xml` (todas las páginas en los dos idiomas con sus alternativas `hreflang`), `/icon.svg` y la tarjeta de Open Graph de cada idioma.
 
 ## Contenido e idiomas
 
-Todo lo que lee el visitante está en `messages/es.json` y `messages/en.json`, con las mismas claves (el español es el catálogo de referencia y da el tipo de `t()`; ver `types/next-intl.d.ts`). Espacios de nombres: `meta` (títulos y descripciones), `common`, `nav`, `footer`, `home.*`, `services`, `service` (rótulos compartidos por los detalles, comodidades y qué llevar), `booking` (la tarjeta de reserva y los mensajes de WhatsApp), `catalog.<slug>` (todo el copy de cada servicio: nombre, blurb, itinerario, incluye/no incluye, preguntas y reseñas), `contact` y `notFound`. Las listas son arrays JSON y se leen con `t.raw` a través de `lib/message-list.ts` (textos) o `lib/message-records.ts` (registros con campos fijos).
+Todo lo que lee el visitante está en `messages/es.json` y `messages/en.json`, con las mismas claves (el español es el catálogo de referencia y da el tipo de `t()`; ver `types/next-intl.d.ts`). Espacios de nombres: `meta` (títulos y descripciones), `common`, `nav`, `footer`, `home.*`, `services`, `service` (rótulos compartidos por los detalles, comodidades y qué llevar), `booking` (la tarjeta de reserva, la temporada y los mensajes de WhatsApp), `catalog.<slug>` (todo el copy de cada servicio: nombre, blurb, itinerario, incluye/no incluye, preguntas y reseñas), `contact`, `legal` (los dos documentos, cada uno con sus secciones) y `notFound`. Las listas son arrays JSON y se leen con `t.raw` a través de `lib/message-list.ts` (textos) o `lib/message-records.ts` (registros con campos fijos).
 
 Lo que no cambia con el idioma está en `constants/`:
 
 - `site.const.ts`: nombre, correo, teléfono (y el mismo número para WhatsApp), dirección, redes, horario, cifras de la portada (`FIGURES`), el porcentaje del anticipo y el año.
 - `services.const.ts`: los cinco servicios en orden, con foto, precio por persona (o `null` si se cotiza), duración, horas de salida, tamaño de grupo, muelle, temporada, comodidades y qué llevar; más las fotos de las reseñas.
-- `navigation.const.ts`: las tres páginas del menú.
+- `navigation.const.ts`: las tres páginas del menú (`NAV_ITEMS`) y los dos documentos legales del pie (`LEGAL_LINKS`).
 
-Las imágenes están en `public/images` (JPEG de las fotos de los servicios a 1800 px, los heros, los retratos de las reseñas y el arte del pie en SVG) y la fuente en `public/fonts` (Poppins 400–800, subconjuntos latinos de Google Fonts servidos en local desde `app/[locale]/fonts.ts`).
+Las imágenes están en `public/images` (JPEG de las fotos de los servicios a 1800 px, los heros, los retratos de las reseñas y el arte del pie en SVG) y la fuente en `public/fonts` (Poppins 400–800, subconjuntos latinos de Google Fonts servidos en local desde `app/[locale]/fonts.ts`). `assets/fonts` guarda la misma Poppins en TrueType: no se sirve al visitante, la lee el generador de la tarjeta de Open Graph, que no entiende woff2.
 
 ## Reservas y contacto
 
@@ -68,11 +68,11 @@ No hay backend todavía. «Reservar» (tarjeta de un detalle) arma un mensaje de
 
 ## Arquitectura en breve
 
-- **`app/[locale]/`**: layout (fuente, metadatos base, proveedor de next-intl, cabecera y pie), `page.tsx` (compone las secciones de `config/site.config.ts`), `servicios/page.tsx`, `servicios/[slug]/page.tsx` (una por servicio e idioma con `generateStaticParams`), `contacto/page.tsx`, la 404 y `globals.css` (tokens y clases compartidas). `robots.ts`, `sitemap.ts` e `icon.svg` quedan en `app/`.
+- **`app/[locale]/`**: layout (fuente, metadatos base, proveedor de next-intl, cabecera y pie), `page.tsx` (compone las secciones de `config/site.config.ts`), `servicios/page.tsx`, `servicios/[slug]/page.tsx` (una por servicio e idioma con `generateStaticParams`), `contacto/page.tsx`, `terminos/page.tsx` y `privacidad/page.tsx` (los dos con la misma sección), `opengraph-image.tsx` (la tarjeta para redes, una por idioma, generada en el build), la 404 y `globals.css` (tokens y clases compartidas). `robots.ts`, `sitemap.ts` e `icon.svg` quedan en `app/`.
 - **`proxy.ts`** e **`i18n/`**: rutas por idioma y traducidas (`routing.ts`), carga de mensajes por petición (`request.ts`) y `Link`/`usePathname`/`getPathname` conscientes del idioma (`navigation.ts`).
-- **`components/site/sections/`**: `shell/` (cabecera con navegación activa, menú del teléfono y botón de reservar; pie) y una carpeta por página: `home/` (hero con buscador, carrusel, tres pasos, cifras y reseñas), `services/` (hero y paneles), `service/` (hero con la tarjeta de reserva, itinerario, incluido, reseñas, preguntas) y `contact/` (hero, formulario y canales). Cada `.section.tsx` o `.comp.tsx` importa su propio `.css`.
-- **`components/site/shared/`**: iconos, logo, hero de página, carrusel de servicios (escritorio y teléfono con un solo DOM), selector de idioma, redes y el ornamento de olas.
-- **`hooks/`**: `use-carousel.hook.ts` (índice circular, flechas y swipe).
+- **`components/site/sections/`**: `shell/` (cabecera con navegación activa, menú del teléfono y botón de reservar; pie) y una carpeta por página: `home/` (hero con buscador, carrusel, tres pasos, cifras y reseñas), `services/` (hero y paneles), `service/` (hero con la tarjeta de reserva, itinerario, incluido, reseñas, preguntas) `contact/` (hero, formulario y canales) y `legal/` (el documento con su índice pegajoso). Cada `.section.tsx` o `.comp.tsx` importa su propio `.css`.
+- **`components/site/shared/`**: iconos, logo, hero de página, carrusel de servicios (escritorio y teléfono con un solo DOM), selector de idioma, redes, el ornamento de olas y `Reveal`, que aparece un elemento la primera vez que llega a la pantalla renderizando su misma etiqueta.
+- **`hooks/`**: `use-carousel.hook.ts` (índice circular, flechas, swipe y qué fotos del escenario vale la pena cargar) y `use-reveal.hook.ts` (un `IntersectionObserver` que dispara una sola vez).
 - **`lib/`**: funciones puras con test al lado (`*.test.ts`).
 - **`constants/`** y **`messages/`**: el contenido (ver arriba).
 

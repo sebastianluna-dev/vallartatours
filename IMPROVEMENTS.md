@@ -3,7 +3,7 @@
 Backlog of the project's technical debt and improvements. Every entry carries an **area**, a
 **priority** (low · medium · high) and a guide on how to approach it.
 
-> Last review: 2025-09-15. What is still open is at the top; what is already resolved is left
+> Last review: 2025-09-17. What is still open is at the top; what is already resolved is left
 > noted with what was done, so it is not reopened.
 
 ---
@@ -23,57 +23,76 @@ query string.
 ### 2. Real business data — [Content]
 
 Phone (`+52 322 000 0000`), email, address, social profiles, prices, departure times, group sizes,
-the figures of the home (`FIGURES`) and every review are placeholders taken from the design.
-They all live in `constants/site.const.ts`, `constants/services.const.ts` and
-`messages/*.json` (`catalog.<slug>`, `home.proof.reviews`). Replace them before launch and
-check the English copy with a native reader.
+the figures of the home (`FIGURES`), every review and the two legal documents are placeholders
+taken from the design. They all live in `constants/site.const.ts`, `constants/services.const.ts`
+and `messages/*.json` (`catalog.<slug>`, `home.proof.reviews`, `legal.*`). Replace them before
+launch and check the English copy with a native reader.
 
 ## MEDIUM priority
 
-### 3. RSC prefetch of unprefixed routes answers 404 — [i18n]
+### 3. Segment prefetch of unprefixed routes can answer 404 — [i18n]
 
-With `localePrefix: "as-needed"`, the router's segment prefetch of a Spanish link
-(`/servicios?_rsc=…`) is redirected by Next to a URL the proxy does not rewrite and logs a 404
-in the console. Navigation itself works (the click fetches again and gets 200), so it only costs
-the prefetch. Track next-intl's issue tracker for Next 16 and, if it does not get fixed, consider
-`localePrefix: "always"` (Spanish would move to `/es`) or a `prefetch={false}` on the nav links.
+With `localePrefix: "as-needed"` the router sometimes asks a Spanish URL for the wrong segment:
+from the home it prefetched `/terminos?_rsc=…` with `Next-Router-Segment-Prefetch:
+/$d$locale/__PAGE__` — the segment of the home — and Next answered 404. The same links from any
+other page, and every English (prefixed) URL, answer 200. Navigation always worked: the click
+fetches again and gets its page.
 
-### 4. Open Graph image — [SEO]
-
-The home, the services page and the contact page have no image in their metadata (the detail
-pages use the service photo). Add an `app/[locale]/opengraph-image.tsx` with `ImageResponse`
-(wordmark on navy with the lime accent) and load Poppins from `public/fonts` inside it; the
-layout's `metadataBase` already makes the relative URL absolute.
-
-### 6. Whale season in the booking card — [Product]
-
-`services.const.ts` records the whale season (December to March) but the booking card accepts
-any date. Read `service.season` and either limit the date input to the season or show a notice
-when the chosen date falls outside it (`lib/` helper with tests).
+The footer's legal links carry `prefetch={false}` because of this, which costs nothing (they are
+rarely opened) and leaves the console clean. If it shows up on a link that matters, the options
+are `localePrefix: "always"` (Spanish would move to `/es`) or dropping the prefetch of that link
+too. Worth re-testing on every next-intl and Next release: check the console of the home with the
+footer in view.
 
 ## LOW priority
 
-### 7. Localized service slugs — [i18n]
+### 4. Localized service slugs — [i18n]
 
 The slugs are Spanish in both languages (`/en/services/avistamiento-de-ballenas`). next-intl
 supports per-locale segments in `pathnames`, but the slugs would then have to be mapped back to
 the catalogue keys in the page and the sitemap. Only worth it if English SEO matters.
 
-### 8. Reveal on scroll — [UX]
+### 5. The Spanish Open Graph card is served through a redirect — [SEO]
 
-The sections appear all at once. A small `IntersectionObserver` hook and a shared `Reveal`
-wrapper, as in the sibling projects, would let the panels and the review cards fade in one by
-one. Keep it off under `prefers-reduced-motion`.
-
-### 9. Carousel photos are all loaded up front — [Performance]
-
-The service carousel stacks the five background photos and crossfades them with opacity, so the
-five 1800 px images are requested on the home. Loading only the active and the next one (and
-swapping on change) would save a few hundred kilobytes on the first visit.
+`app/[locale]/opengraph-image.tsx` is a file convention, so Next writes the URL of the segment:
+`https://vallartawknd.mx/es/opengraph-image`. The proxy redirects `/es/…` to the Spanish URL
+without a prefix, so a scraper gets a 307 and then the image. Every scraper that matters follows
+it. Setting `openGraph.images` by hand in the layout does not help — the file convention wins —
+so the only real fix is to stop using the convention and serve the card from a route handler.
 
 ---
 
 ## Resolved
+
+### Reveal on scroll — [UX] · 2025-09-17
+
+`hooks/use-reveal.hook.ts` (one IntersectionObserver, fires once) and
+`components/site/shared/reveal.comp.tsx`, which renders the tag it is given so grids and
+direct-child selectors do not notice it. The panels of `/servicios`, the three steps and the
+reviews of the home and the quotes of a trip fade in, staggered with `order`. Under
+`prefers-reduced-motion` the stylesheet leaves everything in place, and a `<noscript>` rule in
+the layout keeps the cards visible without JavaScript.
+
+### Carousel photos are all loaded up front — [Performance] · 2025-09-16
+
+The stage now renders only the photos `lib/carousel-photos.ts` asks for: the active one and the
+next before the first move, plus both neighbours of every slide that is opened. The home asks
+for two of the five large photos instead of five, and a photo already loaded stays in the DOM so
+going back crossfades without a new request.
+
+### Whale season in the booking card — [Product] · 2025-09-16
+
+`lib/season.ts` (wrapping ranges: December to March) and `lib/format-month.ts` feed the line
+under the date of `booking-aside.comp.tsx`: a quiet "Esta salida opera de diciembre a marzo."
+that turns into a warning when the date that was picked falls outside the season. Trips without
+a season say nothing.
+
+### Open Graph image — [SEO] · 2025-09-16
+
+`app/[locale]/opengraph-image.tsx` draws the card with `ImageResponse`, one per language, baked
+at build time. Poppins for it lives in `assets/fonts/*.ttf` (Satori cannot read the woff2 the
+site serves). The pages inherit it; the detail pages keep their own photo. See #5 for the
+redirect on the Spanish URL.
 
 ### Terms and privacy pages — [Legal] · 2025-09-15
 
