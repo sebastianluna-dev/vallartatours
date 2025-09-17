@@ -41,6 +41,10 @@ export default async function LocaleLayout({ children, params }: LayoutProps<"/[
   return (
     <html lang={locale} className={poppins.variable}>
       <body>
+        {/* Nothing reveals without JavaScript, so the cards stay put. */}
+        <noscript>
+          <style>{".reveal { opacity: 1; transform: none; }"}</style>
+        </noscript>
         <a className="skip-link" href="#contenido">
           {t("skipToContent")}
         </a>
