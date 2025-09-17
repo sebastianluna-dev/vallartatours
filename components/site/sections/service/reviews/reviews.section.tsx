@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Reveal } from "@/components/site/shared/reveal.comp";
 import type { Service } from "@/constants/services.const";
 import { messageRecords } from "@/lib/message-records";
 import "./reviews.section.css";
@@ -23,9 +24,11 @@ export function ReviewsSection({ service }: ReviewsProps) {
           {reviews.map((review, index) => {
             const featured = index === 1;
             return (
-              <li
+              <Reveal
+                as="li"
                 key={review.author}
                 className={["reviews__card", featured && "reviews__card_featured"].filter(Boolean).join(" ")}
+                order={index}
               >
                 <span className={["stars", featured && "stars_tone_navy"].filter(Boolean).join(" ")} aria-hidden="true">
                   ★★★★★
@@ -40,7 +43,7 @@ export function ReviewsSection({ service }: ReviewsProps) {
                     <div className="reviews__meta">{review.meta}</div>
                   </div>
                 </div>
-              </li>
+              </Reveal>
             );
           })}
         </ul>

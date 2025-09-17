@@ -1,6 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { AMENITY_ICONS, Icon } from "@/components/site/shared/icon.comp";
+import { Reveal } from "@/components/site/shared/reveal.comp";
 import { SERVICES } from "@/constants/services.const";
 import { Link } from "@/i18n/navigation";
 import { formatIndex } from "@/lib/format-index";
@@ -18,7 +19,7 @@ export function PanelsSection() {
   return (
     <div className="panels" id="servicios">
       {SERVICES.map((service, index) => (
-        <article key={service.slug} className="section panels__panel">
+        <Reveal as="article" key={service.slug} className="section panels__panel">
           <Image
             className="panels__photo"
             src={service.photo.src}
@@ -74,7 +75,7 @@ export function PanelsSection() {
               </ul>
             </div>
           </div>
-        </article>
+        </Reveal>
       ))}
     </div>
   );
