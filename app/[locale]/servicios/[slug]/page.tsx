@@ -8,21 +8,25 @@ import { IncludedSection } from "@/components/site/sections/service/included/inc
 import { ItinerarySection } from "@/components/site/sections/service/itinerary/itinerary.section";
 import { ReviewsSection } from "@/components/site/sections/service/reviews/reviews.section";
 import { ServiceCarousel } from "@/components/site/shared/service-carousel.comp";
-import { findService, SERVICE_SLUGS, SERVICES } from "@/constants/services.const";
+import { SERVICES } from "@/constants/services.const";
 import { routing } from "@/i18n/routing";
 import { pageAlternates } from "@/lib/page-metadata";
+import { findServiceBySlug, serviceSlug } from "@/lib/service-slug";
 
 type Props = PageProps<"/[locale]/servicios/[slug]">;
 
-// Every trip in every language is prerendered.
+// Every trip in every language is prerendered, each under the segment its
+// language uses (`avistamiento-de-ballenas`, `whale-watching`).
 export function generateStaticParams() {
-  return routing.locales.flatMap((locale) => SERVICE_SLUGS.map((slug) => ({ locale, slug })));
+  return routing.locales.flatMap((locale) =>
+    SERVICES.map((service) => ({ locale, slug: serviceSlug(service, locale) })),
+  );
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
-  const service = findService(slug);
+  const service = findServiceBySlug(slug, locale);
   if (!service) notFound();
   const t = await getTranslations({ locale, namespace: "meta.service" });
   const tCatalog = await getTranslations({ locale, namespace: `catalog.${service.slug}` });
@@ -31,7 +35,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: { absolute: title },
     description: tCatalog("short"),
-    alternates: pageAlternates(locale, { pathname: "/servicios/[slug]", params: { slug: service.slug } }),
+    // The same trip in the other language lives under its own segment.
+    alternates: pageAlternates(locale, (candidate) => ({
+      pathname: "/servicios/[slug]",
+      params: { slug: serviceSlug(service, candidate) },
+    })),
     openGraph: { title, description: tCatalog("short"), images: [{ url: service.photo.src }] },
   };
 }
@@ -42,7 +50,7 @@ export default async function ServicePage({ params }: Props) {
   const { locale, slug } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);
-  const service = findService(slug);
+  const service = findServiceBySlug(slug, locale);
   if (!service) notFound();
   const t = await getTranslations("service");
   const others = SERVICES.filter((candidate) => candidate.slug !== service.slug);
