@@ -3,7 +3,7 @@
 // amenities and which items to bring); the copy, including the itinerary,
 // the FAQ and the reviews, is `catalog.<slug>` in messages/.
 
-/** Keys of `catalog` in the messages and the URL segment of each detail page. */
+/** Keys of `catalog` in the messages and the Spanish URL segment of each detail page. */
 export type ServiceSlug =
   "arcos-animas-quimixto" | "yelapa-majahuitas" | "islas-marietas" | "avistamiento-de-ballenas" | "charter-privado";
 
@@ -46,7 +46,14 @@ export interface ServicePhoto {
 }
 
 export interface Service {
+  /** Key of `catalog` in the messages and the URL segment in Spanish. */
   slug: ServiceSlug;
+  /**
+   * URL segment in English. The trips named after a place keep their name;
+   * the ones whose name is a description get it translated
+   * (`avistamiento-de-ballenas` → `whale-watching`).
+   */
+  englishSlug: string;
   photo: ServicePhoto;
   /** Price per person in MXN; `null` when the trip is quoted (the charter). */
   price: number | null;
@@ -76,6 +83,7 @@ const REVIEW_PHOTOS = {
 export const SERVICES: readonly Service[] = [
   {
     slug: "arcos-animas-quimixto",
+    englishSlug: "arcos-animas-quimixto",
     photo: { src: "/images/svc-arcos.jpg", width: 1802, height: 890 },
     price: 916,
     durationHours: 8,
@@ -89,6 +97,7 @@ export const SERVICES: readonly Service[] = [
   },
   {
     slug: "yelapa-majahuitas",
+    englishSlug: "yelapa-majahuitas",
     photo: { src: "/images/svc-yelapa.jpg", width: 1800, height: 892 },
     price: 916,
     durationHours: 7,
@@ -102,6 +111,7 @@ export const SERVICES: readonly Service[] = [
   },
   {
     slug: "islas-marietas",
+    englishSlug: "marietas-islands",
     photo: { src: "/images/svc-marietas.jpg", width: 1802, height: 883 },
     price: 996,
     durationHours: 6,
@@ -115,6 +125,7 @@ export const SERVICES: readonly Service[] = [
   },
   {
     slug: "avistamiento-de-ballenas",
+    englishSlug: "whale-watching",
     photo: { src: "/images/svc-ballenas.jpg", width: 1800, height: 893 },
     price: 799,
     durationHours: 4,
@@ -128,6 +139,7 @@ export const SERVICES: readonly Service[] = [
   },
   {
     slug: "charter-privado",
+    englishSlug: "private-charter",
     photo: { src: "/images/svc-watertaxi.jpg", width: 1800, height: 892 },
     price: null,
     durationHours: null,
@@ -143,6 +155,7 @@ export const SERVICES: readonly Service[] = [
 
 export const SERVICE_SLUGS = SERVICES.map((service) => service.slug);
 
+/** By catalogue key. To read a slug out of a URL use lib/service-slug.ts. */
 export function findService(slug: string): Service | undefined {
   return SERVICES.find((service) => service.slug === slug);
 }
