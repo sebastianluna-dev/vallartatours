@@ -6,6 +6,7 @@ import { SERVICES } from "@/constants/services.const";
 import { Link } from "@/i18n/navigation";
 import { formatIndex } from "@/lib/format-index";
 import { formatPrice } from "@/lib/format-price";
+import { serviceSlug } from "@/lib/service-slug";
 import "./panels.section.css";
 
 // One full-height panel per trip: its photo behind a veil, the number, the
@@ -56,7 +57,7 @@ export function PanelsSection() {
                 </dl>
                 <Link
                   className="button panels__explore"
-                  href={{ pathname: "/servicios/[slug]", params: { slug: service.slug } }}
+                  href={{ pathname: "/servicios/[slug]", params: { slug: serviceSlug(service, locale) } }}
                 >
                   {t("explore")}
                   <Icon name="arrowRight" size={22} />

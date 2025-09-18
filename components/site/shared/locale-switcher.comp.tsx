@@ -3,7 +3,8 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useParams } from "next/navigation";
 import { Link, usePathname } from "@/i18n/navigation";
-import { routing } from "@/i18n/routing";
+import { routing, type Locale } from "@/i18n/routing";
+import { findServiceBySlug, serviceSlug } from "@/lib/service-slug";
 import "./locale-switcher.comp.css";
 
 // "ES / EN": the same page in the other language. `usePathname` returns the
@@ -14,6 +15,15 @@ export function LocaleSwitcher() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const params = useParams();
+
+  // The slug of a trip is not the same in both languages, so the one in the
+  // URL is read back to its trip and written again for the language of each
+  // link. Every other route carries its parameters as they are.
+  const paramsFor = (locale: Locale) => {
+    if (pathname !== "/servicios/[slug]") return params;
+    const service = findServiceBySlug(String(params.slug), current);
+    return service ? { ...params, slug: serviceSlug(service, locale) } : params;
+  };
 
   return (
     <nav className="locale-switcher" aria-label={t("language")}>
@@ -30,7 +40,7 @@ export function LocaleSwitcher() {
               .join(" ")}
             // @ts-expect-error -- the params always match the current route,
             // so the pairing next-intl validates at the type level holds.
-            href={{ pathname, params }}
+            href={{ pathname, params: paramsFor(locale) }}
             locale={locale}
             hrefLang={locale}
             aria-current={locale === current ? "page" : undefined}

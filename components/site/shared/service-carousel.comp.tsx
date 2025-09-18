@@ -8,6 +8,7 @@ import { useCarousel } from "@/hooks/use-carousel.hook";
 import { Link } from "@/i18n/navigation";
 import { aheadOffset, signedOffset } from "@/lib/carousel-offsets";
 import { formatPrice } from "@/lib/format-price";
+import { serviceSlug } from "@/lib/service-slug";
 import { Icon } from "./icon.comp";
 import "./service-carousel.comp.css";
 
@@ -90,7 +91,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
           </dl>
           <Link
             className="button button_shape_square service-carousel__book"
-            href={{ pathname: "/servicios/[slug]", params: { slug: current.slug } }}
+            href={{ pathname: "/servicios/[slug]", params: { slug: serviceSlug(current, locale) } }}
           >
             {tCommon("book")}
             <Icon name="bookmark" size={19} />
@@ -139,7 +140,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
                 {index === active && (
                   <Link
                     className="button service-carousel__card-book"
-                    href={{ pathname: "/servicios/[slug]", params: { slug: service.slug } }}
+                    href={{ pathname: "/servicios/[slug]", params: { slug: serviceSlug(service, locale) } }}
                     tabIndex={-1}
                   >
                     {tCommon("book")}

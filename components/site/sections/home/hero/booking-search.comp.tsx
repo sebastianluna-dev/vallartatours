@@ -3,8 +3,9 @@
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { useState, type FormEvent } from "react";
-import { SERVICES, type ServiceSlug } from "@/constants/services.const";
+import { findService, SERVICES, type ServiceSlug } from "@/constants/services.const";
 import { getPathname } from "@/i18n/navigation";
+import { serviceSlug } from "@/lib/service-slug";
 import "./booking-search.comp.css";
 
 const DEFAULT_SLUG: ServiceSlug = "islas-marietas";
@@ -25,9 +26,16 @@ export function BookingSearch() {
 
   const submit = (event: FormEvent) => {
     event.preventDefault();
+    const service = findService(slug);
+    if (!service) return;
     const query: Record<string, string> = { personas: String(people) };
     if (date) query.fecha = date;
-    const href = getPathname({ locale, href: { pathname: "/servicios/[slug]", params: { slug }, query } });
+    const href = getPathname({
+      locale,
+      // The select holds the catalogue key; the URL wants the segment of the
+      // language being read.
+      href: { pathname: "/servicios/[slug]", params: { slug: serviceSlug(service, locale) }, query },
+    });
     router.push(`${href}#reservar`);
   };
 
