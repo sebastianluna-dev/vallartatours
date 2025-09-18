@@ -3,66 +3,84 @@
 Backlog of the project's technical debt and improvements. Every entry carries an **area**, a
 **priority** (low · medium · high) and a guide on how to approach it.
 
-> Last review: 2025-09-17. What is still open is at the top; what is already resolved is left
+> Last review: 2025-09-18. What is still open is at the top; what is already resolved is left
 > noted with what was done, so it is not reopened.
+
+> This is a sample project: the site is deployed but never operated commercially (see
+> `README.md`). Anything that only makes sense for a business taking real bookings is under
+> "Out of scope" at the end, with what it would take, in case that ever changes.
 
 ---
 
-## HIGH priority
-
-### 1. A real booking and contact backend — [Product]
-
-Bookings are a WhatsApp message (`booking-aside.comp.tsx` → `lib/build-whatsapp-url.ts`) and
-the contact form opens a `mailto:` (`contact-form.comp.tsx` → `lib/build-mailto-url.ts`). Both
-are isolated on purpose. When the crew has a channel to receive requests, add a route handler
-(`app/api/...`) or a server action that stores or emails them, keep the WhatsApp link as the
-secondary action, and add a honeypot plus a rate limit before exposing it. Availability per date
-would need a calendar source; the search of the hero already carries date and people in the
-query string.
-
-### 2. Real business data — [Content]
-
-Phone (`+52 322 000 0000`), email, address, social profiles, prices, departure times, group sizes,
-the figures of the home (`FIGURES`), every review and the two legal documents are placeholders
-taken from the design. They all live in `constants/site.const.ts`, `constants/services.const.ts`
-and `messages/*.json` (`catalog.<slug>`, `home.proof.reviews`, `legal.*`). Replace them before
-launch and check the English copy with a native reader.
-
 ## MEDIUM priority
 
-### 3. Segment prefetch of unprefixed routes can answer 404 — [i18n]
+### 1. Segment prefetch of unprefixed routes can answer 404 — [i18n]
 
 With `localePrefix: "as-needed"` the router sometimes asks a Spanish URL for the wrong segment:
-from the home it prefetched `/terminos?_rsc=…` with `Next-Router-Segment-Prefetch:
-/$d$locale/__PAGE__` — the segment of the home — and Next answered 404. The same links from any
-other page, and every English (prefixed) URL, answer 200. Navigation always worked: the click
-fetches again and gets its page.
+it prefetches `/terminos?_rsc=…` (or `/servicios?_rsc=…`) with `Next-Router-Segment-Prefetch:
+/$d$locale/__PAGE__` — the segment of the home — and Next answers 404. Which link it hits moves
+with the page and the viewport: on the desktop home it was the two legal links of the footer, on
+the phone home it was `/servicios`. Every English (prefixed) URL answers 200, and navigation
+always worked: the click fetches again and gets its page.
 
-The footer's legal links carry `prefetch={false}` because of this, which costs nothing (they are
-rarely opened) and leaves the console clean. If it shows up on a link that matters, the options
-are `localePrefix: "always"` (Spanish would move to `/es`) or dropping the prefetch of that link
-too. Worth re-testing on every next-intl and Next release: check the console of the home with the
-footer in view.
+The cause is under Next, not next-intl: its `Link` only turns prefetch off when the link carries
+another `locale`. The segment cache and the proxy's rewrite of the unprefixed Spanish URLs
+disagree about the route tree. `experimental.clientSegmentCache` is gone in Next 16, so there is
+no flag to fall back to whole-route prefetching.
 
-## LOW priority
+The footer's legal links carry `prefetch={false}`, which costs nothing (they are rarely opened).
+The nav links keep their prefetch: the pages are static and small, so the fix would cost more
+than the 404 in the console. If it ever has to go away completely the options are
+`prefetch={false}` on every internal link or `localePrefix: "always"` — Spanish would then move
+to `/es`, which the design does not want. Worth re-testing on every Next and next-intl release:
+open the home on the desktop with the footer in view, and again at 390 px.
 
-### 4. Localized service slugs — [i18n]
+---
 
-The slugs are Spanish in both languages (`/en/services/avistamiento-de-ballenas`). next-intl
-supports per-locale segments in `pathnames`, but the slugs would then have to be mapped back to
-the catalogue keys in the page and the sitemap. Only worth it if English SEO matters.
+## Out of scope while the site is a sample
 
-### 5. The Spanish Open Graph card is served through a redirect — [SEO]
+### A real booking and contact backend — [Product]
 
-`app/[locale]/opengraph-image.tsx` is a file convention, so Next writes the URL of the segment:
-`https://vallartawknd.mx/es/opengraph-image`. The proxy redirects `/es/…` to the Spanish URL
-without a prefix, so a scraper gets a 307 and then the image. Every scraper that matters follows
-it. Setting `openGraph.images` by hand in the layout does not help — the file convention wins —
-so the only real fix is to stop using the convention and serve the card from a route handler.
+Bookings are a WhatsApp message (`booking-aside.comp.tsx` → `lib/build-whatsapp-url.ts`) and the
+contact form opens a `mailto:` (`contact-form.comp.tsx` → `lib/build-mailto-url.ts`). Both are
+isolated on purpose: a route handler or a server action that stores or emails the request would
+replace those two calls and nothing else, plus a honeypot and a rate limit before exposing it.
+Availability per date would need a calendar source; the hero already carries date and people in
+the query string.
+
+### Real business data — [Content]
+
+Phone (`+52 322 000 0000`), email, address, social profiles, prices, departure times, group
+sizes, the figures of the home (`FIGURES`), every review and the two legal documents come from
+the design and stay as they are. They live in `constants/site.const.ts`,
+`constants/services.const.ts` and `messages/*.json` (`catalog.<slug>`, `home.proof.reviews`,
+`legal.*`), so they are one search away if the site ever becomes real.
 
 ---
 
 ## Resolved
+
+### Localized service slugs — [i18n] · 2025-09-18
+
+Each trip carries the segment of both languages (`englishSlug` in `constants/services.const.ts`)
+and `lib/service-slug.ts` translates between them: `/servicios/avistamiento-de-ballenas` is
+`/en/services/whale-watching`, and the trips named after a place keep their name. A page answers
+only to the segment of the language it is read in — the other one is a 404, so no trip has two
+live URLs in one language — and the links, the canonicals, the `hreflang`, the sitemap, the hero
+search and the language switch all go through the same helper.
+
+### The Spanish Open Graph card was served through a redirect — [SEO] · 2025-09-18
+
+The card moved from the `opengraph-image.tsx` file convention to a route, `app/og/[locale]`,
+which `proxy.ts` leaves alone; the layout and every page without a photo of its own point
+`openGraph.images` (and `twitter`) at `/og/es` or `/og/en` through `ogCard()` in
+`lib/page-metadata.ts`. A scraper now gets the image with no hop. Next does not inherit
+`openGraph` from the layout when a page writes its own, which is why each page names the card.
+
+### Favicon set — [Brand] · 2025-09-18
+
+`app/favicon.ico` (32 px) and `app/apple-icon.png` (180 px) next to the `icon.svg` that was
+already there, all three the same navy tile with the lime W.
 
 ### Reveal on scroll — [UX] · 2025-09-17
 

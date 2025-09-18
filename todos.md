@@ -2,13 +2,18 @@
 
 Small, mechanical tasks that need no design decision. Bigger items live in `IMPROVEMENTS.md`.
 
-- [ ] Replace the placeholder phone, WhatsApp number, email, address and social URLs in `constants/site.const.ts` (see IMPROVEMENTS #2).
-- [ ] Confirm prices, departure times and group sizes per trip in `constants/services.const.ts`.
-- [ ] Check the English copy of `messages/en.json` with a native reader; it was translated from the Spanish catalogue.
-- [ ] Have a lawyer review `legal.terms` and `legal.privacy` in the messages, and update the «Última actualización» line of both when they change.
-- [ ] Review the Open Graph card with the crew: the tagline (`meta.og.tagline`) and the places line (`meta.og.places`) are the ones from the design.
-- [ ] Replace the placeholder reviews (`catalog.<slug>.reviews`, `home.proof.reviews`) and their portraits in `public/images` with real ones.
-- [ ] Make a proper favicon set from `app/icon.svg` (apple-touch-icon, 32 px PNG) once the logo is final.
-- [ ] Set `NEXT_PUBLIC_SITE_URL` in the Vercel project once the domain is bought.
+This is a sample project (see the note at the top of `README.md`), so anything that amounts to
+"ask the client for the real data" is not a task: the placeholders are the final copy. What is
+left is what would make the piece read better.
+
+- [ ] Read the English copy of `messages/en.json` end to end; it was translated from the Spanish
+      catalogue and nobody has checked it since.
+- [ ] Set `NEXT_PUBLIC_SITE_URL` in the deployment so the sitemap, the canonicals and the social
+      card carry the real host instead of `https://vallartawknd.mx`.
+- [ ] Regenerate the icons if the mark ever changes: `app/icon.svg` is the source, and
+      `app/favicon.ico` (32 px, RGBA inside the ICO — Turbopack refuses an RGB one) and
+      `app/apple-icon.png` (180 px, no rounded corners, iOS adds its own mask) are rasterised
+      from it.
 - [ ] Replace `SITE_YEAR` in `constants/site.const.ts` when the year changes.
-- [ ] Add `alt` text review: every service photo alt (`catalog.<slug>.photoAlt`) describes the stock photo, not the real trip; update when the real photos arrive.
+- [ ] The photo alts (`catalog.<slug>.photoAlt`) describe the stock photographs; if the photos are
+      ever swapped, the alts go with them.
