@@ -6,11 +6,13 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 import { routing } from "@/i18n/routing";
 
-// The card social networks show for every page of a locale: the pages under
-// this segment inherit it unless they bring their own image.
-export const alt = "Vallarta WKND · Bahía de Banderas";
+// The card social networks show, one per language, at /og/es and /og/en.
+// It is a route and not an `opengraph-image.tsx` on purpose: the file
+// convention writes the URL of its segment (`/es/opengraph-image`), which the
+// proxy redirects, and a scraper would have to follow it. The layout points
+// `openGraph.images` here and `proxy.ts` leaves /og alone.
 export const size = { width: 1200, height: 630 };
-export const contentType = "image/png";
+export const dynamic = "force-static";
 
 // Satori cannot read the woff2 the site serves, so the image carries its own
 // pair of Poppins in TrueType. They are read once, when the module loads.
@@ -27,7 +29,7 @@ export function generateStaticParams() {
 const NAVY = "#0b2c5e";
 const LIME = "#d9f21e";
 
-export default async function OpengraphImage({ params }: { params: Promise<{ locale: string }> }) {
+export async function GET(_request: Request, { params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) notFound();
   setRequestLocale(locale);

@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import { ContactSection } from "@/components/site/sections/contact/form/contact.section";
 import { ContactHeroSection } from "@/components/site/sections/contact/hero/contact-hero.section";
 import { routing } from "@/i18n/routing";
-import { pageAlternates } from "@/lib/page-metadata";
+import { ogCard, pageAlternates } from "@/lib/page-metadata";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/contacto">): Promise<Metadata> {
   const { locale } = await params;
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/contacto
     title: { absolute: t("title") },
     description: t("description"),
     alternates: pageAlternates(locale, "/contacto"),
-    openGraph: { title: t("title"), description: t("description") },
+    openGraph: { title: t("title"), description: t("description"), images: ogCard(locale) },
   };
 }
 

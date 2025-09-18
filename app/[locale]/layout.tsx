@@ -7,6 +7,7 @@ import { poppins } from "./fonts";
 import { Footer } from "@/components/site/sections/shell/footer/footer.section";
 import { Header } from "@/components/site/sections/shell/header/header.section";
 import { routing, type Locale } from "@/i18n/routing";
+import { ogCard } from "@/lib/page-metadata";
 import { SITE_URL } from "@/lib/site-url";
 
 const OG_LOCALES: Record<Locale, string> = { es: "es_MX", en: "en_US" };
@@ -26,7 +27,13 @@ export async function generateMetadata({ params }: LayoutProps<"/[locale]">): Pr
   return {
     metadataBase: new URL(SITE_URL),
     title: { default: t("siteName"), template: `%s | ${t("siteName")}` },
-    openGraph: { siteName: t("siteName"), type: "website", locale: OG_LOCALES[locale] },
+    openGraph: {
+      siteName: t("siteName"),
+      type: "website",
+      locale: OG_LOCALES[locale],
+      images: ogCard(locale),
+    },
+    twitter: { card: "summary_large_image", images: ogCard(locale) },
   };
 }
 

@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { HOME_SECTIONS } from "@/config/site.config";
 import { routing } from "@/i18n/routing";
-import { pageAlternates } from "@/lib/page-metadata";
+import { ogCard, pageAlternates } from "@/lib/page-metadata";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const { locale } = await params;
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
     title: { absolute: t("title") },
     description: t("description"),
     alternates: pageAlternates(locale, "/"),
-    openGraph: { title: t("title"), description: t("description") },
+    openGraph: { title: t("title"), description: t("description"), images: ogCard(locale) },
   };
 }
 

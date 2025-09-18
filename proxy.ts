@@ -8,6 +8,8 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  // Every path except Next internals, Vercel's and files with an extension.
-  matcher: "/((?!_next|_vercel|.*\\..*).*)",
+  // Every path except Next internals, Vercel's, the Open Graph cards of
+  // `app/og` (they carry the language in the path already) and files with an
+  // extension.
+  matcher: "/((?!_next|_vercel|og/|.*\\..*).*)",
 };

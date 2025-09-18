@@ -4,7 +4,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { LegalDocumentSection } from "@/components/site/sections/legal/document/legal-document.section";
 import { routing } from "@/i18n/routing";
-import { pageAlternates } from "@/lib/page-metadata";
+import { ogCard, pageAlternates } from "@/lib/page-metadata";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]/terminos">): Promise<Metadata> {
   const { locale } = await params;
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/terminos
     title: { absolute: t("title") },
     description: t("description"),
     alternates: pageAlternates(locale, "/terminos"),
-    openGraph: { title: t("title"), description: t("description") },
+    openGraph: { title: t("title"), description: t("description"), images: ogCard(locale) },
   };
 }
 
