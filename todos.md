@@ -6,8 +6,9 @@ This is a sample project (see the note at the top of `README.md`), so anything t
 "ask the client for the real data" is not a task: the placeholders are the final copy. What is
 left is what would make the piece read better.
 
-- [ ] Read the English copy of `messages/en.json` end to end; it was translated from the Spanish
-      catalogue and nobody has checked it since.
+The English copy was read end to end on 2025-09-19: it is US English now (the readers fly in
+from the US and Canada), so keep new copy that way — "snorkeling", "travelers", "meters".
+
 - [ ] Set `NEXT_PUBLIC_SITE_URL` in the deployment so the sitemap, the canonicals and the social
       card carry the real host instead of `https://vallartawknd.mx`.
 - [ ] Regenerate the icons if the mark ever changes: `app/icon.svg` is the source, and
