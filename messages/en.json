@@ -3,7 +3,7 @@
     "siteName": "Vallarta WKND",
     "og": {
       "tagline": "You pick the weekend; we bring the boat.",
-      "places": "Islas Marietas · Los Arcos · Yelapa · Whales"
+      "places": "Marietas Islands · Los Arcos · Yelapa · Whales"
     },
     "home": {
       "title": "Vallarta WKND | Boat tours around Banderas Bay",
@@ -22,7 +22,7 @@
     },
     "terms": {
       "title": "Terms and conditions | Vallarta WKND",
-      "description": "Bookings, deposit, cancellations, weather and safety on board: the rules we run every trip in Bahía de Banderas by."
+      "description": "Bookings, deposit, cancellations, weather and safety on board: the rules behind every trip we run on Banderas Bay."
     },
     "privacy": {
       "title": "Privacy notice | Vallarta WKND",
@@ -36,7 +36,7 @@
     "whatsapp": "Message us on WhatsApp",
     "askWhatsapp": "Ask on WhatsApp",
     "allServices": "See all services",
-    "hours": "We answer from 7:00 to 21:00, every day",
+    "hours": "We answer from 7:00 am to 9:00 pm, every day",
     "opensInNewTab": "(opens in a new tab)"
   },
   "nav": {
@@ -64,7 +64,7 @@
   "home": {
     "hero": {
       "rating": "{rating} · {reviews} reviews",
-      "title": "Three days of bay, <br></br>zero logistics",
+      "title": "Three days on the bay, <br></br>zero logistics",
       "lead": "Islands, snorkeling and sunsets with a local crew. You pick the weekend; we bring the boat.",
       "photoAlt": "A Banderas Bay beach at sunset",
       "travelers": "<strong>{count} travelers</strong> have sailed with us",
@@ -98,7 +98,7 @@
       ]
     },
     "proof": {
-      "title": "What our <br></br>weekends <br></br>leave behind",
+      "title": "What our <br></br>weekends <br></br>leave you with",
       "travelers": "travelers",
       "tours": "tours",
       "years": "years on the bay",
@@ -217,7 +217,7 @@
     "submit": "{count, plural, =1 {Book one spot} other {Book # spots}}",
     "submitQuote": "Request a quote",
     "quoteNote": "The price depends on the route, the hours and the group. We quote on WhatsApp the same day.",
-    "cancel": "Cancel free of charge up to 48 h before",
+    "cancel": "Free cancellation up to 48 hours before",
     "message": "Hi, I would like to book {service} on {date} at {time} for {people}.",
     "messageNoDate": "Hi, I would like to book {service} at {time} for {people}. I do not have a date yet.",
     "quoteMessage": "Hi, I would like a quote for a private charter on {date} from {time} for {people}.",
@@ -562,7 +562,7 @@
         {
           "time": "+3 h",
           "title": "Lunch on board",
-          "body": "A menu your way: ceviche, grilled fish or whatever the group asks for, in advance."
+          "body": "A menu your way: ceviche, grilled fish or whatever the group orders ahead of time."
         },
         {
           "time": "+5 h",
