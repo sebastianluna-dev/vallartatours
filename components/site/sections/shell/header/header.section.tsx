@@ -1,14 +1,13 @@
 import { useTranslations } from "next-intl";
 import { LocaleSwitcher } from "@/components/site/shared/locale-switcher.comp";
 import { Logo } from "@/components/site/shared/logo.comp";
-import { BookButton } from "./book-button.comp";
 import { MobileMenu } from "./mobile-menu.comp";
 import { SiteNav } from "./site-nav.comp";
 import "./header.section.css";
 
-// Floats over the hero photo of every page: the wordmark, the pill nav, the
-// language switch and the "Reservar" button. On the phone the nav and the
-// button move into the full-screen menu.
+// Floats over the hero photo of every page: the wordmark, the pill nav and
+// the language switch. On the phone the nav moves into the full-screen menu,
+// which is also where "Reservar" lives.
 export function Header() {
   const t = useTranslations("nav");
 
@@ -19,7 +18,6 @@ export function Header() {
         <SiteNav className="header__nav" ariaLabel={t("label")} />
         <div className="header__tools">
           <LocaleSwitcher />
-          <BookButton className="header__book" size="small" />
           <MobileMenu />
         </div>
       </div>

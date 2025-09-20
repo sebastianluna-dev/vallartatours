@@ -22,8 +22,7 @@
   @media (max-width: 767px) {
     padding-top: 22px;
 
-    & .header__nav,
-    & .header__book {
+    & .header__nav {
       display: none;
     }
 
