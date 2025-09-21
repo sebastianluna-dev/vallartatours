@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useRef, useState, type PointerEvent } from "react";
+import { aheadOffset } from "@/lib/carousel-offsets";
 import { initialPhotos, photosAfterMove } from "@/lib/carousel-photos";
 import { wrapIndex } from "@/lib/wrap-index";
 
@@ -12,30 +13,39 @@ export interface SwipeHandlers {
   onPointerCancel: () => void;
 }
 
-// The active index of a circular carousel, with the previous/next moves and
-// a horizontal swipe. The swipe is measured between pointer down and up so
-// a tap on a card still reaches the card's own button. `loaded` grows with
-// the visit: it is the list of slides whose photo is worth having in the
-// DOM (see lib/carousel-photos.ts), and the two live in one state so a move
-// updates both in the same pass.
+// The position of a circular carousel, with the previous/next moves and a
+// horizontal swipe. The swipe is measured between pointer down and up so a
+// tap on a card still reaches the card's own button.
+//
+// `cursor` counts the moves and never wraps: the desktop stack needs it to
+// know which way each card travels (lib/carousel-offsets.ts), so `active` is
+// only the trip it lands on. `loaded` grows with the visit: it is the list of
+// slides whose photo is worth having in the DOM (lib/carousel-photos.ts), and
+// both live in one state so a move updates them in the same pass.
 export function useCarousel(count: number, initial = 0) {
-  const [{ active, loaded }, setState] = useState(() => ({
-    active: wrapIndex(initial, count),
+  const [{ cursor, loaded }, setState] = useState(() => ({
+    cursor: wrapIndex(initial, count),
     loaded: initialPhotos(initial, count),
   }));
   const startX = useRef<number | null>(null);
+  const active = wrapIndex(cursor, count);
 
   const move = useCallback(
     (to: (current: number) => number) =>
       setState((current) => {
-        const target = wrapIndex(to(current.active), count);
-        if (target === current.active) return current;
-        return { active: target, loaded: photosAfterMove(current.loaded, target, count) };
+        const target = to(current.cursor);
+        if (target === current.cursor) return current;
+        return { cursor: target, loaded: photosAfterMove(current.loaded, wrapIndex(target, count), count) };
       }),
     [count],
   );
 
-  const select = useCallback((index: number) => move(() => index), [move]);
+  // Picking a card walks forward as many places as the card is away, so the
+  // stack keeps moving in one direction however far the visitor jumps.
+  const select = useCallback(
+    (index: number) => move((current) => current + aheadOffset(index, wrapIndex(current, count), count)),
+    [count, move],
+  );
   const next = useCallback(() => move((current) => current + 1), [move]);
   const prev = useCallback(() => move((current) => current - 1), [move]);
 
@@ -55,5 +65,5 @@ export function useCarousel(count: number, initial = 0) {
     },
   };
 
-  return { active, loaded, select, next, prev, swipeHandlers };
+  return { active, cursor, loaded, select, next, prev, swipeHandlers };
 }
