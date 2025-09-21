@@ -140,6 +140,9 @@
     overflow: hidden;
     box-shadow: var(--shadow-float);
     transform: translate(calc(var(--slot) * (100% + 22px)), calc(var(--slot) * 44px));
+    /* The stack fans down to the right, so the card further along the
+       diagonal covers the one before it whatever the DOM order is. */
+    z-index: calc(10 + var(--slot));
     transition:
       transform 0.64s var(--ease-out),
       opacity 0.44s ease,
@@ -341,6 +344,11 @@
       top: auto;
       height: 332px;
       margin: 24px calc(-1 * var(--site-gutter)) 0;
+    }
+
+    /* The extra copies only exist for the desktop stack. */
+    & .service-carousel__card:not([data-lap="0"]) {
+      display: none;
     }
 
     & .service-carousel__card {

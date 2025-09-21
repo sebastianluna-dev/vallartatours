@@ -6,7 +6,7 @@ import type { CSSProperties } from "react";
 import type { Service } from "@/constants/services.const";
 import { useCarousel } from "@/hooks/use-carousel.hook";
 import { Link } from "@/i18n/navigation";
-import { aheadOffset, signedOffset } from "@/lib/carousel-offsets";
+import { DECK_LAPS, deckSlot, isDeckSlotVisible, signedOffset } from "@/lib/carousel-offsets";
 import { formatPrice } from "@/lib/format-price";
 import { serviceSlug } from "@/lib/service-slug";
 import { Icon } from "./icon.comp";
@@ -24,8 +24,8 @@ interface ServiceCarouselProps {
 /** How far the phone cards shrink and fade by distance from the active one. */
 const PHONE_SCALE = [1, 0.84, 0.68];
 const PHONE_FADE = [1, 0.8, 0.45];
-/** Cards visible in the desktop stack: the three after the active one. */
-const DESK_VISIBLE = 3;
+/** The copies of the deck, one per lap; the phone only ever shows the first. */
+const LAPS = Array.from({ length: DECK_LAPS }, (_, lap) => lap);
 
 // The service picker. Desktop: the active trip's photo fills the stage, its
 // copy sits on the left and the next three trips stack diagonally on the
@@ -33,13 +33,19 @@ const DESK_VISIBLE = 3;
 // fan out around the active one, with dots and a swipe. One DOM for both:
 // every card carries its desktop slot and its phone distance as CSS
 // variables and the stylesheet picks one per breakpoint.
+//
+// Each trip is rendered `DECK_LAPS` times so the desktop stack can move in
+// one direction: the card that leaves keeps walking off the left edge while
+// another copy of the same trip comes in from the right, instead of one card
+// sliding backwards across the others. The phone hides every copy but the
+// first and fans those out as before.
 export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home" }: ServiceCarouselProps) {
   const t = useTranslations("service");
   const tCommon = useTranslations("common");
   const tCatalog = useTranslations("catalog");
   const locale = useLocale();
   const count = services.length;
-  const { active, loaded, select, next, prev, swipeHandlers } = useCarousel(count, initial);
+  const { active, cursor, loaded, select, next, prev, swipeHandlers } = useCarousel(count, initial);
   const current = services[active];
 
   const priceOf = (service: Service) => (service.price === null ? t("quote") : formatPrice(service.price, locale));
@@ -99,57 +105,62 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
         </div>
 
         <div className="service-carousel__deck" {...swipeHandlers}>
-          {services.map((service, index) => {
-            const ahead = aheadOffset(index, active, count);
-            const signed = signedOffset(index, active, count);
-            const distance = Math.min(Math.abs(signed), 2);
-            const style = {
-              "--slot": ahead - 1,
-              "--d": signed,
-              "--scale": PHONE_SCALE[distance],
-              "--fade": Math.abs(signed) > 2 ? 0 : PHONE_FADE[distance],
-              "--z": 10 - Math.abs(signed),
-            } as CSSProperties;
-            const deskHidden = ahead === 0 || ahead > DESK_VISIBLE;
+          {LAPS.map((lap) =>
+            services.map((service, index) => {
+              const slot = deckSlot(index, cursor, count, lap);
+              const signed = signedOffset(index, active, count);
+              const distance = Math.min(Math.abs(signed), 2);
+              const style = {
+                "--slot": slot,
+                "--d": signed,
+                "--scale": PHONE_SCALE[distance],
+                "--fade": Math.abs(signed) > 2 ? 0 : PHONE_FADE[distance],
+                "--z": 10 - Math.abs(signed),
+              } as CSSProperties;
+              // The phone works on the first copy alone, so that is the one
+              // that carries the marks of the active card.
+              const isPhoneActive = index === active && lap === 0;
 
-            return (
-              <article
-                key={service.slug}
-                className={["service-carousel__card", index === active && "service-carousel__card_active"]
-                  .filter(Boolean)
-                  .join(" ")}
-                style={style}
-                data-desk={deskHidden ? "hidden" : "shown"}
-              >
-                <Image
-                  className="service-carousel__card-photo"
-                  src={service.photo.src}
-                  alt={tCatalog(`${service.slug}.photoAlt`)}
-                  fill
-                  sizes="(max-width: 767px) 200px, 30vw"
-                />
-                <button
-                  type="button"
-                  className="service-carousel__pick"
-                  aria-pressed={index === active}
-                  onClick={() => select(index)}
+              return (
+                <article
+                  key={`${service.slug}-${lap}`}
+                  className={["service-carousel__card", isPhoneActive && "service-carousel__card_active"]
+                    .filter(Boolean)
+                    .join(" ")}
+                  style={style}
+                  data-desk={isDeckSlotVisible(slot) ? "shown" : "hidden"}
+                  data-lap={lap}
                 >
-                  <span className="service-carousel__card-name">{tCatalog(`${service.slug}.shortName`)}</span>
-                  <span className="service-carousel__card-meta">{metaOf(service)}</span>
-                </button>
-                {index === active && (
-                  <Link
-                    className="button service-carousel__card-book"
-                    href={{ pathname: "/servicios/[slug]", params: { slug: serviceSlug(service, locale) } }}
-                    tabIndex={-1}
+                  <Image
+                    className="service-carousel__card-photo"
+                    src={service.photo.src}
+                    alt={tCatalog(`${service.slug}.photoAlt`)}
+                    fill
+                    sizes="(max-width: 767px) 200px, 30vw"
+                  />
+                  <button
+                    type="button"
+                    className="service-carousel__pick"
+                    aria-pressed={index === active}
+                    onClick={() => select(index)}
                   >
-                    {tCommon("book")}
-                    <Icon name="arrowRight" size={17} />
-                  </Link>
-                )}
-              </article>
-            );
-          })}
+                    <span className="service-carousel__card-name">{tCatalog(`${service.slug}.shortName`)}</span>
+                    <span className="service-carousel__card-meta">{metaOf(service)}</span>
+                  </button>
+                  {isPhoneActive && (
+                    <Link
+                      className="button service-carousel__card-book"
+                      href={{ pathname: "/servicios/[slug]", params: { slug: serviceSlug(service, locale) } }}
+                      tabIndex={-1}
+                    >
+                      {tCommon("book")}
+                      <Icon name="arrowRight" size={17} />
+                    </Link>
+                  )}
+                </article>
+              );
+            }),
+          )}
         </div>
 
         <div className="service-carousel__dots" role="group">
