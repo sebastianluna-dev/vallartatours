@@ -4,6 +4,7 @@ import { Reveal } from "@/components/site/shared/reveal.comp";
 import type { Service } from "@/constants/services.const";
 import { messageRecords } from "@/lib/message-records";
 import "./reviews.section.css";
+import { PHOTO_QUALITY } from "@/constants/site.const";
 
 interface ReviewsProps {
   service: Service;
@@ -36,7 +37,14 @@ export function ReviewsSection({ service }: ReviewsProps) {
                 <blockquote className="reviews__quote">“{review.quote}”</blockquote>
                 <div className="reviews__author">
                   {featured && (
-                    <Image className="reviews__avatar" src={service.reviewPhoto.src} alt="" width={60} height={60} />
+                    <Image
+                      className="reviews__avatar"
+                      src={service.reviewPhoto.src}
+                      alt=""
+                      width={60}
+                      height={60}
+                      quality={PHOTO_QUALITY}
+                    />
                   )}
                   <div>
                     <div className="reviews__name">{review.author}</div>

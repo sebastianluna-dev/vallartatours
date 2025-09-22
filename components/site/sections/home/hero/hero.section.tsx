@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { HERO_FACES } from "@/constants/services.const";
-import { FIGURES } from "@/constants/site.const";
+import { FIGURES, PHOTO_QUALITY } from "@/constants/site.const";
 import { formatNumber } from "@/lib/format-price";
 import { BookingSearch } from "./booking-search.comp";
 import "./hero.section.css";
@@ -14,7 +14,15 @@ export function HeroSection() {
 
   return (
     <section className="section hero" id="inicio">
-      <Image className="hero__photo" src="/images/hero-playa.jpg" alt={t("photoAlt")} fill priority sizes="100vw" />
+      <Image
+        className="hero__photo"
+        src="/images/hero-playa.jpg"
+        alt={t("photoAlt")}
+        fill
+        priority
+        sizes="100vw"
+        quality={PHOTO_QUALITY}
+      />
       <div className="hero__veil" />
       <div className="hero__fade" />
 
@@ -35,7 +43,15 @@ export function HeroSection() {
           <p className="hero__travelers">
             <span className="hero__faces" aria-hidden="true">
               {HERO_FACES.map((face) => (
-                <Image key={face.src} className="hero__face" src={face.src} alt="" width={40} height={40} />
+                <Image
+                  key={face.src}
+                  className="hero__face"
+                  src={face.src}
+                  alt=""
+                  width={40}
+                  height={40}
+                  quality={PHOTO_QUALITY}
+                />
               ))}
             </span>
             <span>

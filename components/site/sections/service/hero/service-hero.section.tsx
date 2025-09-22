@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import type { Service } from "@/constants/services.const";
 import { BookingAside, BookingAsideFromQuery } from "./booking-aside.comp";
 import "./service-hero.section.css";
+import { PHOTO_QUALITY } from "@/constants/site.const";
 
 interface ServiceHeroProps {
   service: Service;
@@ -31,6 +32,7 @@ export function ServiceHeroSection({ service }: ServiceHeroProps) {
         fill
         priority
         sizes="100vw"
+        quality={PHOTO_QUALITY}
       />
       <div className="service-hero__veil" />
       <div className="section__inner service-hero__inner">

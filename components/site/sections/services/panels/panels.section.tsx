@@ -8,6 +8,7 @@ import { formatIndex } from "@/lib/format-index";
 import { formatPrice } from "@/lib/format-price";
 import { serviceSlug } from "@/lib/service-slug";
 import "./panels.section.css";
+import { PHOTO_QUALITY } from "@/constants/site.const";
 
 // One full-height panel per trip: its photo behind a veil, the number, the
 // title, duration and price on the left, the amenities as chips on the right.
@@ -27,6 +28,7 @@ export function PanelsSection() {
             alt={tCatalog(`${service.slug}.photoAlt`)}
             fill
             sizes="100vw"
+            quality={PHOTO_QUALITY}
           />
           <div className="panels__veil" />
           <div className="section__inner panels__inner">
