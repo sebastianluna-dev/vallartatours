@@ -227,6 +227,7 @@
     "arcos-animas-quimixto": {
       "name": "Arcos – Ánimas – Quimixto",
       "shortName": "Los Arcos – Ánimas",
+      "headline": "Ánimas – Quimixto",
       "short": "Snorkel en los pináculos de Los Arcos, comida en Las Ánimas y parada en Quimixto. Salida 9:00 am desde el muelle de Puerto Vallarta.",
       "blurb": "Ocho horas que empiezan con el desayuno a bordo y terminan con la piel salada. Nadas entre los pináculos de Los Arcos, comes frente a Las Ánimas y bajas en Quimixto a caminar hasta la cascada. Si es tu primera vez en la bahía, esta salida la cuenta completa.",
       "badge": "Todo el año",
@@ -311,6 +312,7 @@
     "yelapa-majahuitas": {
       "name": "Yelapa – Majahuitas",
       "shortName": "Yelapa – Majahuitas",
+      "headline": "Yelapa – Majahuitas",
       "short": "Pueblo sin carretera, cascada y playa de Majahuitas. Incluye equipo de snorkel, comida y barra a bordo.",
       "blurb": "Yelapa no tiene carretera: se llega por mar y se recorre a pie. Subes a la cascada, comes en la playa de Majahuitas y regresas con la sensación de haber estado lejos, aunque salgas y vuelvas el mismo día.",
       "badge": "Todo el año",
@@ -390,6 +392,7 @@
     "islas-marietas": {
       "name": "Islas Marietas",
       "shortName": "Islas Marietas",
+      "headline": "Islas Marietas",
       "short": "Reserva de la biósfera a una hora de Nuevo Vallarta. Snorkel en la Playa del Amor, avistamiento de aves y comida a bordo. Grupos de máximo 12 personas.",
       "blurb": "Doce personas, un guía y una isla que la reserva protege. Entras nadando a la Playa del Amor, ves aves que no anidan en ningún otro lugar de México y comes a bordo mientras el barco se mece. Vale la pena apartar con semanas de anticipación.",
       "badge": "Grupos de 12",
@@ -474,6 +477,7 @@
     "avistamiento-de-ballenas": {
       "name": "Avistamiento de ballenas",
       "shortName": "Ballenas",
+      "headline": "Avistamiento de ballenas",
       "short": "Temporada de diciembre a marzo. Salida corta con guía certificado y ventanas de avistamiento garantizadas.",
       "blurb": "Cada invierno las jorobadas llegan a Bahía de Banderas a parir y a criar. Salimos cuatro horas con guía certificado e hidrófono a bordo para escucharlas cantar. Si no las vemos, repites la salida sin costo.",
       "badge": "Diciembre a marzo",
@@ -548,6 +552,7 @@
     "charter-privado": {
       "name": "Charter privado",
       "shortName": "Charter privado",
+      "headline": "Charter privado",
       "short": "El barco completo para tu grupo: ruta, horario y menú a tu medida. Bodas, cumpleaños y salidas corporativas.",
       "blurb": "El barco completo, la ruta que quieras y el horario que te acomode. Nosotros ponemos tripulación, música, barra y comida; tú decides dónde anclar, cuánto tiempo quedarte y a qué hora volver.",
       "badge": "A tu medida",

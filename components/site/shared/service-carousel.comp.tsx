@@ -85,7 +85,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
       <div className="section__inner service-carousel__inner">
         <div key={current.slug} className="service-carousel__copy" aria-live="polite">
           {eyebrow && <span className="eyebrow service-carousel__eyebrow">{eyebrow}</span>}
-          <h2 className="service-carousel__title">{tCatalog(`${current.slug}.name`)}</h2>
+          <h2 className="service-carousel__title">{tCatalog(`${current.slug}.headline`)}</h2>
           <p className="service-carousel__text">{tCatalog(`${current.slug}.short`)}</p>
           <dl className="service-carousel__facts">
             <div className="service-carousel__fact">

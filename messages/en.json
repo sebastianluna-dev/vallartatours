@@ -227,6 +227,7 @@
     "arcos-animas-quimixto": {
       "name": "Arcos – Ánimas – Quimixto",
       "shortName": "Los Arcos – Ánimas",
+      "headline": "Ánimas – Quimixto",
       "short": "Snorkeling at the pinnacles of Los Arcos, lunch at Las Ánimas and a stop in Quimixto. Departs 9:00 am from the Puerto Vallarta dock.",
       "blurb": "Eight hours that start with breakfast on board and end with salt on your skin. You swim among the pinnacles of Los Arcos, eat facing Las Ánimas and get off at Quimixto to walk to the waterfall. If it is your first time on the bay, this trip tells the whole story.",
       "badge": "All year",
@@ -306,6 +307,7 @@
     "yelapa-majahuitas": {
       "name": "Yelapa – Majahuitas",
       "shortName": "Yelapa – Majahuitas",
+      "headline": "Yelapa – Majahuitas",
       "short": "A village with no road, a waterfall and the beach at Majahuitas. Snorkel gear, lunch and an open bar on board.",
       "blurb": "Yelapa has no road: you arrive by sea and get around on foot. You climb to the waterfall, eat on the beach at Majahuitas and come back feeling you have been far away, even though you leave and return the same day.",
       "badge": "All year",
@@ -385,6 +387,7 @@
     "islas-marietas": {
       "name": "Marietas Islands",
       "shortName": "Marietas Islands",
+      "headline": "Marietas Islands",
       "short": "A biosphere reserve an hour from Nuevo Vallarta. Snorkeling at the Hidden Beach, bird watching and lunch on board. Groups of 12 at most.",
       "blurb": "Twelve people, one guide and an island the reserve protects. You swim into the Hidden Beach, see birds that nest nowhere else in Mexico and eat on board while the boat rocks. Worth booking weeks ahead.",
       "badge": "Groups of 12",
@@ -469,6 +472,7 @@
     "avistamiento-de-ballenas": {
       "name": "Whale watching",
       "shortName": "Whales",
+      "headline": "Whale watching",
       "short": "Season from December to March. A short trip with a certified guide and guaranteed sighting windows.",
       "blurb": "Every winter the humpbacks come to Banderas Bay to give birth and raise their calves. We sail for four hours with a certified guide and a hydrophone on board to hear them sing. If we do not see them, you repeat the trip at no cost.",
       "badge": "December to March",
@@ -543,6 +547,7 @@
     "charter-privado": {
       "name": "Private charter",
       "shortName": "Private charter",
+      "headline": "Private charter",
       "short": "The whole boat for your group: route, schedule and menu your way. Weddings, birthdays and company outings.",
       "blurb": "The whole boat, the route you want and the schedule that suits you. We bring the crew, the music, the bar and the food; you decide where to anchor, how long to stay and when to head back.",
       "badge": "Your way",
