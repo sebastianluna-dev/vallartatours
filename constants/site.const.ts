@@ -30,3 +30,10 @@ export const FIGURES = {
 export const DEPOSIT_RATE = 0.3;
 
 export const SITE_YEAR = 2025;
+
+/**
+ * Quality the optimiser encodes every photograph with. The site is one big
+ * photograph after another, so they are served at the top of the scale; the
+ * allowlist of `next.config.ts` has to carry the same number.
+ */
+export const PHOTO_QUALITY = 100;

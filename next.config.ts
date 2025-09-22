@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
   images: {
     // The photographs are large JPEGs: AVIF halves their weight again.
     formats: ["image/avif", "image/webp"],
+    // Next 16 only optimises the qualities named here. The site serves its
+    // photographs at the top of the scale (`PHOTO_QUALITY` in
+    // constants/site.const.ts); nothing asks for another one.
+    qualities: [100],
   },
 };
 
