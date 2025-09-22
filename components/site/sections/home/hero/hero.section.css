@@ -1,7 +1,23 @@
 .hero {
+  /* From the bottom of the search bar to the end of the section there are
+     130px, the same air the carousel leaves over its title. The bar's own
+     block already takes 122 of them (the travellers line under it and the
+     padding of the inner), so the section adds the rest *below* the
+     photograph: that strip is the navy of the page, not more photograph. */
+  --hero-skirt: 8px;
+
   position: relative;
   min-height: 840px;
+  padding-bottom: var(--hero-skirt);
   overflow: hidden;
+  background: var(--color-navy);
+
+  /* The photograph and its veils stop where the photograph used to end;
+     below them the section shows its own navy. */
+  & .hero__media {
+    position: absolute;
+    inset: 0 0 var(--hero-skirt);
+  }
 
   & .hero__photo {
     object-fit: cover;
@@ -113,6 +129,9 @@
   }
 
   @media (max-width: 767px) {
+    /* The phone already leaves more than 130px under the bar. */
+    --hero-skirt: 0px;
+
     min-height: 0;
 
     & .hero__veil {

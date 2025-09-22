@@ -14,17 +14,21 @@ export function HeroSection() {
 
   return (
     <section className="section hero" id="inicio">
-      <Image
-        className="hero__photo"
-        src="/images/hero-playa.jpg"
-        alt={t("photoAlt")}
-        fill
-        priority
-        sizes="100vw"
-        quality={PHOTO_QUALITY}
-      />
-      <div className="hero__veil" />
-      <div className="hero__fade" />
+      {/* The photograph and its veils; the section can grow past this layer
+          and show its own navy underneath (see `--hero-skirt`). */}
+      <div className="hero__media">
+        <Image
+          className="hero__photo"
+          src="/images/hero-playa.jpg"
+          alt={t("photoAlt")}
+          fill
+          priority
+          sizes="100vw"
+          quality={PHOTO_QUALITY}
+        />
+        <div className="hero__veil" />
+        <div className="hero__fade" />
+      </div>
 
       <div className="section__inner hero__inner">
         <div className="hero__copy">
