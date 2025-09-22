@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import "./page-hero.comp.css";
+import { PHOTO_QUALITY } from "@/constants/site.const";
 
 interface PageHeroProps {
   photo: string;
@@ -17,7 +18,15 @@ interface PageHeroProps {
 export function PageHero({ photo, photoAlt, title, lead, size = "tall", children }: PageHeroProps) {
   return (
     <section className={`section page-hero page-hero_size_${size}`}>
-      <Image className="page-hero__photo" src={photo} alt={photoAlt} fill priority sizes="100vw" />
+      <Image
+        className="page-hero__photo"
+        src={photo}
+        alt={photoAlt}
+        fill
+        priority
+        sizes="100vw"
+        quality={PHOTO_QUALITY}
+      />
       <div className="page-hero__veil" />
       <div className="section__inner page-hero__inner">
         <h1 className="page-hero__title">{title}</h1>

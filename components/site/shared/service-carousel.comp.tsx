@@ -11,6 +11,7 @@ import { formatPrice } from "@/lib/format-price";
 import { serviceSlug } from "@/lib/service-slug";
 import { Icon } from "./icon.comp";
 import "./service-carousel.comp.css";
+import { PHOTO_QUALITY } from "@/constants/site.const";
 
 interface ServiceCarouselProps {
   services: readonly Service[];
@@ -73,6 +74,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
               fill
               sizes="100vw"
               priority={index === initial}
+              quality={PHOTO_QUALITY}
             />
           ) : null,
         )}
@@ -137,6 +139,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
                     alt={tCatalog(`${service.slug}.photoAlt`)}
                     fill
                     sizes="(max-width: 767px) 200px, 30vw"
+                    quality={PHOTO_QUALITY}
                   />
                   <button
                     type="button"
