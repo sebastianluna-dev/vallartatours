@@ -1,5 +1,6 @@
 .steps {
-  padding-top: 48px;
+  /* The carousel above already leaves the space (`--carousel-space`). */
+  padding-top: 0;
 
   & .steps__band {
     position: relative;

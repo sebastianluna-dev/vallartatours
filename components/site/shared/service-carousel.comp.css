@@ -1,4 +1,9 @@
 .service-carousel {
+  /* The air over the title, which the section also leaves under the arrows:
+     whatever comes next (the sky-blue band of the steps on the home, the
+     footer on a detail page) starts no closer than that. */
+  --carousel-space: 130px;
+
   position: relative;
   min-height: 700px;
   overflow: hidden;
@@ -52,8 +57,8 @@
     display: flex;
     flex-direction: column;
     min-height: 700px;
-    padding-top: 130px;
-    padding-bottom: 40px;
+    padding-top: var(--carousel-space);
+    padding-bottom: var(--carousel-space);
   }
 
   /* Re-mounted on every change (`key`), so the animation plays again. */
