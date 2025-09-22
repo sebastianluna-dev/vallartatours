@@ -62,7 +62,7 @@ Lo que no cambia con el idioma está en `constants/`:
 - `services.const.ts`: los cinco servicios en orden, con foto, precio por persona (o `null` si se cotiza), duración, horas de salida, tamaño de grupo, muelle, temporada, comodidades y qué llevar; más las fotos de las reseñas.
 - `navigation.const.ts`: las tres páginas del menú (`NAV_ITEMS`) y los dos documentos legales del pie (`LEGAL_LINKS`).
 
-Las imágenes están en `public/images` (JPEG de las fotos de los servicios a 1800 px, los heros, los retratos de las reseñas y el arte del pie en SVG), los iconos en `app/` (`icon.svg` para navegadores modernos, `favicon.ico` de 32 px y `apple-icon.png` de 180 px, rasterizados del mismo dibujo) y la fuente en `public/fonts` (Poppins 400–800, subconjuntos latinos de Google Fonts servidos en local desde `app/[locale]/fonts.ts`). `assets/fonts` guarda la misma Poppins en TrueType: no se sirve al visitante, la lee el generador de la tarjeta de Open Graph, que no entiende woff2.
+Las imágenes están en `public/images` (JPEG de las fotos de los servicios a 1800 px, los heros, los retratos de las reseñas y el arte del pie en SVG) y se sirven por el optimizador de Next en AVIF/WebP con calidad 100 (`PHOTO_QUALITY` en `constants/site.const.ts`, la única que `next.config.ts` permite: cualquier otra devuelve 400), los iconos en `app/` (`icon.svg` para navegadores modernos, `favicon.ico` de 32 px y `apple-icon.png` de 180 px, rasterizados del mismo dibujo) y la fuente en `public/fonts` (Poppins 400–800, subconjuntos latinos de Google Fonts servidos en local desde `app/[locale]/fonts.ts`). `assets/fonts` guarda la misma Poppins en TrueType: no se sirve al visitante, la lee el generador de la tarjeta de Open Graph, que no entiende woff2.
 
 ## Reservas y contacto
 
