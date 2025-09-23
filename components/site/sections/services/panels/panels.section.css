@@ -1,6 +1,12 @@
 .panels {
   & .panels__panel {
     position: relative;
+    /* The panel is the photograph, so it keeps its shape; on a narrow window
+       the copy needs more height than the shape gives and takes over. The
+       width is pinned: with `min-height` alone the ratio would widen the
+       panel past the window instead of making it taller. */
+    width: 100%;
+    aspect-ratio: var(--service-photo-ratio);
     min-height: 700px;
     overflow: hidden;
     background: var(--color-navy);
@@ -121,6 +127,11 @@
 
   /* Phone: one column, the chips wrap in rows. */
   @media (max-width: 767px) {
+    & .panels__panel {
+      /* On the phone the copy sets the height, not the photograph. */
+      aspect-ratio: auto;
+    }
+
     & .panels__panel {
       min-height: 0;
     }
