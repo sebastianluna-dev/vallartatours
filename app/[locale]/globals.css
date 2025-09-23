@@ -34,6 +34,10 @@
 
   /* Horizontal padding of every section, the header and the footer: one
      value so the content edges line up from the top of the page down. */
+  /* The service photographs are 1800x890, and the sections that use one as a
+     background keep that shape so the crop does not change with the window. */
+  --service-photo-ratio: 1800 / 890;
+
   --site-gutter: clamp(20px, 2.8vw, 40px);
   --site-max-width: 1200px;
   --radius-card: 18px;
