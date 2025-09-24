@@ -128,8 +128,8 @@
     justify-content: space-between;
     gap: 20px;
     /* The deck chair of `footer__waves` hangs below its block, so the line
-       starts under the drawing instead of across it. */
-    padding-top: 84px;
+       starts well under the drawing instead of across it. */
+    padding-top: 124px;
     padding-bottom: 40px;
     font-size: 15px;
     color: var(--color-text-muted);
