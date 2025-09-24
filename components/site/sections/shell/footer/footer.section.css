@@ -102,6 +102,8 @@
     z-index: 1;
     display: block;
     margin-bottom: -48px;
+    /* Sits into the artwork rather than over its line. */
+    transform: translateY(-40px);
     font-size: clamp(96px, 14vw, 200px);
     line-height: 1.02;
     font-weight: 800;
@@ -170,6 +172,7 @@
 
     & .footer__mark {
       margin-bottom: 0;
+      transform: none;
       font-size: 96px;
       line-height: 1;
       letter-spacing: -0.045em;
