@@ -38,6 +38,11 @@
      background keep that shape so the crop does not change with the window. */
   --service-photo-ratio: 1800 / 890;
 
+  /* The air a section leaves around its content, and therefore the gap
+     between one section and the next: over the carousel's title, under its
+     arrows, under the hero's search bar and over the reviews. */
+  --site-section-space: 130px;
+
   --site-gutter: clamp(20px, 2.8vw, 40px);
   --site-max-width: 1200px;
   --radius-card: 18px;
