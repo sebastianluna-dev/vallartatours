@@ -102,8 +102,8 @@
     z-index: 1;
     display: block;
     margin-bottom: -48px;
-    /* Sits into the artwork rather than over its line. */
-    transform: translateY(-40px);
+    /* Drops into the artwork rather than sitting over its line. */
+    transform: translateY(40px);
     font-size: clamp(96px, 14vw, 200px);
     line-height: 1.02;
     font-weight: 800;
