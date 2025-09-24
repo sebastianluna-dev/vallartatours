@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import { useRef } from "react";
 import { Icon } from "@/components/site/shared/icon.comp";
 import { LocaleSwitcher } from "@/components/site/shared/locale-switcher.comp";
+import { Logo } from "@/components/site/shared/logo.comp";
 import { SITE } from "@/constants/site.const";
 import { BookButton } from "./book-button.comp";
 import { SiteNav } from "./site-nav.comp";
@@ -27,9 +28,7 @@ export function MobileMenu() {
 
       <dialog ref={dialogRef} className="mobile-menu__panel" aria-label={t("menu")}>
         <div className="mobile-menu__bar">
-          <span className="mobile-menu__mark" aria-hidden="true">
-            WKND
-          </span>
+          <Logo onNavigate={close} />
           <div className="mobile-menu__tools">
             <LocaleSwitcher />
             <button type="button" className="mobile-menu__close" aria-label={t("closeMenu")} onClick={close}>
