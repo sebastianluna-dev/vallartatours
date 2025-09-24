@@ -2,7 +2,7 @@
   /* The air over the title, which the section also leaves under the arrows:
      whatever comes next (the sky-blue band of the steps on the home, the
      footer on a detail page) starts no closer than that. */
-  --carousel-space: 130px;
+  --carousel-space: var(--site-section-space);
 
   position: relative;
   min-height: 700px;

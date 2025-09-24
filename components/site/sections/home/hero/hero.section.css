@@ -1,10 +1,10 @@
 .hero {
-  /* From the bottom of the search bar to the end of the section there are
-     130px, the same air the carousel leaves over its title. The bar's own
-     block already takes 122 of them (the travellers line under it and the
-     padding of the inner), so the section adds the rest *below* the
-     photograph: that strip is the navy of the page, not more photograph. */
-  --hero-skirt: 8px;
+  /* From the bottom of the search bar to the end of the section there is the
+     air of `--site-section-space`. The bar's own block already takes 122px of
+     it (the travellers line under it and the padding of the inner), so the
+     section adds the rest *below* the photograph: that strip is the navy of
+     the page, not more photograph. */
+  --hero-skirt: calc(var(--site-section-space) - 122px);
 
   position: relative;
   min-height: 840px;
