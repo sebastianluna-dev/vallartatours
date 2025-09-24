@@ -1,5 +1,6 @@
 .proof {
-  padding-top: 96px;
+  /* The same air the sky-blue band above it leaves. */
+  padding-top: var(--site-section-space);
 
   & .proof__inner {
     display: grid;
