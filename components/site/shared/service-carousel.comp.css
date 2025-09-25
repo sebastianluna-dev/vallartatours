@@ -68,10 +68,8 @@
     padding-bottom: var(--carousel-space);
   }
 
-  /* Re-mounted on every change (`key`), so the animation plays again. */
   & .service-carousel__copy {
     width: 38%;
-    animation: service-carousel-copy 0.42s var(--ease-out);
   }
 
   & .service-carousel__eyebrow {
@@ -165,6 +163,11 @@
       visibility: hidden;
       transition-delay: 0s, 0s, 0.44s;
     }
+  }
+
+  /* Until the deck is on screen its cards wait out of sight. */
+  & .service-carousel__deck[data-entrance="waiting"] .service-carousel__card[data-desk="shown"] {
+    opacity: 0;
   }
 
   /* The first time the deck is on screen its cards arrive one after another,
@@ -384,6 +387,10 @@
       animation: none;
     }
 
+    & .service-carousel__deck[data-entrance="waiting"] .service-carousel__card[data-desk="shown"] {
+      opacity: var(--fade);
+    }
+
     & .service-carousel__card {
       top: 50%;
       left: 50%;
@@ -492,17 +499,5 @@
   to {
     opacity: 1;
     transform: translate(calc(var(--slot) * (100% + 22px)), calc(var(--slot) * 44px));
-  }
-}
-
-@keyframes service-carousel-copy {
-  from {
-    opacity: 0;
-    transform: translateY(18px);
-  }
-
-  to {
-    opacity: 1;
-    transform: none;
   }
 }

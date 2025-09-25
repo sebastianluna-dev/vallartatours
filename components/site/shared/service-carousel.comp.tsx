@@ -58,6 +58,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
   const current = services[active];
   // The cards arrive one after another the first time the deck is on screen;
   // after that a move is the slide of the stack and nothing else.
+  const [copyRef, copyInView] = useReveal<HTMLDivElement>();
   const [deckRef, deckInView] = useReveal<HTMLDivElement>();
   const [entranceDone, setEntranceDone] = useState(false);
   useEffect(() => {
@@ -65,7 +66,9 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
     const timer = setTimeout(() => setEntranceDone(true), ENTRANCE_MS);
     return () => clearTimeout(timer);
   }, [deckInView, entranceDone]);
-  const entrance = deckInView && !entranceDone ? "playing" : "done";
+  // "waiting" holds the cards back until the deck is on screen, so they are
+  // never seen sitting there before they arrive.
+  const entrance = !deckInView ? "waiting" : entranceDone ? "done" : "playing";
 
   const priceOf = (service: Service) => (service.price === null ? t("quote") : formatPrice(service.price, locale));
   const metaOf = (service: Service) =>
@@ -100,10 +103,15 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
         <div className="service-carousel__fade" />
       </div>
 
-      {/* The whole composition rises into place the first time the section
-          reaches the viewport, like the panels and the reviews do. */}
-      <Reveal className="section__inner service-carousel__inner">
-        <div key={current.slug} className="service-carousel__copy" aria-live="polite">
+      <div className="section__inner service-carousel__inner">
+        {/* Re-mounted on every change (`key`), so the copy of the trip that
+            arrives rises the same way it did the first time. */}
+        <div
+          key={current.slug}
+          ref={copyRef}
+          className={["service-carousel__copy", "reveal", copyInView && "reveal_state_in"].filter(Boolean).join(" ")}
+          aria-live="polite"
+        >
           {eyebrow && <span className="eyebrow service-carousel__eyebrow">{eyebrow}</span>}
           <h2 className="service-carousel__title">{tCatalog(`${current.slug}.headline`)}</h2>
           <p className="service-carousel__text">{tCatalog(`${current.slug}.pitch`)}</p>
@@ -203,7 +211,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
           ))}
         </div>
 
-        <div className="service-carousel__actions">
+        <Reveal className="service-carousel__actions" order={2}>
           <button type="button" className="service-carousel__arrow" onClick={prev} aria-label={t("prev")}>
             <Icon name="arrowLeft" size={18} />
           </button>
@@ -218,8 +226,8 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
           <Link className="button button_variant_glass button_shape_square service-carousel__all" href="/servicios">
             {tCommon("allServices")}
           </Link>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }
