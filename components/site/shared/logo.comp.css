@@ -19,11 +19,11 @@
 
   @media (max-width: 767px) {
     & .logo__top {
-      font-size: 9px;
+      font-size: 10.5px;
     }
 
     & .logo__mark {
-      font-size: 20px;
+      font-size: 24px;
     }
   }
 }
