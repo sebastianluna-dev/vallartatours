@@ -167,6 +167,15 @@
     }
   }
 
+  /* When the section is revealed the three cards on screen arrive one after
+     another, left to right, instead of all at once. Only the opacity and a
+     nudge move: the `--slot` translation of the stack is written into the
+     keyframes so a card never leaves its place in the diagonal. */
+  & .service-carousel__inner.reveal_state_in .service-carousel__card[data-desk="shown"] {
+    animation: service-carousel-card-in 0.55s var(--ease-out) backwards;
+    animation-delay: calc(160ms + var(--slot) * 150ms);
+  }
+
   & .service-carousel__card-photo {
     object-fit: cover;
   }
@@ -369,6 +378,11 @@
       display: none;
     }
 
+    /* The fan has its own arrangement; the desktop entrance does not apply. */
+    & .service-carousel__inner.reveal_state_in .service-carousel__card[data-desk="shown"] {
+      animation: none;
+    }
+
     & .service-carousel__card {
       top: 50%;
       left: 50%;
@@ -465,6 +479,18 @@
       width: 100%;
       margin-left: 0;
     }
+  }
+}
+
+@keyframes service-carousel-card-in {
+  from {
+    opacity: 0;
+    transform: translate(calc(var(--slot) * (100% + 22px)), calc(var(--slot) * 44px + 26px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(calc(var(--slot) * (100% + 22px)), calc(var(--slot) * 44px));
   }
 }
 
