@@ -43,6 +43,11 @@
      arrows, under the hero's search bar and over the reviews. */
   --site-section-space: 130px;
 
+  /* Entrances: how long a piece takes to arrive and how long the next one
+     waits, so every section that reveals its content moves alike. */
+  --reveal-duration: 0.6s;
+  --reveal-step: 90ms;
+
   --site-gutter: clamp(20px, 2.8vw, 40px);
   --site-max-width: 1200px;
   --radius-card: 18px;
