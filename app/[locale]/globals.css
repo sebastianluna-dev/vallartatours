@@ -169,6 +169,9 @@ body:has(dialog[open]) {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    /* Without this an entrance that waits its turn would hold the element
+       invisible for the whole delay. */
+    animation-delay: 0s !important;
   }
 }
 
