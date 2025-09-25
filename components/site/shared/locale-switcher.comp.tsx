@@ -10,7 +10,7 @@ import "./locale-switcher.comp.css";
 // "ES / EN": the same page in the other language. `usePathname` returns the
 // internal route (`/servicios/[slug]`) and `useParams` its parameters, so the
 // link lands on the translated URL of the page the visitor is reading.
-export function LocaleSwitcher() {
+export function LocaleSwitcher({ className }: { className?: string }) {
   const current = useLocale();
   const t = useTranslations("nav");
   const pathname = usePathname();
@@ -26,7 +26,7 @@ export function LocaleSwitcher() {
   };
 
   return (
-    <nav className="locale-switcher" aria-label={t("language")}>
+    <nav className={["locale-switcher", className].filter(Boolean).join(" ")} aria-label={t("language")}>
       {routing.locales.map((locale, index) => (
         <span key={locale} className="locale-switcher__item">
           {index > 0 && (

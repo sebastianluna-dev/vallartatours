@@ -22,7 +22,9 @@
   @media (max-width: 767px) {
     padding-top: 22px;
 
-    & .header__nav {
+    /* The phone keeps both inside the menu. */
+    & .header__nav,
+    & .header__locale {
       display: none;
     }
 
