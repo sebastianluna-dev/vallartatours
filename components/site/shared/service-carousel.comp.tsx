@@ -2,9 +2,10 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
-import type { CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import type { Service } from "@/constants/services.const";
 import { useCarousel } from "@/hooks/use-carousel.hook";
+import { useReveal } from "@/hooks/use-reveal.hook";
 import { Link } from "@/i18n/navigation";
 import { DECK_LAPS, deckSlot, isDeckSlotVisible, signedOffset } from "@/lib/carousel-offsets";
 import { formatPrice } from "@/lib/format-price";
@@ -28,6 +29,12 @@ const PHONE_SCALE = [1, 0.84, 0.68];
 const PHONE_FADE = [1, 0.8, 0.45];
 /** The copies of the deck, one per lap; the phone only ever shows the first. */
 const LAPS = Array.from({ length: DECK_LAPS }, (_, lap) => lap);
+/**
+ * How long the cards take to arrive, the longest delay included. Once it has
+ * passed the deck stops offering the entrance: from then on a move is only
+ * the slide of the stack.
+ */
+const ENTRANCE_MS = 900;
 
 // The service picker. Desktop: the active trip's photo fills the stage, its
 // copy sits on the left and the next three trips stack diagonally on the
@@ -49,6 +56,16 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
   const count = services.length;
   const { active, cursor, loaded, select, next, prev, swipeHandlers } = useCarousel(count, initial);
   const current = services[active];
+  // The cards arrive one after another the first time the deck is on screen;
+  // after that a move is the slide of the stack and nothing else.
+  const [deckRef, deckInView] = useReveal<HTMLDivElement>();
+  const [entranceDone, setEntranceDone] = useState(false);
+  useEffect(() => {
+    if (!deckInView || entranceDone) return;
+    const timer = setTimeout(() => setEntranceDone(true), ENTRANCE_MS);
+    return () => clearTimeout(timer);
+  }, [deckInView, entranceDone]);
+  const entrance = deckInView && !entranceDone ? "playing" : "done";
 
   const priceOf = (service: Service) => (service.price === null ? t("quote") : formatPrice(service.price, locale));
   const metaOf = (service: Service) =>
@@ -109,7 +126,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
           </Link>
         </div>
 
-        <div className="service-carousel__deck" {...swipeHandlers}>
+        <div className="service-carousel__deck" ref={deckRef} data-entrance={entrance} {...swipeHandlers}>
           {LAPS.map((lap) =>
             services.map((service, index) => {
               const slot = deckSlot(index, cursor, count, lap);

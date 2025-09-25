@@ -167,11 +167,12 @@
     }
   }
 
-  /* When the section is revealed the three cards on screen arrive one after
-     another, left to right, instead of all at once. Only the opacity and a
-     nudge move: the `--slot` translation of the stack is written into the
+  /* The first time the deck is on screen its cards arrive one after another,
+     left to right, instead of all at once; the component drops the attribute
+     when they have, so a later move is only the slide of the stack. Only the
+     opacity and a nudge move: the `--slot` translation is written into the
      keyframes so a card never leaves its place in the diagonal. */
-  & .service-carousel__inner.reveal_state_in .service-carousel__card[data-desk="shown"] {
+  & .service-carousel__deck[data-entrance="playing"] .service-carousel__card[data-desk="shown"] {
     animation: service-carousel-card-in var(--reveal-duration) var(--ease-out) backwards;
     animation-delay: calc(var(--slot) * var(--reveal-step));
   }
@@ -379,7 +380,7 @@
     }
 
     /* The fan has its own arrangement; the desktop entrance does not apply. */
-    & .service-carousel__inner.reveal_state_in .service-carousel__card[data-desk="shown"] {
+    & .service-carousel__deck[data-entrance="playing"] .service-carousel__card[data-desk="shown"] {
       animation: none;
     }
 
