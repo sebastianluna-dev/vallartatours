@@ -10,6 +10,7 @@ import { DECK_LAPS, deckSlot, isDeckSlotVisible, signedOffset } from "@/lib/caro
 import { formatPrice } from "@/lib/format-price";
 import { serviceSlug } from "@/lib/service-slug";
 import { Icon } from "./icon.comp";
+import { Reveal } from "./reveal.comp";
 import "./service-carousel.comp.css";
 import { PHOTO_QUALITY } from "@/constants/site.const";
 
@@ -82,7 +83,9 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
         <div className="service-carousel__fade" />
       </div>
 
-      <div className="section__inner service-carousel__inner">
+      {/* The whole composition rises into place the first time the section
+          reaches the viewport, like the panels and the reviews do. */}
+      <Reveal className="section__inner service-carousel__inner">
         <div key={current.slug} className="service-carousel__copy" aria-live="polite">
           {eyebrow && <span className="eyebrow service-carousel__eyebrow">{eyebrow}</span>}
           <h2 className="service-carousel__title">{tCatalog(`${current.slug}.headline`)}</h2>
@@ -199,7 +202,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
             {tCommon("allServices")}
           </Link>
         </div>
-      </div>
+      </Reveal>
     </section>
   );
 }
