@@ -26,6 +26,15 @@
       height: 40px;
       background: var(--color-glass);
       color: var(--color-text);
+      transition:
+        background 0.25s,
+        color 0.25s;
+
+      /* The glass turns lime, so the glyph has to turn navy with it. */
+      &:hover,
+      &:focus-visible {
+        color: var(--color-navy-deep);
+      }
     }
   }
 }
