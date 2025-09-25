@@ -172,8 +172,8 @@
      nudge move: the `--slot` translation of the stack is written into the
      keyframes so a card never leaves its place in the diagonal. */
   & .service-carousel__inner.reveal_state_in .service-carousel__card[data-desk="shown"] {
-    animation: service-carousel-card-in 0.55s var(--ease-out) backwards;
-    animation-delay: calc(160ms + var(--slot) * 150ms);
+    animation: service-carousel-card-in var(--reveal-duration) var(--ease-out) backwards;
+    animation-delay: calc(var(--slot) * var(--reveal-step));
   }
 
   & .service-carousel__card-photo {
