@@ -10,8 +10,8 @@ interface IncludedProps {
   service: Service;
 }
 
-// The sky-blue band: what the price covers, what it does not and what to
-// bring as chips with an icon.
+// The sky-blue band: what the price covers and what it does not, each on
+// its own navy card, and what to bring as chips with an icon.
 export function IncludedSection({ service }: IncludedProps) {
   const t = useTranslations("service");
   const tCatalog = useTranslations(`catalog.${service.slug}`);
@@ -33,7 +33,7 @@ export function IncludedSection({ service }: IncludedProps) {
           </Reveal>
           <div className="included__body">
             <div className="included__lists">
-              <Reveal order={1}>
+              <Reveal className="included__card" order={1}>
                 <h3 className="included__heading included__heading_tone_lime">{t("includes")}</h3>
                 <ul className="included__list">
                   {includes.map((item) => (
@@ -44,7 +44,7 @@ export function IncludedSection({ service }: IncludedProps) {
                   ))}
                 </ul>
               </Reveal>
-              <Reveal order={2}>
+              <Reveal className="included__card" order={2}>
                 <h3 className="included__heading">{t("excludes")}</h3>
                 <ul className="included__list">
                   {excludes.map((item) => (
