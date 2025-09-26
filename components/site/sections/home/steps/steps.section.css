@@ -5,7 +5,7 @@
   & .steps__band {
     position: relative;
     overflow: hidden;
-    padding: 52px 44px 48px;
+    padding: 52px 44px;
     border-radius: 20px;
     background: var(--color-sky);
     color: var(--color-text);
@@ -91,7 +91,7 @@
     }
 
     & .steps__band {
-      padding: 58px 22px 60px;
+      padding: 58px 22px;
       border-radius: 0;
     }
 
