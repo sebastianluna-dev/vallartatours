@@ -4,7 +4,7 @@
   & .included__band {
     position: relative;
     overflow: hidden;
-    padding: 52px 44px 24px;
+    padding: 52px 44px;
     border-radius: 20px;
     background: var(--color-sky);
     color: var(--color-text);
@@ -78,10 +78,12 @@
     gap: 10px;
   }
 
+  /* Navy, like the two lists beside them: white on the washed blue of a
+     translucent chip only reached 2.5:1. */
   & .included__chip {
     padding: 11px 20px;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    background: rgba(255, 255, 255, 0.22);
+    border: 1px solid var(--color-line);
+    background: var(--color-navy);
     font-size: 16px;
     font-weight: 600;
   }
@@ -94,7 +96,7 @@
     }
 
     & .included__band {
-      padding: 48px 22px 40px;
+      padding: 48px 22px;
       border-radius: 0;
     }
 
