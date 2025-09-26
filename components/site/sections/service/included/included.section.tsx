@@ -10,8 +10,10 @@ interface IncludedProps {
   service: Service;
 }
 
-// The sky-blue band: what the price covers and what it does not, each on
-// its own navy card, and what to bring as chips with an icon.
+// The sky-blue band: what the price covers, what it does not and what to
+// bring. On the desktop the two lists are navy cards next to the chips; the
+// phone makes the three a row it can scroll sideways, with the waves behind
+// the title to save the height.
 export function IncludedSection({ service }: IncludedProps) {
   const t = useTranslations("service");
   const tCatalog = useTranslations(`catalog.${service.slug}`);
@@ -23,40 +25,38 @@ export function IncludedSection({ service }: IncludedProps) {
       <div className="section__inner">
         <div className="included__band">
           <Reveal className="included__head">
-            <h2 className="section-title">
+            <h2 className="section-title included__title">
               {t.rich("includedTitle", {
                 br: () => <br />,
                 accent: (chunks) => <span className="section-title__accent">{chunks}</span>,
               })}
             </h2>
-            <WaveMark />
+            <WaveMark className="included__waves" />
           </Reveal>
           <div className="included__body">
-            <div className="included__lists">
-              <Reveal className="included__card" order={1}>
-                <h3 className="included__heading included__heading_tone_lime">{t("includes")}</h3>
-                <ul className="included__list">
-                  {includes.map((item) => (
-                    <li key={item} className="included__item">
-                      <Icon className="included__check" name="check" size={22} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-              <Reveal className="included__card" order={2}>
-                <h3 className="included__heading">{t("excludes")}</h3>
-                <ul className="included__list">
-                  {excludes.map((item) => (
-                    <li key={item} className="included__item included__item_kind_excluded">
-                      <Icon name="cross" size={22} />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </Reveal>
-            </div>
-            <Reveal order={3}>
+            <Reveal className="included__card" order={1}>
+              <h3 className="included__heading included__heading_tone_lime">{t("includes")}</h3>
+              <ul className="included__list">
+                {includes.map((item) => (
+                  <li key={item} className="included__item">
+                    <Icon className="included__check" name="check" size={22} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal className="included__card" order={2}>
+              <h3 className="included__heading">{t("excludes")}</h3>
+              <ul className="included__list">
+                {excludes.map((item) => (
+                  <li key={item} className="included__item included__item_kind_excluded">
+                    <Icon name="cross" size={22} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </Reveal>
+            <Reveal className="included__card included__card_kind_bring" order={3}>
               <h3 className="included__heading">{t("bring")}</h3>
               <ul className="included__bring">
                 {service.bring.map((item) => (

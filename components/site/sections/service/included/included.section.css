@@ -11,6 +11,7 @@
   }
 
   & .included__head {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(120px, 300px);
     gap: 40px;
@@ -19,25 +20,22 @@
 
   & .included__body {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(240px, 320px);
-    gap: 48px 64px;
-    align-items: start;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(240px, 320px);
+    gap: 24px 64px;
     margin-top: 14px;
   }
 
-  & .included__lists {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 24px;
-    max-width: 760px;
-  }
-
   /* Each list sits on the navy of the page, the way the three steps of the
-     home sit on their own band. */
+     home sit on their own band; what to bring stays on the blue. */
   & .included__card {
     padding: 28px 30px;
     border-radius: var(--radius-card);
     background: var(--color-navy);
+  }
+
+  & .included__card_kind_bring {
+    padding: 0;
+    background: none;
   }
 
   & .included__heading {
@@ -101,19 +99,54 @@
       border-radius: 0;
     }
 
-    & .included__head,
-    & .included__body,
-    & .included__lists {
-      grid-template-columns: 1fr;
-    }
-
+    /* The waves slide behind the title, off to the right, instead of taking
+       a row of their own: the heading crosses them. */
     & .included__head {
-      gap: 20px;
+      display: block;
     }
 
+    & .included__waves {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      z-index: 0;
+      width: 42%;
+      transform: translateY(-50%);
+      opacity: 0.85;
+    }
+
+    & .included__title {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* And the three cards become a row to swipe through. The padding below
+       is room for the entrance, which lifts them 20px. */
     & .included__body {
-      gap: 32px;
-      margin-top: 28px;
+      display: flex;
+      gap: 14px;
+      margin-top: 22px;
+      margin-bottom: -24px;
+      padding-bottom: 24px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    & .included__card {
+      flex: 0 0 74%;
+      scroll-snap-align: start;
+      padding: 24px 22px;
+    }
+
+    & .included__card_kind_bring {
+      padding: 24px 22px;
+      background: var(--color-navy);
     }
 
     & .included__heading {
