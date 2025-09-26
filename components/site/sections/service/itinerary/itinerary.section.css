@@ -76,39 +76,62 @@
     color: var(--color-text-soft);
   }
 
-  /* Phone: a vertical timeline. */
+  /* Phone: no line and no badges, just the hour beside what happens then. */
   @media (max-width: 767px) {
     padding-top: 56px;
 
     & .itinerary__list {
       grid-template-columns: 1fr;
-      gap: 28px;
-      margin-top: 32px;
+      gap: 22px;
+      margin-top: 28px;
 
       &::before {
-        left: 26px;
-        right: auto;
-        top: 0;
-        bottom: 0;
-        width: 3px;
-        height: auto;
+        display: none;
       }
     }
 
     & .itinerary__stop {
-      gap: 12px;
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: 6px 14px;
+      align-items: baseline;
+    }
+
+    /* The marker hands its two children to the grid of the stop. */
+    & .itinerary__marker {
+      display: contents;
+    }
+
+    & .itinerary__number {
+      display: none;
     }
 
     & .itinerary__time {
-      height: 40px;
+      grid-column: 1;
+      grid-row: 1;
+      height: auto;
+      margin-left: 0;
+      padding: 0;
+      border-radius: 0;
+      background: none;
+      /* Every stop is its own grid, so the hour carries the width of the
+         column: without it each row would start at a different place. */
+      min-width: 76px;
+      text-align: right;
+      color: var(--color-lime);
       font-size: 16px;
+      font-weight: 700;
     }
 
     & .itinerary__title {
-      font-size: 22px;
+      grid-column: 2;
+      grid-row: 1;
+      font-size: 20px;
     }
 
     & .itinerary__body {
+      grid-column: 2;
+      grid-row: 2;
       font-size: 15.5px;
     }
   }
