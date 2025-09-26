@@ -180,6 +180,21 @@ body:has(dialog[open]) {
   }
 }
 
+/* The entrance every hero plays as its page opens: the piece rises into
+   place. What scrolls into view uses `Reveal` instead (it has to wait for
+   the viewport), but the movement is the same. */
+@keyframes site-rise {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------------------------------------------------------------------------
    Shared classes
    --------------------------------------------------------------------------- */
