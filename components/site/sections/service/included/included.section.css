@@ -78,12 +78,13 @@
     gap: 10px;
   }
 
-  /* Navy, like the two lists beside them: white on the washed blue of a
-     translucent chip only reached 2.5:1. */
+  /* Lime with navy on it: the translucent chip this replaces washed out
+     against the band and only reached 2.5:1. */
   & .included__chip {
     padding: 11px 20px;
-    border: 1px solid var(--color-line);
-    background: var(--color-navy);
+    border: 0;
+    background: var(--color-lime);
+    color: var(--color-navy-deep);
     font-size: 16px;
     font-weight: 600;
   }
