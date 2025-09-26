@@ -118,6 +118,9 @@
     & .included__title {
       position: relative;
       z-index: 1;
+      /* Short of the edge, so the waves behind it keep an end in sight —
+         and wide enough that the heading still breaks in two lines. */
+      max-width: 84vw;
     }
 
     /* And the three cards become a row to swipe through. The padding below
