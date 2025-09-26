@@ -33,6 +33,30 @@
     max-width: 600px;
   }
 
+  /* The page introduces itself as it opens, like the other heroes. */
+  & .service-hero__badge,
+  & .service-hero__title,
+  & .service-hero__blurb,
+  & .service-hero__facts {
+    animation: site-rise var(--reveal-duration) var(--ease-out) backwards;
+  }
+
+  & .service-hero__badge {
+    animation-delay: 80ms;
+  }
+
+  & .service-hero__title {
+    animation-delay: 200ms;
+  }
+
+  & .service-hero__blurb {
+    animation-delay: 320ms;
+  }
+
+  & .service-hero__facts {
+    animation-delay: 420ms;
+  }
+
   & .service-hero__badge {
     align-self: flex-start;
     padding: 8px 18px;

@@ -1,4 +1,7 @@
 .booking-aside {
+  /* It arrives with the hero it sits in, a beat after the copy. */
+  animation: site-rise var(--reveal-duration) var(--ease-out) backwards;
+  animation-delay: 520ms;
   justify-self: end;
   width: 100%;
   max-width: 420px;
