@@ -27,7 +27,6 @@ export function IncludedSection({ service }: IncludedProps) {
           <Reveal className="included__head">
             <h2 className="section-title included__title">
               {t.rich("includedTitle", {
-                br: () => <br />,
                 accent: (chunks) => <span className="section-title__accent">{chunks}</span>,
               })}
             </h2>
