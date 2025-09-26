@@ -1,5 +1,6 @@
 import { useTranslations } from "next-intl";
 import { BRING_ICONS, Icon } from "@/components/site/shared/icon.comp";
+import { Reveal } from "@/components/site/shared/reveal.comp";
 import { WaveMark } from "@/components/site/shared/wave-mark.comp";
 import type { Service } from "@/constants/services.const";
 import { messageList } from "@/lib/message-list";
@@ -21,7 +22,7 @@ export function IncludedSection({ service }: IncludedProps) {
     <section className="section included">
       <div className="section__inner">
         <div className="included__band">
-          <div className="included__head">
+          <Reveal className="included__head">
             <h2 className="section-title">
               {t.rich("includedTitle", {
                 br: () => <br />,
@@ -29,10 +30,10 @@ export function IncludedSection({ service }: IncludedProps) {
               })}
             </h2>
             <WaveMark />
-          </div>
+          </Reveal>
           <div className="included__body">
             <div className="included__lists">
-              <div>
+              <Reveal order={1}>
                 <h3 className="included__heading included__heading_tone_lime">{t("includes")}</h3>
                 <ul className="included__list">
                   {includes.map((item) => (
@@ -42,8 +43,8 @@ export function IncludedSection({ service }: IncludedProps) {
                     </li>
                   ))}
                 </ul>
-              </div>
-              <div>
+              </Reveal>
+              <Reveal order={2}>
                 <h3 className="included__heading">{t("excludes")}</h3>
                 <ul className="included__list">
                   {excludes.map((item) => (
@@ -53,9 +54,9 @@ export function IncludedSection({ service }: IncludedProps) {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </Reveal>
             </div>
-            <div>
+            <Reveal order={3}>
               <h3 className="included__heading">{t("bring")}</h3>
               <ul className="included__bring">
                 {service.bring.map((item) => (
@@ -65,7 +66,7 @@ export function IncludedSection({ service }: IncludedProps) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Reveal>
           </div>
         </div>
       </div>

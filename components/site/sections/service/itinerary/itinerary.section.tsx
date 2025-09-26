@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Reveal } from "@/components/site/shared/reveal.comp";
 import type { ServiceSlug } from "@/constants/services.const";
 import { formatIndex } from "@/lib/format-index";
 import { messageRecords } from "@/lib/message-records";
@@ -20,14 +21,14 @@ export function ItinerarySection({ slug }: ItineraryProps) {
         <h2 className="section-title">{tCatalog("itineraryTitle")}</h2>
         <ol className="itinerary__list">
           {stops.map((stop, index) => (
-            <li key={stop.title} className="itinerary__stop">
+            <Reveal as="li" key={stop.title} className="itinerary__stop">
               <div className="itinerary__marker">
                 <span className="itinerary__number">{formatIndex(index)}</span>
                 <span className="itinerary__time">{stop.time}</span>
               </div>
               <h3 className="itinerary__title">{stop.title}</h3>
               <p className="itinerary__body">{stop.body}</p>
-            </li>
+            </Reveal>
           ))}
         </ol>
       </div>

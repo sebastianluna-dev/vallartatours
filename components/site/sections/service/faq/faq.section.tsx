@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import { Reveal } from "@/components/site/shared/reveal.comp";
 import type { ServiceSlug } from "@/constants/services.const";
 import { SITE } from "@/constants/site.const";
 import { buildWhatsappUrl } from "@/lib/build-whatsapp-url";
@@ -20,7 +21,7 @@ export function FaqSection({ slug }: FaqProps) {
   return (
     <section className="section faq">
       <div className="section__inner faq__inner">
-        <div className="faq__lead">
+        <Reveal className="faq__lead">
           <h2 className="section-title faq__title">{t("faqTitle")}</h2>
           <div className="faq__card">
             <div>
@@ -37,8 +38,8 @@ export function FaqSection({ slug }: FaqProps) {
               {tCommon("askWhatsapp")}
             </a>
           </div>
-        </div>
-        <div className="faq__list">
+        </Reveal>
+        <Reveal className="faq__list" order={1}>
           {questions.map((item, index) => (
             <details key={item.question} className="faq__item" open={index === 0}>
               <summary className="faq__question">
@@ -50,7 +51,7 @@ export function FaqSection({ slug }: FaqProps) {
               <p className="faq__answer">{item.answer}</p>
             </details>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );
