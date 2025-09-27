@@ -122,7 +122,9 @@
       grid-template-columns: 1fr;
       gap: 32px;
       padding-top: 130px;
-      padding-bottom: 48px;
+      /* The card is the last thing in the section; the itinerary below it
+         brings its own air. */
+      padding-bottom: 0;
     }
 
     & .service-hero__copy {
