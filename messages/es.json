@@ -187,7 +187,7 @@
       "wholeBoat": "Barco completo"
     },
     "bringItems": {
-      "sunscreen": "Bloqueador biodegradable",
+      "sunscreen": "Bloqueador bio",
       "cap": "Gorra",
       "sunglasses": "Lentes de sol",
       "windbreaker": "Rompevientos",
@@ -196,7 +196,7 @@
       "swimsuit": "Traje de baño",
       "towel": "Toalla",
       "waterShoes": "Zapatos para agua",
-      "cash": "Efectivo para propinas"
+      "cash": "Propinas en efectivo"
     }
   },
   "booking": {
