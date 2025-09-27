@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import { BRING_ICONS, Icon } from "@/components/site/shared/icon.comp";
+import { Icon } from "@/components/site/shared/icon.comp";
 import { Reveal } from "@/components/site/shared/reveal.comp";
 import { WaveMark } from "@/components/site/shared/wave-mark.comp";
 import type { Service } from "@/constants/services.const";
@@ -57,9 +57,12 @@ export function IncludedSection({ service }: IncludedProps) {
             <Reveal className="included__card" order={3}>
               <h3 className="included__heading">{t("bring")}</h3>
               <ul className="included__bring">
-                {service.bring.map((item) => (
+                {service.bring.map((item, index) => (
                   <li key={item} className="chip included__chip">
-                    <Icon className="chip__icon" name={BRING_ICONS[item]} size={18} />
+                    {/* The count is decoration: the list has no order to it. */}
+                    <span className="included__number" aria-hidden="true">
+                      {index + 1}
+                    </span>
                     {t(`bringItems.${item}`)}
                   </li>
                 ))}

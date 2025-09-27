@@ -72,14 +72,28 @@
   }
 
   /* Lime with navy on it: the translucent chip this replaces washed out
-     against the band and only reached 2.5:1. */
+     against the band and only reached 2.5:1. The count rides at its left
+     edge, a white dot the chip closes around. */
   & .included__chip {
-    padding: 11px 20px;
+    gap: 10px;
+    padding: 5px 18px 5px 5px;
     border: 0;
     background: var(--color-lime);
     color: var(--color-navy-deep);
     font-size: 16px;
     font-weight: 600;
+  }
+
+  & .included__number {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: var(--color-white);
+    font-size: 13px;
+    font-weight: 800;
   }
 
   @media (max-width: 767px) {
