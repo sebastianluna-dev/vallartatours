@@ -11,9 +11,8 @@ interface IncludedProps {
 }
 
 // The sky-blue band: what the price covers, what it does not and what to
-// bring. On the desktop the two lists are navy cards next to the chips; the
-// phone makes the three a row it can scroll sideways, with the waves behind
-// the title to save the height.
+// bring, each on its own navy card. The phone makes the three a row it can
+// scroll sideways, with the waves behind the title to save the height.
 export function IncludedSection({ service }: IncludedProps) {
   const t = useTranslations("service");
   const tCatalog = useTranslations(`catalog.${service.slug}`);
@@ -55,7 +54,7 @@ export function IncludedSection({ service }: IncludedProps) {
                 ))}
               </ul>
             </Reveal>
-            <Reveal className="included__card included__card_kind_bring" order={3}>
+            <Reveal className="included__card" order={3}>
               <h3 className="included__heading">{t("bring")}</h3>
               <ul className="included__bring">
                 {service.bring.map((item) => (

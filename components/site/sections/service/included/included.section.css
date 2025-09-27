@@ -25,17 +25,12 @@
     margin-top: 14px;
   }
 
-  /* Each list sits on the navy of the page, the way the three steps of the
-     home sit on their own band; what to bring stays on the blue. */
+  /* Every block sits on the navy of the page, the way the three steps of
+     the home sit on their own band. */
   & .included__card {
     padding: 28px 30px;
     border-radius: var(--radius-card);
     background: var(--color-navy);
-  }
-
-  & .included__card_kind_bring {
-    padding: 0;
-    background: none;
   }
 
   & .included__heading {
@@ -145,11 +140,6 @@
       flex: 0 0 74%;
       scroll-snap-align: start;
       padding: 24px 22px;
-    }
-
-    & .included__card_kind_bring {
-      padding: 24px 22px;
-      background: var(--color-navy);
     }
 
     & .included__heading {
