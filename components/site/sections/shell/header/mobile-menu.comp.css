@@ -99,5 +99,17 @@
 
   @media (max-width: 767px) {
     display: block;
+
+    /* The button stays with the visitor down the page; the rest of the bar
+       scrolls away with the hero. Navy under the glass so it reads over a
+       white card as well as over a photograph. */
+    & .mobile-menu__toggle {
+      position: fixed;
+      top: 22px;
+      right: var(--site-gutter);
+      z-index: 30;
+      background: rgba(6, 22, 52, 0.72);
+      backdrop-filter: blur(10px);
+    }
   }
 }
