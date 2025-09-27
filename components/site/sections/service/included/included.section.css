@@ -78,7 +78,7 @@
     /* One line of text with air above and below, and the dot as tall as the
        chip. The height is written down so the dot can be a circle of the
        same size: with `aspect-ratio` the two would size off each other. */
-    --chip-height: 36px;
+    --chip-height: 46px;
 
     /* It does not shrink: a chip that does not fit beside another wraps to
        the next line instead of squeezing its text. */
@@ -180,7 +180,7 @@
     }
 
     & .included__chip {
-      --chip-height: 33px;
+      --chip-height: 42px;
 
       font-size: 14.5px;
     }
