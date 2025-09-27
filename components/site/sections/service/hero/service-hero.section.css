@@ -102,7 +102,10 @@
        stretching it to the foot of the section shows nobody anything. */
     & .service-hero__media {
       bottom: auto;
-      height: 720px;
+      /* Shorter than the copy it sits behind: a taller box would crop the
+         photograph to a narrow strip and look stretched. What the copy
+         crosses below it is the navy the veil fades into. */
+      height: 600px;
     }
 
     & .service-hero__veil {
