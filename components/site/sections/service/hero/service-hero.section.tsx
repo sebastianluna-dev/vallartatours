@@ -25,16 +25,20 @@ export function ServiceHeroSection({ service }: ServiceHeroProps) {
 
   return (
     <section className="section service-hero">
-      <Image
-        className="service-hero__photo"
-        src={service.photo.src}
-        alt={tCatalog("photoAlt")}
-        fill
-        priority
-        sizes="100vw"
-        quality={PHOTO_QUALITY}
-      />
-      <div className="service-hero__veil" />
+      {/* The photograph and its veil; on the phone this layer stops just past
+          the top of the booking card (see `service-hero.section.css`). */}
+      <div className="service-hero__media">
+        <Image
+          className="service-hero__photo"
+          src={service.photo.src}
+          alt={tCatalog("photoAlt")}
+          fill
+          priority
+          sizes="100vw"
+          quality={PHOTO_QUALITY}
+        />
+        <div className="service-hero__veil" />
+      </div>
       <div className="section__inner service-hero__inner">
         <div className="service-hero__copy">
           <span className="service-hero__badge">{tCatalog("badge")}</span>

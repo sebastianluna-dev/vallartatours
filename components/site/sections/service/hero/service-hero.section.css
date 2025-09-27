@@ -5,6 +5,11 @@
   min-height: 760px;
   overflow: hidden;
 
+  & .service-hero__media {
+    position: absolute;
+    inset: 0;
+  }
+
   & .service-hero__photo {
     object-fit: cover;
   }
@@ -92,12 +97,21 @@
   @media (max-width: 767px) {
     min-height: 0;
 
+    /* The photograph runs to just past the top of the booking card and fades
+       into the navy of the page there: below that the card covers it, so
+       stretching it to the foot of the section shows nobody anything. */
+    & .service-hero__media {
+      bottom: auto;
+      height: 720px;
+    }
+
     & .service-hero__veil {
       background: linear-gradient(
         180deg,
         rgba(6, 22, 52, 0.7) 0%,
-        rgba(6, 22, 52, 0.5) 40%,
-        rgba(6, 22, 52, 0.92) 100%
+        rgba(6, 22, 52, 0.48) 34%,
+        rgba(6, 22, 52, 0.86) 62%,
+        var(--color-navy) 92%
       );
     }
 
