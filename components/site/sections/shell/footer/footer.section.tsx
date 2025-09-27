@@ -4,31 +4,20 @@ import { SocialLinks } from "@/components/site/shared/social-links.comp";
 import { LEGAL_LINKS, NAV_ITEMS } from "@/constants/navigation.const";
 import { SITE, SITE_YEAR } from "@/constants/site.const";
 import { Link } from "@/i18n/navigation";
-import { buildWhatsappUrl } from "@/lib/build-whatsapp-url";
+import { FooterCta } from "./footer-cta.comp";
 import "./footer.section.css";
 
 // Three columns (who we are and the networks, navigation, contact), the
-// giant "WKND" over the wave artwork and the legal line. The phone shows a
-// WhatsApp card instead of the columns.
+// giant "WKND" over the wave artwork and the legal line. On the phone the
+// home adds the WhatsApp card over them.
 export function Footer() {
   const t = useTranslations("footer");
   const tNav = useTranslations("nav");
-  const tCommon = useTranslations("common");
 
   return (
     <footer className="section footer">
       <div className="section__inner footer__inner">
-        <div className="footer__cta">
-          <h2 className="footer__cta-title">{t("ctaTitle")}</h2>
-          <a
-            className="button footer__cta-button"
-            href={buildWhatsappUrl(SITE.whatsapp)}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {tCommon("whatsapp")}
-          </a>
-        </div>
+        <FooterCta />
 
         <div className="footer__columns">
           <div className="footer__about">
