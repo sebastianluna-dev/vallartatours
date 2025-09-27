@@ -86,12 +86,29 @@
       margin-bottom: 24px;
     }
 
+    /* A row to swipe through instead of three cards stacked; the padding
+       below is room for the entrance, which lifts them 20px. */
     & .reviews__list {
-      grid-template-columns: 1fr;
-      gap: 12px;
+      display: flex;
+      /* Each card as tall as what it says: stretching them to the lime one
+         left the others half empty. */
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: -24px;
+      padding-bottom: 24px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     & .reviews__card {
+      flex: 0 0 82%;
+      scroll-snap-align: start;
       padding: 22px;
 
       &.reviews__card_featured {
