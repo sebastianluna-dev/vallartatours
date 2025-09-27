@@ -195,6 +195,8 @@
     max-width: none;
     gap: 16px;
     padding: 22px;
+    /* No shadow: the card sits on the navy of the page, not over a photo. */
+    box-shadow: none;
     scroll-margin-top: 90px;
   }
 }
