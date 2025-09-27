@@ -76,9 +76,9 @@
      edge, a white dot the chip closes around. */
   & .included__chip {
     gap: 10px;
-    /* No padding around the dot: the pill is as tall as it is and the text
-       only takes the room it needs on the right. */
-    padding: 0 18px 0 0;
+    /* Nothing on the left, so the dot sits flush against the edge; the text
+       on the lime gets its own air above and below. */
+    padding: 7px 18px 7px 0;
     border: 0;
     background: var(--color-lime);
     color: var(--color-navy-deep);
