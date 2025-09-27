@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Reveal } from "@/components/site/shared/reveal.comp";
-import type { Service } from "@/constants/services.const";
+import { REVIEW_PORTRAITS, type Service } from "@/constants/services.const";
 import { messageRecords } from "@/lib/message-records";
 import "./reviews.section.css";
 import { PHOTO_QUALITY } from "@/constants/site.const";
@@ -10,8 +10,9 @@ interface ReviewsProps {
   service: Service;
 }
 
-// Three quotes about the trip; the middle one is the lime card with the
-// traveller's portrait.
+// Three quotes about the trip, all the same but for the middle one, which
+// is the lime card. The portrait of that one is the trip's own; the others
+// borrow from the portraits of the site.
 export function ReviewsSection({ service }: ReviewsProps) {
   const t = useTranslations("service");
   const tCatalog = useTranslations(`catalog.${service.slug}`);
@@ -36,16 +37,14 @@ export function ReviewsSection({ service }: ReviewsProps) {
                 </span>
                 <blockquote className="reviews__quote">“{review.quote}”</blockquote>
                 <div className="reviews__author">
-                  {featured && (
-                    <Image
-                      className="reviews__avatar"
-                      src={service.reviewPhoto.src}
-                      alt=""
-                      width={60}
-                      height={60}
-                      quality={PHOTO_QUALITY}
-                    />
-                  )}
+                  <Image
+                    className="reviews__avatar"
+                    src={(featured ? service.reviewPhoto : REVIEW_PORTRAITS[index]).src}
+                    alt=""
+                    width={60}
+                    height={60}
+                    quality={PHOTO_QUALITY}
+                  />
                   <div>
                     <div className="reviews__name">{review.author}</div>
                     <div className="reviews__meta">{review.meta}</div>

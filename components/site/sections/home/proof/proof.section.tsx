@@ -1,7 +1,7 @@
 import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { Reveal } from "@/components/site/shared/reveal.comp";
-import { HOME_REVIEW_PHOTOS, PROOF_PHOTO } from "@/constants/services.const";
+import { REVIEW_PORTRAITS, PROOF_PHOTO } from "@/constants/services.const";
 import { FIGURES, PHOTO_QUALITY } from "@/constants/site.const";
 import { formatNumber } from "@/lib/format-price";
 import { messageRecords } from "@/lib/message-records";
@@ -41,7 +41,7 @@ export function ProofSection() {
           <Reveal as="blockquote" className="proof__card proof__card_style_photo">
             <Image
               className="proof__card-photo"
-              src={HOME_REVIEW_PHOTOS[0].src}
+              src={REVIEW_PORTRAITS[0].src}
               alt=""
               width={178}
               height={356}
@@ -63,7 +63,7 @@ export function ProofSection() {
           <Reveal as="blockquote" className="proof__card proof__card_style_photo proof__card_span_2">
             <Image
               className="proof__card-photo"
-              src={HOME_REVIEW_PHOTOS[1].src}
+              src={REVIEW_PORTRAITS[1].src}
               alt=""
               width={178}
               height={356}
@@ -94,7 +94,7 @@ export function ProofSection() {
           <Reveal as="blockquote" className="proof__card proof__card_style_glass proof__card_span_2" order={1}>
             <Image
               className="proof__avatar"
-              src={HOME_REVIEW_PHOTOS[2].src}
+              src={REVIEW_PORTRAITS[2].src}
               alt=""
               width={64}
               height={64}
@@ -110,7 +110,7 @@ export function ProofSection() {
           <Reveal as="blockquote" className="proof__card proof__card_style_glass proof__card_span_2" order={2}>
             <Image
               className="proof__avatar"
-              src={HOME_REVIEW_PHOTOS[3].src}
+              src={REVIEW_PORTRAITS[3].src}
               alt=""
               width={64}
               height={64}

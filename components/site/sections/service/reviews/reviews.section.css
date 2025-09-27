@@ -12,47 +12,34 @@
     align-items: center;
   }
 
+  /* The three cards are the same card; only the middle one takes the lime. */
   & .reviews__card {
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    padding: 30px;
-    border-radius: var(--radius-panel);
+    gap: 22px;
+    padding: 40px 34px;
+    border-radius: 24px;
     background: rgba(255, 255, 255, 0.1);
 
+    & .stars {
+      font-size: 30px;
+    }
+
     &.reviews__card_featured {
-      gap: 22px;
-      padding: 40px 34px;
-      border-radius: 24px;
       background: var(--color-lime);
       color: var(--color-navy-deep);
 
-      & .stars {
-        font-size: 30px;
-      }
-
-      & .reviews__quote {
-        font-size: clamp(24px, 2.2vw, 29px);
-        line-height: 1.28;
-        font-weight: 700;
-        letter-spacing: -0.02em;
-      }
-
-      & .reviews__name {
-        font-size: 19px;
-      }
-
       & .reviews__meta {
-        font-size: 16.5px;
-        font-weight: 500;
         color: inherit;
       }
     }
   }
 
   & .reviews__quote {
-    font-size: 19px;
-    line-height: 1.5;
+    font-size: clamp(24px, 2.2vw, 29px);
+    line-height: 1.28;
+    font-weight: 700;
+    letter-spacing: -0.02em;
     text-wrap: pretty;
   }
 
@@ -63,6 +50,8 @@
   }
 
   & .reviews__avatar {
+    /* It keeps its circle: the author's name next to it must not squeeze it. */
+    flex: none;
     width: 60px;
     height: 60px;
     border-radius: 999px;
@@ -70,12 +59,14 @@
   }
 
   & .reviews__name {
+    font-size: 19px;
     font-weight: 700;
   }
 
   & .reviews__meta {
     margin-top: 3px;
-    font-size: 17px;
+    font-size: 16.5px;
+    font-weight: 500;
     color: var(--color-text-muted);
   }
 
@@ -109,19 +100,20 @@
     & .reviews__card {
       flex: 0 0 82%;
       scroll-snap-align: start;
-      padding: 22px;
+      gap: 16px;
+      padding: 26px 22px;
 
-      &.reviews__card_featured {
-        padding: 28px 22px;
-
-        & .reviews__quote {
-          font-size: 22px;
-        }
+      & .stars {
+        font-size: 24px;
       }
     }
 
     & .reviews__quote {
-      font-size: 16.5px;
+      font-size: 20px;
+    }
+
+    & .reviews__name {
+      font-size: 17px;
     }
 
     & .reviews__meta {

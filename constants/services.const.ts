@@ -160,8 +160,8 @@ export function findService(slug: string): Service | undefined {
   return SERVICES.find((service) => service.slug === slug);
 }
 
-/** Portraits of the travellers quoted on the home; the quotes are `home.proof.reviews`. */
-export const HOME_REVIEW_PHOTOS = [
+/** Portraits of the travellers quoted: the home's four and the reviews of a trip. */
+export const REVIEW_PORTRAITS = [
   REVIEW_PHOTOS.couple,
   REVIEW_PHOTOS.friends,
   REVIEW_PHOTOS.family,
