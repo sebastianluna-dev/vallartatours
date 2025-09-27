@@ -63,7 +63,7 @@ export function IncludedSection({ service }: IncludedProps) {
                     <span className="included__number" aria-hidden="true">
                       {index + 1}
                     </span>
-                    {t(`bringItems.${item}`)}
+                    <span className="included__chip-label">{t(`bringItems.${item}`)}</span>
                   </li>
                 ))}
               </ul>

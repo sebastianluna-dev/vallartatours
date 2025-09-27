@@ -75,10 +75,17 @@
      against the band and only reached 2.5:1. The count rides at its left
      edge, a white dot the chip closes around. */
   & .included__chip {
+    /* One line of text with air above and below, and the dot as tall as the
+       chip. The height is written down so the dot can be a circle of the
+       same size: with `aspect-ratio` the two would size off each other. */
+    --chip-height: 36px;
+
+    /* It does not shrink: a chip that does not fit beside another wraps to
+       the next line instead of squeezing its text. */
+    flex: none;
     gap: 10px;
-    /* Nothing on the left, so the dot sits flush against the edge; the text
-       on the lime gets its own air above and below. */
-    padding: 7px 18px 7px 0;
+    height: var(--chip-height);
+    padding: 0 18px 0 0;
     border: 0;
     background: var(--color-lime);
     color: var(--color-navy-deep);
@@ -86,12 +93,16 @@
     font-weight: 600;
   }
 
+  & .included__chip-label {
+    white-space: nowrap;
+  }
+
   & .included__number {
     flex: none;
     display: grid;
     place-items: center;
-    width: 28px;
-    height: 28px;
+    width: var(--chip-height);
+    height: var(--chip-height);
     border-radius: 999px;
     background: var(--color-white);
     font-size: 13px;
@@ -169,6 +180,8 @@
     }
 
     & .included__chip {
+      --chip-height: 33px;
+
       font-size: 14.5px;
     }
   }
