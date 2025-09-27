@@ -2,22 +2,10 @@
   padding-top: 96px;
 
   & .itinerary__list {
-    position: relative;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 24px;
     margin-top: 56px;
-
-    /* The line through the numbers. */
-    &::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 26px;
-      height: 3px;
-      background: var(--color-lime-line);
-    }
   }
 
   & .itinerary__stop {
@@ -32,33 +20,18 @@
     align-items: center;
   }
 
-  & .itinerary__number {
-    position: relative;
-    z-index: 2;
-    flex: none;
-    display: grid;
-    place-items: center;
-    width: 54px;
-    height: 54px;
-    border-radius: 999px;
-    background: var(--color-lime);
-    color: var(--color-navy-deep);
-    font-size: 17px;
-    font-weight: 800;
-  }
-
+  /* The hour on a lime pill, and nothing else in the rail. */
   & .itinerary__time {
     display: flex;
     align-items: center;
-    height: 44px;
-    margin-left: -30px;
-    padding: 0 28px 0 42px;
-    border-radius: 0 999px 999px 0;
-    background: var(--color-white);
+    height: 46px;
+    padding: 0 24px;
+    border-radius: 999px;
+    background: var(--color-lime);
     color: var(--color-navy-deep);
     font-size: 18px;
     line-height: 1;
-    font-weight: 500;
+    font-weight: 700;
     letter-spacing: -0.02em;
     white-space: nowrap;
   }
@@ -84,10 +57,6 @@
       grid-template-columns: 1fr;
       gap: 22px;
       margin-top: 28px;
-
-      &::before {
-        display: none;
-      }
     }
 
     & .itinerary__stop {
@@ -102,15 +71,10 @@
       display: contents;
     }
 
-    & .itinerary__number {
-      display: none;
-    }
-
     & .itinerary__time {
       grid-column: 1;
       grid-row: 1;
       height: auto;
-      margin-left: 0;
       padding: 0;
       border-radius: 0;
       background: none;
