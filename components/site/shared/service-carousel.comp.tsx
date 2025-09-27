@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect, useState, type CSSProperties } from "react";
 import type { Service } from "@/constants/services.const";
 import { useCarousel } from "@/hooks/use-carousel.hook";
+import { useInView } from "@/hooks/use-in-view.hook";
 import { useReveal } from "@/hooks/use-reveal.hook";
 import { Link } from "@/i18n/navigation";
 import { DECK_LAPS, deckSlot, isDeckSlotVisible, signedOffset } from "@/lib/carousel-offsets";
@@ -35,6 +36,8 @@ const LAPS = Array.from({ length: DECK_LAPS }, (_, lap) => lap);
  * the slide of the stack.
  */
 const ENTRANCE_MS = 900;
+/** Half the section on screen is enough for the arrow keys to drive it. */
+const KEYS_THRESHOLD = 0.5;
 
 // The service picker. Desktop: the active trip's photo fills the stage, its
 // copy sits on the left and the next three trips stack diagonally on the
@@ -58,6 +61,25 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
   const current = services[active];
   // The cards arrive one after another the first time the deck is on screen;
   // after that a move is the slide of the stack and nothing else.
+  // While half the section is on screen the arrow keys move the stack, the
+  // way they would inside a gallery.
+  const [sectionRef, sectionInView] = useInView<HTMLElement>(KEYS_THRESHOLD);
+  useEffect(() => {
+    if (!sectionInView) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.altKey) return;
+      const target = event.target as HTMLElement | null;
+      // Not while someone is filling in the search of the hero or a date.
+      if (target?.isContentEditable || target?.closest("input, select, textarea")) return;
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      event.preventDefault();
+      if (event.key === "ArrowRight") next();
+      else prev();
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [next, prev, sectionInView]);
+
   const [copyRef, copyInView] = useReveal<HTMLDivElement>();
   const [deckRef, deckInView] = useReveal<HTMLDivElement>();
   const [entranceDone, setEntranceDone] = useState(false);
@@ -78,6 +100,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
 
   return (
     <section
+      ref={sectionRef}
       className={`section service-carousel service-carousel_place_${place}`}
       aria-roledescription="carousel"
       aria-label={eyebrow ?? t("others")}
