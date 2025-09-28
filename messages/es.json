@@ -648,7 +648,6 @@
       "subject": "Asunto",
       "message": "Mensaje",
       "submit": "Enviar",
-      "note": "Al enviar se abre tu correo con el mensaje listo para mandarlo a {email}.",
       "body": "Nombre: {name}\nCorreo: {email}\n\n{message}"
     },
     "channels": {

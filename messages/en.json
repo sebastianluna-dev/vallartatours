@@ -643,7 +643,6 @@
       "subject": "Subject",
       "message": "Message",
       "submit": "Send",
-      "note": "Sending opens your mail app with the message ready to go to {email}.",
       "body": "Name: {name}\nEmail: {email}\n\n{message}"
     },
     "channels": {

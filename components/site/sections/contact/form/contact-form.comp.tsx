@@ -77,7 +77,6 @@ export function ContactForm() {
         {t("submit")}
         <Icon name="arrowRight" size={20} />
       </button>
-      <p className="contact-form__note">{t("note", { email: SITE.email })}</p>
     </form>
   );
 }
