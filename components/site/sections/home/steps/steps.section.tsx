@@ -8,7 +8,8 @@ import { messageRecords } from "@/lib/message-records";
 import "./steps.section.css";
 
 // The sky-blue band: how a booking goes, in three numbered cards, and the
-// WhatsApp button with the opening hours.
+// WhatsApp button with the opening hours. The phone makes the cards a row it
+// can scroll sideways, with the waves behind the title.
 export function StepsSection() {
   const t = useTranslations("home.steps");
   const tCommon = useTranslations("common");
@@ -19,10 +20,10 @@ export function StepsSection() {
       <div className="section__inner">
         <div className="steps__band">
           <div className="steps__head">
-            <h2 className="section-title">
+            <h2 className="section-title steps__title">
               {t.rich("title", { accent: (chunks) => <span className="section-title__accent">{chunks}</span> })}
             </h2>
-            <WaveMark />
+            <WaveMark className="steps__waves" />
           </div>
           <ol className="steps__list">
             {steps.map((step, index) => (

@@ -12,6 +12,7 @@
   }
 
   & .steps__head {
+    position: relative;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(120px, 300px);
     gap: 40px;
@@ -81,8 +82,8 @@
     color: var(--color-navy-deep);
   }
 
-  /* Phone: no band inset, the waves under the title, the steps as a
-     vertical timeline with a line through the numbers. */
+  /* Phone: no band inset, the waves behind the title and the three steps as
+     a row to swipe through, like the band of a trip. */
   @media (max-width: 767px) {
     padding-top: 0;
 
@@ -96,46 +97,58 @@
     }
 
     & .steps__head {
-      grid-template-columns: 1fr;
-      gap: 20px;
+      display: block;
     }
 
-    & .steps__list {
-      position: relative;
-      grid-template-columns: 1fr;
-      gap: 26px;
-      margin-top: 26px;
-      padding-left: 44px;
+    & .steps__waves {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      z-index: 0;
+      width: 42%;
+      transform: translateY(-50%);
+      opacity: 0.85;
+    }
 
-      &::before {
-        content: "";
-        position: absolute;
-        left: 17px;
-        top: 8px;
-        bottom: 18px;
-        width: 2px;
-        background: rgba(11, 44, 94, 0.35);
+    & .steps__title {
+      position: relative;
+      z-index: 1;
+      /* Short of the edge, so the waves behind it keep an end in sight. */
+      max-width: 84vw;
+    }
+
+    /* The padding below is room for the entrance, which lifts the cards. */
+    & .steps__list {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-top: 22px;
+      margin-bottom: -24px;
+      padding-bottom: 24px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
       }
     }
 
     & .steps__item {
-      position: relative;
-      gap: 7px;
-      padding: 0;
-      background: none;
+      flex: 0 0 74%;
+      scroll-snap-align: start;
+      gap: 12px;
+      padding: 24px 22px;
     }
 
     & .steps__number {
-      position: absolute;
-      left: -44px;
-      top: 0;
-      width: 36px;
-      height: 36px;
-      font-size: 16px;
+      width: 44px;
+      height: 44px;
+      font-size: 18px;
     }
 
     & .steps__item-title {
-      margin-top: 4px;
       font-size: 21px;
     }
 
