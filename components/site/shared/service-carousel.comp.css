@@ -124,9 +124,9 @@
 
   & .service-carousel__book {
     margin-top: 32px;
-    /* The one call to action of the section, with the same air on both
+    /* The one call to action of the section, with room to spare on both
        sides of its label. */
-    padding: 16px 34px;
+    padding: 16px 48px;
   }
 
   /* The stack: absolute cards, each translated to its slot. It stays inside
