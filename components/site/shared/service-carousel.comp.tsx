@@ -152,7 +152,7 @@ export function ServiceCarousel({ services, eyebrow, initial = 0, place = "home"
             className="button button_shape_square service-carousel__book"
             href={{ pathname: "/servicios/[slug]", params: { slug: serviceSlug(current, locale) } }}
           >
-            {tCommon("book")}
+            {tCommon("bookSpot")}
             <Icon name="bookmark" size={19} />
           </Link>
         </div>

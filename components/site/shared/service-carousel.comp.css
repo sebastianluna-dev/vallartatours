@@ -124,9 +124,9 @@
 
   & .service-carousel__book {
     margin-top: 32px;
-    /* Wider than the pill needs: it is the one call to action of the section
-       and the icon sits on its right. */
-    padding: 16px 30px 16px 42px;
+    /* The one call to action of the section, with the same air on both
+       sides of its label. */
+    padding: 16px 34px;
   }
 
   /* The stack: absolute cards, each translated to its slot. It stays inside
