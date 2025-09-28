@@ -33,32 +33,6 @@
     padding-bottom: 64px;
   }
 
-  & .panels__main {
-    display: flex;
-    gap: 34px;
-    align-items: stretch;
-  }
-
-  & .panels__rail {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 14px;
-    padding: 6px 0;
-  }
-
-  & .panels__number {
-    font-size: 20px;
-    font-weight: 800;
-    color: var(--color-lime);
-  }
-
-  & .panels__line {
-    flex: 1;
-    width: 2px;
-    background: rgba(217, 242, 30, 0.45);
-  }
-
   & .panels__copy {
     display: flex;
     flex-direction: column;
@@ -89,7 +63,6 @@
     & dt {
       min-width: 130px;
       font-weight: 700;
-      color: var(--color-lime);
     }
   }
 
@@ -142,10 +115,6 @@
       min-height: 0;
       padding-top: 48px;
       padding-bottom: 48px;
-    }
-
-    & .panels__main {
-      gap: 18px;
     }
 
     & .panels__copy {
