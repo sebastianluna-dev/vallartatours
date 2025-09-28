@@ -158,6 +158,12 @@
       border-top: 1px solid var(--color-line);
     }
 
+    /* The hairline is there to part the WhatsApp card from the networks; the
+       pages without the card have nothing to part. */
+    &:not(:has(.footer__cta)) .footer__columns {
+      border-top: 0;
+    }
+
     & .footer__description,
     & .footer__column {
       display: none;
