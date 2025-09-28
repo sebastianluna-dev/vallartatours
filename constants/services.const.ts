@@ -92,7 +92,7 @@ export const SERVICES: readonly Service[] = [
     port: "vallarta",
     season: null,
     amenities: ["breakfast", "safety", "snorkel", "openBar", "lunch", "guide", "kayak"],
-    bring: ["swimsuit", "towel", "sunscreen", "cap", "sunglasses", "waterShoes", "cash"],
+    bring: ["swimsuit", "towel", "sunscreen", "cap", "waterShoes", "cash"],
     reviewPhoto: REVIEW_PHOTOS.couple,
   },
   {
