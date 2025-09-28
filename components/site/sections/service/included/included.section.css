@@ -46,7 +46,8 @@
 
   & .included__item {
     display: flex;
-    align-items: center;
+    /* The mark stays with the first line when the item takes two. */
+    align-items: flex-start;
     gap: 14px;
     padding: 14px 0;
     border-top: 1px solid var(--color-line);
@@ -54,6 +55,7 @@
 
     & svg {
       flex: none;
+      margin-top: 2px;
     }
 
     &.included__item_kind_excluded {
