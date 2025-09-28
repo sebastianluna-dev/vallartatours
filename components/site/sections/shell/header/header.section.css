@@ -31,5 +31,12 @@
     & .header__tools {
       gap: 14px;
     }
+
+    /* The menu button floats out of the row, so the bar keeps its height by
+       hand: without it the wordmark would sit higher here than it does in
+       the open menu, and jump as the menu opens. */
+    & .header__inner {
+      min-height: 44px;
+    }
   }
 }
