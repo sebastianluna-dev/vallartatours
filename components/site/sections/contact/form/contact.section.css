@@ -49,9 +49,13 @@
   @media (max-width: 767px) {
     padding-top: 56px;
 
+    /* The page ends here and the footer follows: the hairline that parts
+       them belongs to this section, which is the one that closes. */
     & .contact__inner {
       grid-template-columns: 1fr;
       gap: 48px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--color-line);
     }
 
     & .contact__channels {
