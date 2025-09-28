@@ -139,6 +139,12 @@
     margin-top: 56px;
     padding-top: 12px;
 
+    /* On the home the WhatsApp card reads as one more tile of the grid above
+       it, so the footer keeps that grid's gap instead of its own air. */
+    &:has(.footer__cta) {
+      margin-top: 0;
+    }
+
     & .footer__cta {
       display: block;
     }
