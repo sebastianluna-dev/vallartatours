@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { DepartureProvider } from "@/components/site/sections/service/departure.context";
 import { FaqSection } from "@/components/site/sections/service/faq/faq.section";
 import { ServiceHeroSection } from "@/components/site/sections/service/hero/service-hero.section";
 import { IncludedSection } from "@/components/site/sections/service/included/included.section";
@@ -56,13 +57,13 @@ export default async function ServicePage({ params }: Props) {
   const others = SERVICES.filter((candidate) => candidate.slug !== service.slug);
 
   return (
-    <>
+    <DepartureProvider initial={service.departures[0]}>
       <ServiceHeroSection service={service} />
-      <ItinerarySection slug={service.slug} />
+      <ItinerarySection service={service} />
       <IncludedSection service={service} />
       <ReviewsSection service={service} />
       <FaqSection slug={service.slug} />
       <ServiceCarousel services={others} eyebrow={t("others")} place="detail" />
-    </>
+    </DepartureProvider>
   );
 }

@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import type { Service } from "@/constants/services.const";
 import { DEPOSIT_RATE, SITE } from "@/constants/site.const";
+import { useDeparture } from "@/components/site/sections/service/departure.context";
 import { bookingTotal } from "@/lib/booking-total";
 import { buildWhatsappUrl } from "@/lib/build-whatsapp-url";
 import { formatMonth } from "@/lib/format-month";
@@ -40,7 +41,8 @@ export function BookingAside({ service, initialDate = null, initialPeople = null
   const locale = useLocale();
   const maxPeople = service.groupSize ?? MAX_PEOPLE_DEFAULT;
 
-  const [time, setTime] = useState(service.departures[0]);
+  // The hour lives above the card: the itinerary of the charter reads it.
+  const { time, setTime } = useDeparture();
   const [date, setDate] = useState(initialDate && ISO_DATE.test(initialDate) ? initialDate : "");
   const [people, setPeople] = useState(readPeople(initialPeople, maxPeople));
   // Today's date depends on the visitor's clock, so the lower bound of the
