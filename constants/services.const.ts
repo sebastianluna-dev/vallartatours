@@ -64,6 +64,12 @@ export interface Service {
   /** Largest group per boat; `null` when the whole boat is booked. */
   groupSize: number | null;
   port: PortKey;
+  /**
+   * Minutes from the departure for each stop of the itinerary, for the trip
+   * with no fixed schedule: its pages read the clock off the departure the
+   * visitor picks. The rest write the hour in their catalogue.
+   */
+  itineraryOffsets?: readonly number[];
   /** Months the trip runs, 1-12; `null` when it runs all year. */
   season: { from: number; to: number } | null;
   amenities: readonly AmenityKey[];
@@ -147,6 +153,7 @@ export const SERVICES: readonly Service[] = [
     groupSize: null,
     port: "vallarta",
     season: null,
+    itineraryOffsets: [0, 90, 180, 300, 420],
     amenities: ["wholeBoat", "music", "openBar", "menu", "snorkel", "kayak"],
     bring: ["swimsuit", "towel", "sunscreen", "cap", "sunglasses", "camera"],
     reviewPhoto: REVIEW_PHOTOS.traveler,
